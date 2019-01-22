@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = 'w!';
+var cars = ["Saab", "Volvo", "BMW"];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -41,14 +42,18 @@ client.on('message', msg => {
 //testing for development of possible command that will vary by some number entered after the word roast
 client.on('message', msg => {
   if (msg.content.toLowerCase().includes(prefix + 'roast')) {
-    try {
-      const numb = msg.content.substring(8,9)
-    }
-    catch(err) {
-      msg.channel.send('Incorrect format. Use a number 1-9.')
+    const user = msg.mentions.users.first()
+    if (typeof user === "undefined") {
+      msg.channel.send("No user found.")
+    } else {
+      //msg.channel.send(`hello ${user}`)
+      msg.channel.send(`${user} ` + cars[getRandomInt(3)] )
     }
   }
 });
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
 client.login(process.env.BOT_TOKEN);
