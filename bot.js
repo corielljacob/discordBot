@@ -39,7 +39,7 @@ client.on('message', msg => {
 
 client.on('message', msg => {
   if (msg.content === '+1') {
-    client.get_message(447604006584451092, 537300865749483540).edit(msg.content + ' +1')
+    client.get_message(447604006584451092, 537300865749483540).edit(' +1')
   }
 });
 
