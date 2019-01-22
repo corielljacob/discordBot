@@ -8,34 +8,26 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (msg.content === 'ping') {
     msg.channel.send('testing')
-    //testing2
+    //testing3
 
   }
 });
 
 client.on('message', msg => {
   if (msg.content === 'jacob is a dodo') {
-    msg.reply('no u')
+    msg.channel.send('no u')
   }
 });
-
-client.on('message', msg => {
-  if (msg.content === 'smh') {
-    msg.reply('shake so much and itll fall off')
-  }
-});
-
 
 client.on('message', msg => {
   if (msg.content === 'raven is a dodo') {
-    msg.reply('yup')
+    msg.channel.send('yes she is')
   }
 });
 
 client.on('message', msg => {
   if (msg.content === 'bye') {
-    const channel = msg.client.channels.find('name', 'general')
-    msg.channel.send('testing')
+    msg.channel.send('cya')
   }
 });
 
