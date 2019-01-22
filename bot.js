@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = 'w!';
-var cars = ["Saab", "Volvo", "BMW"];
+var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
+              "subscribe to pewdiepie"];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -47,7 +48,7 @@ client.on('message', msg => {
       msg.channel.send("No user found.")
     } else {
       //msg.channel.send(`hello ${user}`)
-      msg.channel.send(`${user} ` + cars[getRandomInt(3)] )
+      msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)] )
     }
   }
 });
