@@ -41,7 +41,12 @@ client.on('message', msg => {
 //testing for development of possible command that will vary by some number entered after the word roast
 client.on('message', msg => {
   if (msg.content.toLowerCase().includes(prefix + 'roast')) {
-    msg.channel.send('pong')
+    try {
+      const numb = msg.content.substring(8,9)
+    }
+    catch(err) {
+      msg.channel.send('Incorrect format. Use a number 1-9.')
+    }
   }
 });
 
