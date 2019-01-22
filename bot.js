@@ -31,4 +31,10 @@ client.on('message', msg => {
   }
 });
 
+client.on('message', msg => {
+  if (msg.content === 'post') {
+    client.channels.get('447604006584451092').send('20')
+  }
+});
+
 client.login(process.env.BOT_TOKEN);
