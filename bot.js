@@ -7,8 +7,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.content === 'ping') {
-    const channel = msg.client.channels.find('name', 'general')
-    channel.send('testing')
+    msg.channel.send('testing')
     //testing2
 
   }
@@ -35,7 +34,8 @@ client.on('message', msg => {
 
 client.on('message', msg => {
   if (msg.content === 'bye') {
-    msg.reply('cya')
+    const channel = msg.client.channels.find('name', 'general')
+    msg.channel.send('testing')
   }
 });
 
