@@ -8,8 +8,7 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (msg.content === 'ping') {
     const channel = client.channels.find('name', 'general')
-    msg.reply('no u')
-    //channel.send('raven is a dodo')
+    channel.send('raven is a dodo')
 
   }
 });
