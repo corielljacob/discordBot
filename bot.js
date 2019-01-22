@@ -4,7 +4,9 @@ const prefix = 'w!';
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
               "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
             "ur mom gay", "ur dad lesbian", "ur granny tranny", "ur family tree lgbt", "do u even think before speaking", "ur mom should have swallowed",
-          "dont fuck with me; I have the power of GOD and ANIME on my side", "dont ever @ me again"];
+          "dont fuck with me; I have the power of GOD and ANIME on my side", "dont ever @ me again", "your mother smells of elderberries",
+        "your mother was a hamster and your father smelt of elderberries", "skidaddle skidoodle your dick is now a noodle", "please delete yourself",
+      "you are a piece of chet please log off ethernet"];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
