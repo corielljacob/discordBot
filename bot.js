@@ -6,11 +6,10 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+//send a pong reply when user types ping with specified prefix: in this code it is 'w!'
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'ping') {
-    msg.channel.send('testing')
-    //testing3
-
+    msg.channel.send('pong')
   }
 });
 
@@ -32,16 +31,19 @@ client.on('message', msg => {
   }
 });
 
+//Send a message in a specific channel identified by its ID (obtained from discord developer appearance)
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'post') {
-    client.channels.get('447604006584451092').send('20')
+  if (msg.content.toLowerCase() === '+1') {
+    client.channels.get('447604006584451092').send('1')
   }
 });
 
-/*client.on('message', msg => {
-  if (msg.content === '+1') {
-    client.get_message(447604006584451092, 537300865749483540).edit(' +1')
+//testing for development of possible command that will vary by some number entered after the word roast
+client.on('message', msg => {
+  if (msg.content.toLowerCase().includes(prefix + 'roast')) {
+    msg.channel.send('pong')
   }
-});*/
+});
+
 
 client.login(process.env.BOT_TOKEN);
