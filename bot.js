@@ -14,25 +14,25 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'jacob is a dodo') {
+  if (msg.content.toLowerCase() === 'jacob is a dodo') {
     msg.channel.send('no u')
   }
 });
 
 client.on('message', msg => {
-  if (msg.content === 'raven is a dodo') {
+  if (msg.content.toLowerCase() === 'raven is a dodo') {
     msg.channel.send('yes she is')
   }
 });
 
 client.on('message', msg => {
-  if (msg.content === 'bye') {
+  if (msg.content.toLowerCase() === 'bye') {
     msg.channel.send('cya')
   }
 });
 
 client.on('message', msg => {
-  if (msg.content === 'post') {
+  if (msg.content.toLowerCase() === 'post') {
     client.channels.get('447604006584451092').send('20')
   }
 });
