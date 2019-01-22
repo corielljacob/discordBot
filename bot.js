@@ -2,11 +2,17 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = 'w!';
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
-              "subscribe to pewdiepie"];
+              "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
+            "ur mom gay", "ur dad lesbian", "ur granny tranny", "ur family tree lgbt", "do u even think before speaking", "ur mom should have swallowed",
+          "dont fuck with me; I have the power of GOD and ANIME on my side", "dont ever @ me again"];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
+
+client.on('ready', () => {
+    client.user.setActivity("w!help --> commands")
+})
 
 //send a pong reply when user types ping with specified prefix: in this code it is 'w!'
 client.on('message', msg => {
@@ -53,8 +59,17 @@ client.on('message', msg => {
   }
 });
 
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === prefix + 'help') {
+    msg.channel.send('Current Prefix: ' + prefix)
+    msg.channel.send('Current usable commands: roast, ping')
+  }
+});
+
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+//client.login('');
 client.login(process.env.BOT_TOKEN);
