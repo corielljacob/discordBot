@@ -6,7 +6,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'ping') {
+  if (msg.content.toLowerCase() === 'ping') {
     msg.channel.send('testing')
     //testing3
 
