@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const prefix = 'w!';
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'ping') {
+  if (msg.content.toLowerCase() === prefix + 'ping') {
     msg.channel.send('testing')
     //testing3
 
