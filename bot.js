@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = 'w!';
 
+
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
   "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
   "ur mom gay", "ur dad lesbian", "ur granny tranny", "ur family tree lgbt", "do u even think before speaking", "ur mom should have swallowed",
@@ -20,83 +21,40 @@ client.on('ready', () => {
   client.user.setActivity("w!help --> commands")
 })
 
-//send a pong reply when user types ping with specified prefix: in this code it is 'w!'
+//command list
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'ping') {
     msg.channel.send('pong')
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'jacob is a dodo') {
+  } else if (msg.content.toLowerCase() === 'jacob is a dodo') {
     msg.channel.send('no u')
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'raven is a dodo') {
+  } else if (msg.content.toLowerCase() === 'raven is a dodo') {
     msg.channel.send('yes she is')
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'bye') {
+  } else if (msg.content.toLowerCase() === 'bye') {
     msg.channel.send('cya')
-  }
-});
-
-//Send a message in a specific channel identified by its ID (obtained from discord developer appearance)
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === '+1') {
+  } else if (msg.content.toLowerCase() === '+1') {
     client.channels.get('447604006584451092').send('1')
-  }
-});
-
-//testing for development of possible command that will vary by some number entered after the word roast
-client.on('message', msg => {
-  if (msg.content.toLowerCase().includes(prefix + 'roast')) {
-    const user = msg.mentions.users.first()
-    if (typeof user === "undefined") {
-      msg.channel.send("No user found.")
-    } else {
-      msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
+  } else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2'))) {
+    if(!msg.mentions.users.size){
+      return msg.channel.send('You need to specify a correct user.')
     }
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase().includes(prefix + 'roast2')) {
     const user = msg.mentions.users.first()
-    const user2 = msg.mentions.users.second()
-    if (typeof user === "undefined" || typeof user === "undefined") {
-      msg.channel.send("No user found for one of the specified users.")
-    } else {
-      msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)] + ` and ${user2} ` + roasts[getRandomInt(roasts.length)])
+    msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
+  } else if (msg.content.toLowerCase().includes(prefix + 'roast2')) {
+    if(!msg.mentions.users.size){
+      return msg.channel.send('You need to specify a correct user.')
     }
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === prefix + 'help') {
+    const dblkill = msg.mentions.users.map(user => {
+    return `${user} ` + roasts[getRandomInt(roasts.length)];
+    });
+    msg.channel.send(dblkill)
+  } else if (msg.content.toLowerCase() === prefix + 'help') {
     msg.channel.send('Current Prefix: ' + prefix)
     msg.channel.send('Current usable commands: roast, ping, leek, thomas, raven, tobi, anie')
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === prefix + 'leek') {
+  } else if (msg.content.toLowerCase() === prefix + 'leek') {
     msg.channel.send('Leeks are different than green onions.')
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
+  } else if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
     msg.channel.send('Fuck that dumb shit.')
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === prefix + 'thomas') {
+  } else if (msg.content.toLowerCase() === prefix + 'thomas') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/450090478524825610/537433419307679754/DuJgA_jX4AICKp4.png')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'raven') {
@@ -110,7 +68,6 @@ client.on('message', msg => {
     msg.channel.send(webAttachment)
   }
 });
-
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
