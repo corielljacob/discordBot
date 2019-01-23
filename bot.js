@@ -10,7 +10,7 @@ var roasts = ["commit neck rope please", "you should've been thrown in the harbo
   "your mother was a hamster and your father smelt of elderberries", "skidaddle skidoodle your dick is now a noodle", "please delete yourself",
   "you are a piece of chet please log off ethernet", "you probably say 'big tea' unironically", "go commit toaster bath", "no u", "go commit toaster bath",
   "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass", "born villain",
-  "you probably like being pissed on like lode"];
+  "you probably like being pissed on like lode", "you probably think eating ass is grosser than a footjob"];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
