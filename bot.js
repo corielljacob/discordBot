@@ -3,20 +3,21 @@ const client = new Discord.Client();
 const prefix = 'w!';
 
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
-              "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
-            "ur mom gay", "ur dad lesbian", "ur granny tranny", "ur family tree lgbt", "do u even think before speaking", "ur mom should have swallowed",
-          "dont fuck with me; I have the power of GOD and ANIME on my side", "dont ever @ me again", "your mother smells of elderberries",
-        "your mother was a hamster and your father smelt of elderberries", "skidaddle skidoodle your dick is now a noodle", "please delete yourself",
-      "you are a piece of chet please log off ethernet", "you probably say 'big tea' unironically", "go commit toaster bath", "no u", "go commit toaster bath",
-    "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass"];
-    //test
+  "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
+  "ur mom gay", "ur dad lesbian", "ur granny tranny", "ur family tree lgbt", "do u even think before speaking", "ur mom should have swallowed",
+  "dont fuck with me; I have the power of GOD and ANIME on my side", "dont ever @ me again", "your mother smells of elderberries",
+  "your mother was a hamster and your father smelt of elderberries", "skidaddle skidoodle your dick is now a noodle", "please delete yourself",
+  "you are a piece of chet please log off ethernet", "you probably say 'big tea' unironically", "go commit toaster bath", "no u", "go commit toaster bath",
+  "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass"
+];
+//test
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('ready', () => {
-    client.user.setActivity("w!help --> commands")
+  client.user.setActivity("w!help --> commands")
 })
 
 //send a pong reply when user types ping with specified prefix: in this code it is 'w!'
@@ -58,8 +59,19 @@ client.on('message', msg => {
     if (typeof user === "undefined") {
       msg.channel.send("No user found.")
     } else {
-      //msg.channel.send(`hello ${user}`)
-      msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)] )
+      msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
+    }
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase().includes(prefix + 'roast2')) {
+    const user = msg.mentions.users.first()
+    const user2 = msg.mentions.users.second()
+    if (typeof user === "undefined" || typeof user === "undefined") {
+      msg.channel.send("No user found for one of the specified users.")
+    } else {
+      msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)] + ` and ${user2} ` + roasts[getRandomInt(roasts.length)])
     }
   }
 });
@@ -87,13 +99,13 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'thomas') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/450090478524825610/537433419307679754/DuJgA_jX4AICKp4.png')
     msg.channel.send(webAttachment)
-  } else if(msg.content.toLowerCase() === prefix + 'raven'){
+  } else if (msg.content.toLowerCase() === prefix + 'raven') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/445658785340456965/536339338296950796/Screenshot_2019-01-14-13-08-06.png')
     msg.channel.send(webAttachment)
-  }else if(msg.content.toLowerCase() === prefix + 'tobi'){
+  } else if (msg.content.toLowerCase() === prefix + 'tobi') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537432610448736286/image0.jpg')
     msg.channel.send(webAttachment)
-  }else if(msg.content.toLowerCase() === prefix + 'anie'){
+  } else if (msg.content.toLowerCase() === prefix + 'anie') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537432388951867393/image0.jpg')
     msg.channel.send(webAttachment)
   }
