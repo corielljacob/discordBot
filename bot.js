@@ -82,7 +82,7 @@ client.on('message', msg => {
     msg.channel.send('Fuck that dumb shit.')
   }
 });
-/*
+
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'thomas') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/450090478524825610/537433419307679754/DuJgA_jX4AICKp4.png')
@@ -97,7 +97,7 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537432388951867393/image0.jpg')
     msg.channel.send(webAttachment)
   }
-});*/
+});
 
 
 function getRandomInt(max) {
