@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = 'w!';
+
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
               "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
             "ur mom gay", "ur dad lesbian", "ur granny tranny", "ur family tree lgbt", "do u even think before speaking", "ur mom should have swallowed",
@@ -66,7 +67,7 @@ client.on('message', msg => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'help') {
     msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: roast, ping, leek')
+    msg.channel.send('Current usable commands: roast, ping, leek, thomas, raven, tobi, anie')
   }
 });
 
@@ -79,6 +80,22 @@ client.on('message', msg => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
     msg.channel.send('Fuck that dumb shit.')
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === prefix + 'thomas') {
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/450090478524825610/537433419307679754/DuJgA_jX4AICKp4.png')
+    msg.channel.send(webAttachment)
+  } else if(msg.content.toLowerCase() === prefix + 'raven'){
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/445658785340456965/536339338296950796/Screenshot_2019-01-14-13-08-06.png')
+    msg.channel.send(webAttachment)
+  }else if(msg.content.toLowerCase() === prefix + 'tobi'){
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537432610448736286/image0.jpg')
+    msg.channel.send(webAttachment)
+  }else if(msg.content.toLowerCase() === prefix + 'anie'){
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537432388951867393/image0.jpg')
+    msg.channel.send(webAttachment)
   }
 });
 
