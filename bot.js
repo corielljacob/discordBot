@@ -39,8 +39,10 @@ client.on('message', msg => {
     const user = msg.mentions.users.first()
     if(`${user.name}` === 'planedonutkun')
       msg.channel.send('Happy birthday jacob ur the best!!!')
-    else
+    else{
       msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
+      msg.channel.send(`${user.name}`)
+    }
   } else if (msg.content.toLowerCase().includes(prefix + 'roast2')) {
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
