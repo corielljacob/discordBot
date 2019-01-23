@@ -37,7 +37,10 @@ client.on('message', msg => {
       return msg.channel.send('You need to specify a correct user.')
     }
     const user = msg.mentions.users.first()
-    msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
+    if(`${user.name}` === 'planedonutkun')
+      msg.channel.send('Happy birthday jacob ur the best!!!')
+    else
+      msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
   } else if (msg.content.toLowerCase().includes(prefix + 'roast2')) {
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
@@ -65,7 +68,7 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase() === prefix + 'anie') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537432388951867393/image0.jpg')
     msg.channel.send(webAttachment)
-  }
+  } 
 });
 
 function getRandomInt(max) {
