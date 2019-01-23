@@ -9,9 +9,8 @@ var roasts = ["commit neck rope please", "you should've been thrown in the harbo
   "dont fuck with me; I have the power of GOD and ANIME on my side", "dont ever @ me again", "your mother smells of elderberries",
   "your mother was a hamster and your father smelt of elderberries", "skidaddle skidoodle your dick is now a noodle", "please delete yourself",
   "you are a piece of chet please log off ethernet", "you probably say 'big tea' unironically", "go commit toaster bath", "no u", "go commit toaster bath",
-  "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass"
-];
-//test
+  "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass", "born villain",
+  "you probably like being pissed on like lode"];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -34,17 +33,17 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase() === '+1') {
     client.channels.get('447604006584451092').send('1')
   } else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2'))) {
-    if(!msg.mentions.users.size){
+    if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
     }
     const user = msg.mentions.users.first()
     msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
   } else if (msg.content.toLowerCase().includes(prefix + 'roast2')) {
-    if(!msg.mentions.users.size){
+    if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
     }
     const dblkill = msg.mentions.users.map(user => {
-    return `${user} ` + roasts[getRandomInt(roasts.length)];
+      return `${user} ` + roasts[getRandomInt(roasts.length)];
     });
     msg.channel.send(dblkill)
   } else if (msg.content.toLowerCase() === prefix + 'help') {
