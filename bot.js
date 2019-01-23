@@ -76,6 +76,12 @@ client.on('message', msg => {
   }
 });
 
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
+    msg.channel.send('Fuck that dumb shit.')
+  }
+});
+
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
