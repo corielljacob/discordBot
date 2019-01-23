@@ -58,7 +58,7 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
     msg.channel.send('Fuck that dumb shit.')
   } else if (msg.content.toLowerCase() === prefix + 'thomas') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/450090478524825610/537433419307679754/DuJgA_jX4AICKp4.png')
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537656467436601354/image0.jpg')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'raven') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/445658785340456965/536339338296950796/Screenshot_2019-01-14-13-08-06.png')
