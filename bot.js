@@ -52,7 +52,7 @@ client.on('message', msg => {
     msg.channel.send(dblkill)
   } else if (msg.content.toLowerCase() === prefix + 'help') {
     msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: roast, roast2, ping, leek, thomas, raven, tobi, anie, jacob')
+    msg.channel.send('Current usable commands: roast, roast2, ping, leek, thomas, raven, tobi, anie, jacob, bentley')
   } else if (msg.content.toLowerCase() === prefix + 'leek') {
     msg.channel.send('Leeks are different than green onions.')
   } else if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
@@ -69,7 +69,10 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase() === prefix + 'anie') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537432388951867393/image0.jpg')
     msg.channel.send(webAttachment)
-  } else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
+  } else if (msg.content.toLowerCase() === prefix + 'bentley') {
+    webAttachment = new Discord.Attachment('https://media.discordapp.net/attachments/537142011455733770/537702102198255616/bentheart2.png')
+    msg.channel.send(webAttachment)
+  }else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537656467436601354/image0.jpg')
     msg.channel.send(webAttachment)
   } 
