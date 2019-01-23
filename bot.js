@@ -41,7 +41,6 @@ client.on('message', msg => {
       msg.channel.send('Happy birthday jacob ur the best!!!')
     else{
       msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
-      msg.channel.send(`${user.username}`)
     }
   } else if (msg.content.toLowerCase().includes(prefix + 'roast2')) {
     if (!msg.mentions.users.size) {
