@@ -7,7 +7,7 @@ var roasts = ["commit neck rope please", "you should've been thrown in the harbo
           "dont fuck with me; I have the power of GOD and ANIME on my side", "dont ever @ me again", "your mother smells of elderberries",
         "your mother was a hamster and your father smelt of elderberries", "skidaddle skidoodle your dick is now a noodle", "please delete yourself",
       "you are a piece of chet please log off ethernet", "you probably say 'big tea' unironically", "go commit toaster bath", "no u", "go commit toaster bath",
-    "Hypothetically though I don’t want you dead", "bentley doesnt love u"];
+    "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass"];
     //test
 
 client.on('ready', () => {
@@ -66,7 +66,13 @@ client.on('message', msg => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'help') {
     msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: roast, ping')
+    msg.channel.send('Current usable commands: roast, ping, leek')
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === prefix + 'leek') {
+    msg.channel.send('Leeks are different than green onions.')
   }
 });
 
