@@ -72,7 +72,7 @@ client.on('message', msg => {
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'leek') {
-    msg.channel.send('Leeks are different than green onions.')
+    msg.channel.send('Leeks are different than green onions. :leek:')
   }
 });
 
