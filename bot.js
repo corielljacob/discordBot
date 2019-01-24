@@ -74,7 +74,7 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase().includes('cunt')){
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
     msg.channel.send(webAttachment)
-  } else if (msg.content.toLowerCase().includes('nonce') || msg.content.toLowerCase().includes('once') || msg.content.toLowerCase().includes('n0nce')){
+  } else if (msg.content.toLowerCase().includes('nonce') || msg.content.toLowerCase().includes('n0nce')){
     msg.delete(500)
   }
 });
