@@ -10,7 +10,7 @@ var roasts = ["commit neck rope please", "you should've been thrown in the harbo
   "your mother was a hamster and your father smelt of elderberries", "skidaddle skidoodle your dick is now a noodle", "please delete yourself",
   "you are a piece of chet please log off ethernet", "you probably say 'big tea' unironically", "go commit toaster bath", "no u", "go commit toaster bath",
   "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass", "born villain",
-  "you probably like being pissed on like lode", "you probably think eating ass is grosser than a footjob"];
+  "you probably like being pissed on like lode", "you probably think foot jobs are grosser than eating ass"];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -37,7 +37,7 @@ client.on('message', msg => {
       return msg.channel.send('You need to specify a correct user.')
     }
     const user = msg.mentions.users.first()
-      msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
+    msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
   } else if (msg.content.toLowerCase().includes(prefix + 'roast2')) {
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
@@ -72,9 +72,8 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537656467436601354/image0.jpg')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase().includes('cunt')){
-    msg.channel.send('cunt: ')
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
-    //msg.channel.send(webAttachment)
+    msg.channel.send(webAttachment)
   }
 });
 
