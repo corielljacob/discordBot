@@ -32,7 +32,7 @@ client.on('message', msg => {
     msg.channel.send('cya')
   } else if (msg.content.toLowerCase() === '+1') {
     client.channels.get('447604006584451092').send('1')
-  } else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2')) && !(msg.content.toLowerCase().includes(prefix + 'roast 2')) {
+  } else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2')) && !(msg.content.toLowerCase().includes(prefix + 'roast 2'))) {
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
     }
