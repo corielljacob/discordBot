@@ -71,7 +71,11 @@ client.on('message', msg => {
   }else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537656467436601354/image0.jpg')
     msg.channel.send(webAttachment)
-  } 
+  } else if (msg.content.toLowerCase().includes('cunt')){
+    msg.channel.send('cunt:')
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
+    msg.channel.send(webAttachment)
+  }
 });
 
 function getRandomInt(max) {
