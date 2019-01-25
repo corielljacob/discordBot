@@ -56,6 +56,9 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase() === prefix + 'thomas') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/450090478524825610/537433419307679754/DuJgA_jX4AICKp4.png')
     msg.channel.send(webAttachment)
+  }else if (msg.content.toLowerCase() === prefix + 'thomas2') {
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512998012654714890/538190141370662932/nipple-clamps-620x330.png')
+    msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'raven') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/445658785340456965/536339338296950796/Screenshot_2019-01-14-13-08-06.png')
     msg.channel.send(webAttachment)
