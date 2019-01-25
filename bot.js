@@ -84,14 +84,11 @@ client.on('message', msg => {
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase().includes('nonce') || msg.content.toLowerCase().includes('n once')||msg.content.toLowerCase().includes('n0nce')){
     msg.delete(500)
-  }//else if (msg.content.toLowerCase().includes('food')){
-    //webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
+  }else if (msg.content.toLowerCase().includes('food')){
+    webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
     //const attachment = new MessageAttachment('./discordBot/images/img1.png')
     //msg.channel.send(webAttachment)
-  else if (msg.content.toLowerCase() === prefix + 'food') {
-    food[getRandomInt(food.length)])
-    msg.channel.send(food)
-  }
+  
 });
 
 function getRandomInt(max) {
