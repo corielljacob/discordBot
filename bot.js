@@ -85,7 +85,8 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase().includes('nonce') || msg.content.toLowerCase().includes('n once')||msg.content.toLowerCase().includes('n0nce')){
     msg.delete(500)
   }else if (msg.content.toLowerCase().includes('food')){
-    webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
+    //webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
+    const attachment = new MessageAttachment('./images/img1.png');
     msg.channel.send(webAttachment)
   }
 });
