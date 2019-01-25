@@ -48,7 +48,7 @@ client.on('message', msg => {
     msg.channel.send(dblkill)
   } else if (msg.content.toLowerCase() === prefix + 'help') {
     msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: roast, roast2, ping, leek, thomas, raven, tobi, anie, jacob, bentley, nick')
+    msg.channel.send('Current usable commands: roast, roast2, ping, leek, thomas, thomas2, raven, tobi, anie, jacob, bentley, nick')
   } else if (msg.content.toLowerCase() === prefix + 'leek') {
     msg.channel.send('Leeks are different than green onions.')
   } else if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
