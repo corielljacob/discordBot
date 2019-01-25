@@ -12,6 +12,8 @@ var roasts = ["commit neck rope please", "you should've been thrown in the harbo
   "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass", "born villain",
   "you probably like being pissed on like lode", "you probably think foot jobs are grosser than eating ass"];
 
+var food = ["https://i.redd.it/ybe4nmet2gn11.jpg"];
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -82,6 +84,9 @@ client.on('message', msg => {
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase().includes('nonce') || msg.content.toLowerCase().includes('n once')||msg.content.toLowerCase().includes('n0nce')){
     msg.delete(500)
+  }else if (msg.content.toLowerCase().includes('food'){
+    webAttachment = new Discord.Attachment(''+food[getRandomInt(food.length)])
+    msg.channel.send(webAttachment)
   }
 });
 
