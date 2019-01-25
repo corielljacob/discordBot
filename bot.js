@@ -86,7 +86,7 @@ client.on('message', msg => {
     msg.delete(500)
   }else if (msg.content.toLowerCase().includes('food')){
     //webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
-    const attachment = new MessageAttachment('./discordBot/images/img1.png')
+    const attachment = new MessageAttachment('discordBot/images/img1.png')
     msg.channel.send(webAttachment)
   }
 });
