@@ -48,7 +48,7 @@ client.on('message', msg => {
     msg.channel.send(dblkill)
   } else if (msg.content.toLowerCase() === prefix + 'help') {
     msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: roast, roast2, ping, leek, thomas, raven, tobi, anie, jacob, bentley')
+    msg.channel.send('Current usable commands: roast, roast2, ping, leek, thomas, raven, tobi, anie, jacob, bentley, nick')
   } else if (msg.content.toLowerCase() === prefix + 'leek') {
     msg.channel.send('Leeks are different than green onions.')
   } else if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
@@ -71,7 +71,10 @@ client.on('message', msg => {
   }else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537656467436601354/image0.jpg')
     msg.channel.send(webAttachment)
-  } else if (msg.content.toLowerCase().includes('cunt')){
+  } else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
+    webAttachment = new Discord.Attachment('https://i.kym-cdn.com/entries/icons/facebook/000/020/442/tumblr_ntzb70PQEm1uwemcqo1_400.jpg')
+    msg.channel.send(webAttachment)
+  }else if (msg.content.toLowerCase().includes('cunt')){
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase().includes('nonce') || msg.content.toLowerCase().includes('n once')||msg.content.toLowerCase().includes('n0nce')){
