@@ -71,7 +71,7 @@ client.on('message', msg => {
   }else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537656467436601354/image0.jpg')
     msg.channel.send(webAttachment)
-  } else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
+  } else if (msg.content.toLowerCase() === prefix + 'nick') {
     webAttachment = new Discord.Attachment('https://i.kym-cdn.com/entries/icons/facebook/000/020/442/tumblr_ntzb70PQEm1uwemcqo1_400.jpg')
     msg.channel.send(webAttachment)
   }else if (msg.content.toLowerCase().includes('cunt')){
