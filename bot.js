@@ -26,7 +26,10 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'ping') {
     msg.channel.send('pong')
-  } else if (msg.content.toLowerCase() === 'jacob is a dodo') {
+  } else if (msg.content.toLowerCase() === prefix + 'help') {
+    msg.channel.send('Current Prefix: ' + prefix)
+    msg.channel.send('Current usable commands: ping, roast, roast2, leek, thomas, thomas2, raven, tobi, anie, jacob, bentley, nick')
+  }else if (msg.content.toLowerCase() === 'jacob is a dodo') {
     msg.channel.send('no u')
   } else if (msg.content.toLowerCase() === 'raven is a dodo') {
     msg.channel.send('yes she is')
@@ -48,9 +51,6 @@ client.on('message', msg => {
       return `${user} ` + roasts[getRandomInt(roasts.length)];
     });
     msg.channel.send(dblkill)
-  } else if (msg.content.toLowerCase() === prefix + 'help') {
-    msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: roast, roast2, ping, leek, thomas, thomas2, raven, tobi, anie, jacob, bentley, nick')
   } else if (msg.content.toLowerCase() === prefix + 'leek') {
     msg.channel.send('Leeks are different than green onions.')
   } else if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
@@ -94,5 +94,5 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.DywUSg.exdi2z4F4eTNZVCTLmS2_0POsEM');
-//client.login(process.env.BOT_TOKEN);
+//client.login('');
+client.login(process.env.BOT_TOKEN);
