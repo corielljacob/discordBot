@@ -36,8 +36,14 @@ client.on('message', msg => {
     msg.channel.send('yes she is')
   } else if (msg.content.toLowerCase() === 'bye') {
     msg.channel.send('cya')
-  } else if (msg.content.toLowerCase() === '+1') {
-    client.channels.get('447604006584451092').send('1')
+  } else if (msg.content.toLowerCase().includes('rav+')) {
+    client.channels.get('447604006584451092').fetchMessages({around: "538600752432807936", limit: 1})
+      .then(messages => {
+        const fetchedMsg = messages.first();
+        var counter = parseInt(fetchedMsg);
+        var amt = parseInt(msg.content.substring(4));
+        fetchedMsg.edit(counter+amt);
+  });
   } else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2')) && !(msg.content.toLowerCase().includes(prefix + 'roast 2'))) {
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
@@ -97,5 +103,5 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-//client.login('');
-client.login(process.env.BOT_TOKEN);
+client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.DykZMg.njO4MaAScq35wDSi-uhwo4iAKJc');
+//client.login(process.env.BOT_TOKEN);
