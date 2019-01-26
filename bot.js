@@ -29,7 +29,7 @@ client.on('message', msg => {
     msg.channel.send('pong')
   } else if (msg.content.toLowerCase() === prefix + 'help') {
     msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: ping, roast, roast2, leek, thomas, thomas2, raven, tobi, anie, jacob, bentley, nick')
+    msg.channel.send('Current usable commands: ping, roast, roast2, leek, thomas, thomas2, raven, tobi, anie, jacob, bentley, nick, cursedfood')
   }else if (msg.content.toLowerCase() === 'jacob is a dodo') {
     msg.channel.send('no u')
   } else if (msg.content.toLowerCase() === 'raven is a dodo') {
@@ -91,7 +91,7 @@ client.on('message', msg => {
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase().includes('nonce') || msg.content.toLowerCase().includes('n once')||msg.content.toLowerCase().includes('n0nce')){
     msg.delete(500)
-  }else if (msg.content.toLowerCase().includes('food')){
+  }else if (msg.content.toLowerCase() === prefix + 'cursedfood'){
     //webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
     const num = getRandomInt(food_size);
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
