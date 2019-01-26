@@ -26,7 +26,10 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'ping') {
     msg.channel.send('pong')
-  } else if (msg.content.toLowerCase() === 'jacob is a dodo') {
+  } else if (msg.content.toLowerCase() === prefix + 'help') {
+    msg.channel.send('Current Prefix: ' + prefix)
+    msg.channel.send('Current usable commands: ping, roast, roast2, leek, thomas, thomas2, raven, tobi, anie, jacob, bentley, nick')
+  }else if (msg.content.toLowerCase() === 'jacob is a dodo') {
     msg.channel.send('no u')
   } else if (msg.content.toLowerCase() === 'raven is a dodo') {
     msg.channel.send('yes she is')
@@ -48,9 +51,6 @@ client.on('message', msg => {
       return `${user} ` + roasts[getRandomInt(roasts.length)];
     });
     msg.channel.send(dblkill)
-  } else if (msg.content.toLowerCase() === prefix + 'help') {
-    msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: roast, roast2, ping, leek, thomas, thomas2, raven, tobi, anie, jacob, bentley, nick')
   } else if (msg.content.toLowerCase() === prefix + 'leek') {
     msg.channel.send('Leeks are different than green onions.')
   } else if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
@@ -65,10 +65,10 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/445658785340456965/536339338296950796/Screenshot_2019-01-14-13-08-06.png')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'tobi') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/440674683726069760/531729643703762945/image0.jpg')
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/538438406750076939/unknown.png')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'anie') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537432388951867393/image0.jpg')
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/538457484277317632/image0.jpg')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'bentley') {
     webAttachment = new Discord.Attachment('https://media.discordapp.net/attachments/537142011455733770/537702102198255616/bentheart2.png')
@@ -95,5 +95,5 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-//client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.DywUSg.exdi2z4F4eTNZVCTLmS2_0POsEM');
+//client.login('');
 client.login(process.env.BOT_TOKEN);
