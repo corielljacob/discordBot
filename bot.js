@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = 'w!';
+const food_size = 3
 
 
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
@@ -86,7 +87,7 @@ client.on('message', msg => {
     msg.delete(500)
   }else if (msg.content.toLowerCase().includes('food')){
     //webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
-    const num = 2;
+    const num = getRandomInt(food_size);
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
     msg.channel.send(attachment)
   }
