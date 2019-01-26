@@ -103,5 +103,5 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.DykZMg.njO4MaAScq35wDSi-uhwo4iAKJc');
-//client.login(process.env.BOT_TOKEN);
+//client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.DykZMg.njO4MaAScq35wDSi-uhwo4iAKJc');
+client.login(process.env.BOT_TOKEN);
