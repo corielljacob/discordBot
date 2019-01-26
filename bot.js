@@ -85,8 +85,9 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase().includes('nonce') || msg.content.toLowerCase().includes('n once')||msg.content.toLowerCase().includes('n0nce')){
     msg.delete(500)
   }else if (msg.content.toLowerCase().includes('food')){
-    webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
-    msg.channel.send(webAttachment)
+    //webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
+    const attachment = new Discord.Attachment('./images/img1.png', 'img1.png');
+    msg.channel.send(attachment)
   }
 });
 
@@ -94,5 +95,5 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.DywUSg.exdi2z4F4eTNZVCTLmS2_0POsEM');
-//client.login(process.env.BOT_TOKEN);
+//client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.DywUSg.exdi2z4F4eTNZVCTLmS2_0POsEM');
+client.login(process.env.BOT_TOKEN);
