@@ -25,6 +25,7 @@ client.on('ready', () => {
 
 //command list
 client.on('message', msg => {
+  if(message.author.bot) return;
   if (msg.content.toLowerCase() === prefix + 'ping') {
     msg.channel.send('pong')
   } else if (msg.content.toLowerCase() === prefix + 'help') {
@@ -36,7 +37,9 @@ client.on('message', msg => {
     msg.channel.send('yes she is')
   } else if (msg.content.toLowerCase() === 'bye') {
     msg.channel.send('cya')
-  } else if (msg.content.toLowerCase().includes('rav+')) {
+  } else if (msg.content.toLowerCase() === 'cya') {
+    msg.channel.send('bye')
+  }else if (msg.content.toLowerCase().includes('rav+')) {
     client.channels.get('447604006584451092').fetchMessages({around: "538600752432807936", limit: 1})
       .then(messages => {
         const fetchedMsg = messages.first();
