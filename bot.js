@@ -25,7 +25,7 @@ client.on('ready', () => {
 
 //command list
 client.on('message', msg => {
-  if(message.author.bot) return;
+  if(msg.author.bot) return;
   if (msg.content.toLowerCase() === prefix + 'ping') {
     msg.channel.send('pong')
   } else if (msg.content.toLowerCase() === prefix + 'help') {
