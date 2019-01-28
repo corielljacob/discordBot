@@ -97,7 +97,7 @@ client.on('message', msg => {
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase().includes('nonce') || msg.content.toLowerCase().includes('n once')||msg.content.toLowerCase().includes('n0nce')){
     msg.delete(500)
-  } else if (msg.content.toLowerCase().includes('tom')|| msg.content.toLowerCase().includes('tommy')||msg.content.toLowerCase().includes('t0m')){
+  } else if (msg.content.toLowerCase().includes('tom ')|| msg.content.toLowerCase().includes('tommy')||msg.content.toLowerCase().includes('t0m')){
     msg.delete(500)
   }else if (msg.content.toLowerCase() === prefix + 'cursedfood'){
     //webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
