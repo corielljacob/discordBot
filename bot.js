@@ -66,7 +66,7 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
     msg.channel.send('Fuck that dumb shit.')
   } else if (msg.content.toLowerCase() === prefix + 'thomas') {
-    webAttachment = new Discord.Attachment('http://i63.tinypic.com/2dumhon.png')
+    webAttachment = new Discord.Attachment('http://i66.tinypic.com/fn5wnn.png')
     msg.channel.send(webAttachment)
   }else if (msg.content.toLowerCase() === prefix + 'thomas2') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512998012654714890/538190141370662932/nipple-clamps-620x330.png')
@@ -84,7 +84,7 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('https://media.discordapp.net/attachments/537142011455733770/537702102198255616/bentheart2.png')
     msg.channel.send(webAttachment)
   }else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/537656467436601354/image0.jpg')
+    webAttachment = new Discord.Attachment('https://media.discordapp.net/attachments/512997765513740309/539636950110437386/jacobblack.jpg')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'nick') {
     webAttachment = new Discord.Attachment('https://i.kym-cdn.com/entries/icons/facebook/000/020/442/tumblr_ntzb70PQEm1uwemcqo1_400.jpg')
