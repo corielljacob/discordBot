@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = 'w!';
 const food_size = 53
-//test
 
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
   "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
@@ -12,8 +11,6 @@ var roasts = ["commit neck rope please", "you should've been thrown in the harbo
   "you are a piece of chet please log off ethernet", "you probably say 'big tea' unironically", "go commit toaster bath", "no u", "go commit toaster bath",
   "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass", "born villain",
   "you probably like being pissed on like lode", "you probably think foot jobs are grosser than eating ass"];
-
-var food = ["https://i.redd.it/ybe4nmet2gn11.jpg"];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -96,7 +93,6 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'cursedfood'){
-    //webAttachment = new Discord.Attachment(food[getRandomInt(food.length)])
     const num = getRandomInt(food_size);
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
     msg.channel.send(attachment)
@@ -107,5 +103,5 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-//client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.DykZMg.njO4MaAScq35wDSi-uhwo4iAKJc');
+//client.login('');
 client.login(process.env.BOT_TOKEN);
