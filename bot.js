@@ -84,8 +84,8 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('https://media.discordapp.net/attachments/537142011455733770/537702102198255616/bentheart2.png')
     msg.channel.send(webAttachment)
   }else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
-    webAttachment = new Discord.Attachment('https://media.discordapp.net/attachments/512997765513740309/539636950110437386/jacobblack.jpg')
-    msg.channel.send(webAttachment)
+    //webAttachment = new Discord.Attachment('')
+    //msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'nick') {
     webAttachment = new Discord.Attachment('https://i.kym-cdn.com/entries/icons/facebook/000/020/442/tumblr_ntzb70PQEm1uwemcqo1_400.jpg')
     msg.channel.send(webAttachment)
