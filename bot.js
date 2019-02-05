@@ -103,7 +103,7 @@ client.on('message', msg => {
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
     msg.channel.send(attachment)
   }else if (msg.content.toLowerCase() === 'uwu'){
-    msg.delete(100)
+    msg.delete(200)
   }
 });
 
