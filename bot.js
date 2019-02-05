@@ -93,7 +93,7 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/542182044898426890/542182398247567360/straight.gif')
     msg.channel.send(webAttachment)
   }else if (msg.content.toLowerCase().includes('feet')){
-    webAttachment = new Discord.Attachment('https://bit.ly/2UHYsvn')
+    webAttachment = new Discord.Attachment('https://i.imgur.com/VWvSEqJ.jpg')
     msg.channel.send(webAttachment)
   }else if (msg.content.toLowerCase().includes('cunt')){
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
