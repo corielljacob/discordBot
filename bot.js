@@ -51,9 +51,8 @@ client.on('message', msg => {
       return msg.channel.send('You need to specify a correct user.')
     }
     const user = msg.mentions.users.first()
-    msg.channel.send(`${user}` + ' hello')
     webAttachment = new Discord.Attachment('https://discordemoji.com/assets/emoji/6976_DrPhiL.png')
-    msg.channel.send(webAttachment)
+    msg.channel.send(`${user}` + webAttachment)
   }else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2')) && !(msg.content.toLowerCase().includes(prefix + 'roast 2'))) {
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
