@@ -47,8 +47,6 @@ client.on('message', msg => {
         fetchedMsg.edit(counter+amt);
   });
   } else if (msg.content.toLowerCase().includes(prefix + 'l')) {
-    msg.channel.send(`${user}` + ' hello')
-    msg.channel.send('hello')
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
     }
