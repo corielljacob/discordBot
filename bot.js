@@ -46,7 +46,7 @@ client.on('message', msg => {
         var amt = parseInt(msg.content.substring(4));
         fetchedMsg.edit(counter+amt);
   });
-  } else if (msg.content.toLowerCase() === prefix + 'l') {
+  } else if (msg.content.toLowerCase().includes(prefix + 'l')) {
     msg.channel.send(`${user}` + ' hello')
     msg.channel.send('hello')
     if (!msg.mentions.users.size) {
