@@ -12,6 +12,8 @@ var roasts = ["commit neck rope please", "you should've been thrown in the harbo
   "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass", "born villain",
   "you probably like being pissed on like lode", "you probably think foot jobs are grosser than eating ass"];
 
+phil = new Discord.Attachment('https://discordemoji.com/assets/emoji/6976_DrPhiL.png');
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -44,7 +46,14 @@ client.on('message', msg => {
         var amt = parseInt(msg.content.substring(4));
         fetchedMsg.edit(counter+amt);
   });
-  } else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2')) && !(msg.content.toLowerCase().includes(prefix + 'roast 2'))) {
+  } else if (msg.content.toLowerCase() === prefix + 'l') {
+    if (!msg.mentions.users.size) {
+      return msg.channel.send('You need to specify a correct user.')
+    }
+    const user = msg.mentions.users.first()
+    msg.channel.send(`${user} `)
+    msg.channel.send(phil)
+  }else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2')) && !(msg.content.toLowerCase().includes(prefix + 'roast 2'))) {
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
     }
