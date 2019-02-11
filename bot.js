@@ -30,11 +30,7 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase() === prefix + 'help') {
     msg.channel.send('Current Prefix: ' + prefix)
     msg.channel.send('Current usable commands: ping, roast, roast2, leek, thomas, thomas2, raven, tobi, anie, jacob, bentley, nick, cursedfood')
-  }else if (msg.content.toLowerCase() === 'jacob is a dodo') {
-    msg.channel.send('no u')
-  } else if (msg.content.toLowerCase() === 'raven is a dodo') {
-    msg.channel.send('yes she is')
-  } else if (msg.content.toLowerCase() === 'bye') {
+  }else if (msg.content.toLowerCase() === 'bye') {
     msg.channel.send('cya')
   } else if (msg.content.toLowerCase() === 'cya') {
     msg.channel.send('bye')
@@ -82,7 +78,7 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/445658785340456965/536339338296950796/Screenshot_2019-01-14-13-08-06.png')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'tobi') {
-    webAttachment = new Discord.Attachment('https://66.media.tumblr.com/5ddaae5fcce7df58e830191d7c36abda/tumblr_pm9lnqIW601tr7bcqo1_500.gif')
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/346028466434473986/544551817229631510/image0.jpg')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === prefix + 'anie') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512994325743927325/542387210851188765/image0.jpg')
