@@ -113,6 +113,8 @@ client.on('message', msg => {
     msg.channel.send(attachment)
   }else if (msg.content.toLowerCase().includes('uwu')){
     msg.delete(200)
+  }else if (msg.content.toLowerCase().charAt(0) === '*'){
+    msg.channel.send('are you roleplaying...')
   }
 });
 
