@@ -116,7 +116,7 @@ client.on('message', msg => {
   }else if (msg.content.toLowerCase() === '*roleplaying is for LOSERS*'){
     msg.delete(200)
   }else if (msg.content.toLowerCase().charAt(0) === '*' && msg.content.toLowerCase().charAt(msg.length-1) === '*'){
-    msg.channel.send('roleplaying is for LOSERS')
+    //msg.channel.send('roleplaying is for LOSERS')
   }
 });
 
