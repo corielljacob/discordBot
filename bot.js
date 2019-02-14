@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = 'w!';
 const food_size = 53
+const val_size = 11
 
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
   "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
@@ -117,6 +118,10 @@ client.on('message', msg => {
     msg.delete(200)
   }else if (msg.content.toLowerCase().charAt(0) === '*' && msg.content.toLowerCase().charAt(msg.length-1) === '*'){
     msg.channel.send('roleplaying is for LOSERS')
+  }else if (msg.content.toLowerCase().contains(prefix + 'valentine')){
+    const num = getRandomInt(val_size);
+    const attachment = new Discord.Attachment('./valentines/img'+num+'.jpg', 'img'+num+'.jpg');
+    msg.channel.send(attachment)
   }
 });
 
