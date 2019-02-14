@@ -116,6 +116,8 @@ client.on('message', msg => {
     msg.channel.send(attachment)
   }else if (msg.content.toLowerCase().includes('uwu')){
     msg.delete(200)
+  }else if (msg.content.toLowerCase().charAt(0) === '*' && msg.content.toLowerCase().charAt(1) === '*'){
+    return
   }else if (msg.content.toLowerCase() === '*roleplaying is for losers*'){
     msg.delete(200)
   }else if (msg.content.toLowerCase().charAt(0) === '*' && msg.content.toLowerCase().charAt(msg.length-1) === '*'){
