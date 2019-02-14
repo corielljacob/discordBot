@@ -126,7 +126,7 @@ client.on('message', msg => {
     const user = msg.mentions.users.first()
     let userVar = message.author
     const attachment = new Discord.Attachment('./valentines/img'+num+'.jpg', 'img'+num+'.jpg');
-    msg.channel.send(`To: ${user} From: ${userVar}`)
+    msg.channel.send(`To: ${user} From: ` + userVar)
     msg.channel.send(attachment)
   }
 });
