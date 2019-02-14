@@ -124,7 +124,7 @@ client.on('message', msg => {
       return msg.channel.send('You need to specify a correct user.')
     }
     const user = msg.mentions.users.first()
-    let userVar = message.author
+    let userVar = msg.author
     const attachment = new Discord.Attachment('./valentines/img'+num+'.jpg', 'img'+num+'.jpg');
     msg.channel.send(`To: ${user} From: ` + userVar)
     msg.channel.send(attachment)
