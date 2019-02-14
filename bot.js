@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = 'w!';
 const food_size = 53;
 const val_size = 31;
-const flowers_size = 1;
+const flowers_size = 10;
 
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
   "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
