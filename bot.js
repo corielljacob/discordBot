@@ -120,7 +120,12 @@ client.on('message', msg => {
     msg.channel.send('roleplaying is for LOSERS')
   }else if (msg.content.toLowerCase().includes(prefix + 'valentine')){
     const num = getRandomInt(val_size);
+    if (!msg.mentions.users.size) {
+      return msg.channel.send('You need to specify a correct user.')
+    }
+    const user = msg.mentions.users.first()
     const attachment = new Discord.Attachment('./valentines/img'+num+'.jpg', 'img'+num+'.jpg');
+    msg.channel.send(`To: ${user} ` + attachment)
     msg.channel.send(attachment)
   }
 });
