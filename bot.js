@@ -118,7 +118,7 @@ client.on('message', msg => {
     msg.delete(200)
   }else if (msg.content.toLowerCase().charAt(0) === '*' && msg.content.toLowerCase().charAt(msg.length-1) === '*'){
     msg.channel.send('roleplaying is for LOSERS')
-  }else if (msg.content.toLowerCase().contains(prefix + 'valentine')){
+  }else if (msg.content.toLowerCase().includes(prefix + 'valentine')){
     const num = getRandomInt(val_size);
     const attachment = new Discord.Attachment('./valentines/img'+num+'.jpg', 'img'+num+'.jpg');
     msg.channel.send(attachment)
