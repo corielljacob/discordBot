@@ -31,19 +31,11 @@ client.on('message', msg => {
     msg.channel.send('pong')
   } else if (msg.content.toLowerCase() === prefix + 'help') {
     msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: ping, roast, roast2, leek, thomas, thomas2, raven, tobi, anie, jacob, bentley, nick, cursedfood')
+    msg.channel.send('Current usable commands: ping, roast, roast2, leek, thomas, thomas2, raven, tobi, anie, jacob, james, bentley, nick, cursedfood')
   }else if (msg.content.toLowerCase() === 'bye') {
     msg.channel.send('cya')
   } else if (msg.content.toLowerCase() === 'cya') {
     msg.channel.send('bye')
-  }else if (msg.content.toLowerCase().includes('rav+')) {
-    client.channels.get('447604006584451092').fetchMessages({around: "538600752432807936", limit: 1})
-      .then(messages => {
-        const fetchedMsg = messages.first();
-        var counter = parseInt(fetchedMsg);
-        var amt = parseInt(msg.content.substring(4));
-        fetchedMsg.edit(counter+amt);
-  });
   } else if (msg.content.toLowerCase().includes(prefix + 'l')) {
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
@@ -122,7 +114,19 @@ client.on('message', msg => {
     msg.delete(200)
   }else if (msg.content.toLowerCase().charAt(0) === '*' && msg.content.toLowerCase().charAt(msg.length-1) === '*'){
     msg.channel.send('roleplaying is for LOSERS')
-  }/*else if (msg.content.toLowerCase().includes(prefix + 'valentine')){
+  }
+});
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+//client.login('');
+client.login(process.env.BOT_TOKEN);
+
+
+/*Old commands
+/*else if (msg.content.toLowerCase().includes(prefix + 'valentine')){
     const num = getRandomInt(val_size);
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
@@ -142,12 +146,11 @@ client.on('message', msg => {
     const attachment = new Discord.Attachment('./flowers/img'+num+'.jpg', 'img'+num+'.jpg');
     msg.channel.send(`To: ${user} From: ` + userVar)
     msg.channel.send(attachment)
-  }*/
-});
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-//client.login('');
-client.login(process.env.BOT_TOKEN);
+  }else if (msg.content.toLowerCase().includes('rav+')) {
+    client.channels.get('447604006584451092').fetchMessages({around: "538600752432807936", limit: 1})
+      .then(messages => {
+        const fetchedMsg = messages.first();
+        var counter = parseInt(fetchedMsg);
+        var amt = parseInt(msg.content.substring(4));
+        fetchedMsg.edit(counter+amt);
+  });*/
