@@ -69,7 +69,7 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512998012654714890/538190141370662932/nipple-clamps-620x330.png')
     msg.channel.send(webAttachment) 
   } else if (msg.content.toLowerCase() === prefix + 'thomas3') {
-    webAttachment = new Discord.Attachment('https://images-na.ssl-images-amazon.com/images/I/51XABwku0qL._SY355_.jpg')
+    webAttachment = new Discord.Attachment('https://66.media.tumblr.com/d5f1ce30b01ae18cf5f681107fbe87fc/tumblr_pnerq8Ea2u1tmibr6_540.jpg')
     msg.channel.send(webAttachment) 
   } else if (msg.content.toLowerCase() === prefix + 'raven') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/445658785340456965/536339338296950796/Screenshot_2019-01-14-13-08-06.png')
@@ -95,10 +95,10 @@ client.on('message', msg => {
   }else if (msg.content.toLowerCase() === prefix + 'james') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/542182044898426890/542182398247567360/straight.gif')
     msg.channel.send(webAttachment)
-  } else if (msg.content.toLowerCase().includes('feet')){
-   webAttachment = new Discord.Attachment('https://i.imgur.com/VWvSEqJ.jpg')
-   msg.channel.send(webAttachment)
-  } 
+  } //else if (msg.content.toLowerCase().includes('feet')){
+   //webAttachment = new Discord.Attachment('https://i.imgur.com/VWvSEqJ.jpg')
+   //msg.channel.send(webAttachment)
+  //} 
   else if (msg.content.toLowerCase().includes('cunt')){
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
     msg.channel.send(webAttachment)
