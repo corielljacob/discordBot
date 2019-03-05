@@ -115,8 +115,8 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.D2Bgww.K06SV8DceGTXMdEAkLXfR8RYOxg');
-//client.login(process.env.BOT_TOKEN);
+//client.login('');
+client.login(process.env.BOT_TOKEN);
 
 
 /*Old commands
