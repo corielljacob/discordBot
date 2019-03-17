@@ -91,7 +91,7 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('http://i68.tinypic.com/1y0sa0.png')
     msg.channel.send(webAttachment)
   }else if (msg.content.toLowerCase() === prefix + 'morgan') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/328228325862539274/539490520322539560/image0.png')
+    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/328228325862539274/556642198779592714/image0.png')
     msg.channel.send(webAttachment)
   }else if (msg.content.toLowerCase() === prefix + 'james') {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/542182044898426890/542182398247567360/straight.gif')
