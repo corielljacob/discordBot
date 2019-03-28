@@ -1,5 +1,5 @@
 # discordBot
-Personal discord bot with silly inside jokes between myself and girlfriend
+Personal discord bot with silly inside jokes 
 
 Very basic framework designed for responding to user messages and replying to those messages in whatever channel they are sent in. 
 
