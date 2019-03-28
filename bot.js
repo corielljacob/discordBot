@@ -37,15 +37,7 @@ client.on('message', msg => {
     msg.channel.send('cya')
   } else if (msg.content.toLowerCase() === 'cya') {
     msg.channel.send('bye')
-  } else if (msg.content.toLowerCase().includes(prefix + 'l')) {
-    if (!msg.mentions.users.size) {
-      return msg.channel.send('You need to specify a correct user.')
-    }
-    const user = msg.mentions.users.first()
-    webAttachment = new Discord.Attachment('https://discordemoji.com/assets/emoji/6976_DrPhiL.png')
-    msg.channel.send(`${user}`)
-    msg.channel.send(webAttachment)
-  }else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2')) && !(msg.content.toLowerCase().includes(prefix + 'roast 2'))) {
+  } else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2')) && !(msg.content.toLowerCase().includes(prefix + 'roast 2'))) {
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
     }
@@ -157,4 +149,12 @@ client.login(process.env.BOT_TOKEN);
     msg.delete(200)
   }else if (msg.content.toLowerCase().charAt(0) === '*' && msg.content.toLowerCase().charAt(msg.length-1) === '*'){
     msg.channel.send('roleplaying is for LOSERS')
+  }else if (msg.content.toLowerCase() === (prefix + 'l')) {
+    if (!msg.mentions.users.size) {
+      return msg.channel.send('You need to specify a correct user.')
+    }
+    const user = msg.mentions.users.first()
+    webAttachment = new Discord.Attachment('https://discordemoji.com/assets/emoji/6976_DrPhiL.png')
+    msg.channel.send(`${user}`)
+    msg.channel.send(webAttachment)
   }*/
