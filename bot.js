@@ -98,10 +98,10 @@ client.on('message', msg => {
    //webAttachment = new Discord.Attachment('https://i.imgur.com/VWvSEqJ.jpg')
    //msg.channel.send(webAttachment)
   //}
-  else if (msg.content.toLowerCase().includes('cunt')){
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
-    msg.channel.send(webAttachment)
-  } else if (msg.content.toLowerCase() === prefix + 'cursedfood'){
+  //else if (msg.content.toLowerCase().includes('cunt')){
+    //webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
+    //msg.channel.send(webAttachment)
+  else if (msg.content.toLowerCase() === prefix + 'cursedfood'){
     const num = getRandomInt(food_size);
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
     msg.channel.send(attachment)
