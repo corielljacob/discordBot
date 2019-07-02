@@ -107,8 +107,12 @@ client.on('message', msg => {
     msg.channel.send(attachment)
   }else if(msg.content.toLowerCase().includes(prefix + 'cursedfood#')) {
     const num = parseInt(msg.content.substring(13))
+    if (num < 0 || num > 52){
+      msg.channel.send("Enter a number between 0 and 52")
+    }else{
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
-    msg.channel.send(attachment)
+    msg.channel.send(attachment) 
+    }
   }else if (msg.content.toLowerCase().includes('uwu')){
     msg.delete(200)
 }});
