@@ -105,7 +105,7 @@ client.on('message', msg => {
     const num = getRandomInt(food_size);
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
     msg.channel.send(attachment)
-  }else if(msg.content.toLowerCase().includes(prefix + 'cursedfood#') {
+  }else if(msg.content.toLowerCase().includes(prefix + 'cursedfood#')) {
     const num = parseInt(msg.content.substring(11))
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
     msg.channel.send(attachment)
