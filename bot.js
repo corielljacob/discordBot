@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = 'w!';
-const food_size = 53;
+const food_size = 61;
 const val_size = 31;
 const flowers_size = 10;
 
