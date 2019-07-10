@@ -103,8 +103,8 @@ client.on('message', msg => {
     msg.channel.send(attachment)
   }else if(msg.content.toLowerCase().includes(prefix + 'cursedfood#')) {
     const num = parseInt(msg.content.substring(13))
-    if (num < 0 || num > 62){
-      msg.channel.send("Enter a number between 0 and 62")
+    if (num < 0 || num > 61){
+      msg.channel.send("Enter a number between 0 and 61")
     }else{
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
     msg.channel.send(attachment) 
