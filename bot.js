@@ -119,6 +119,8 @@ client.on('message', msg => {
     const user = msg.mentions.members.first()
     user.addRole('598342939734966291')
     msg.channel.send(`${user} shut the fuck up`)       
+  }else if (msg.member.hasRole('598342939734966291')){
+    msg.delete(100)
 }});
 
 function getRandomInt(max) {
