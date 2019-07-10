@@ -115,6 +115,10 @@ client.on('message', msg => {
     }
   }else if (msg.content.toLowerCase().includes('uwu')){
     msg.delete(200)
+  }else if (msg.content.toLowerCase().includes(prefix + 'stfu'){
+    const user = msg.mentions.users.first()
+    user.remove('SEND_MESSAGES')
+    msg.channel.send(`${user} shut the fuck up`)       
 }});
 
 function getRandomInt(max) {
