@@ -120,7 +120,7 @@ client.on('message', msg => {
     user.addRole('598342371037544470')
     msg.channel.send(`${user} shut the fuck up`)       
   }else if (msg.member.roles.has('598342371037544470')){
-    msg.delete(100)
+    msg.delete(50)
   }else if (msg.content.toLowerCase().includes(prefix + 'speak')){// && msg.member.roles.has('598342939734966291')){
     const user = msg.mentions.members.first()
     if(user.roles.has('598342371037544470')){
