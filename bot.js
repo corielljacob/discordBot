@@ -117,7 +117,8 @@ client.on('message', msg => {
     msg.delete(200)
   }else if (msg.content.toLowerCase().includes(prefix + 'stfu')){
     const user = msg.mentions.users.first()
-    //user.remove('SEND_MESSAGES')
+    let role = message.guild.roles.find(r => r.name === "STFU");
+    user.addRole(role).catch(console.error);
     msg.channel.send(`${user} shut the fuck up`)       
 }});
 
