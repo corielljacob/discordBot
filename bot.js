@@ -94,11 +94,7 @@ client.on('message', msg => {
   }else if (msg.content.toLowerCase() === prefix + 'erin') {
     webAttachment = new Discord.Attachment('https://media.discordapp.net/attachments/512994325743927325/594746628871684112/Screenshot_20190630-0029432.png')
     msg.channel.send(webAttachment)
-  } //else if (msg.content.toLowerCase().includes('feet')){
-   //webAttachment = new Discord.Attachment('https://i.imgur.com/VWvSEqJ.jpg')
-   //msg.channel.send(webAttachment)
-  //}
-  //else if (msg.content.toLowerCase().includes('cunt')){
+  } //else if (msg.content.toLowerCase().includes('cunt')){
     //webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
     //msg.channel.send(webAttachment)
   else if (msg.content.toLowerCase() === prefix + 'cursedfood'){
@@ -119,15 +115,16 @@ client.on('message', msg => {
     const user = msg.mentions.members.first()
     user.addRole('598342371037544470')
     msg.channel.send(`${user} shut the fuck up`)       
-  }else if (msg.member.roles.has('598342371037544470')){
-    msg.delete(50)
-  }else if (msg.content.toLowerCase().includes(prefix + 'speak')){// && msg.member.roles.has('598342939734966291')){
+  } else if (msg.content.toLowerCase().includes(prefix + 'speak')){// && msg.member.roles.has('598342939734966291')){
     const user = msg.mentions.members.first()
     if(user.roles.has('598342371037544470')){
     user.removeRole('598342371037544470')
     msg.channel.send(`${user} u can speak now`) 
+    } else {
+    msg.channel.send('they can already speak dumbass')  
     }
-    
+  }else if (msg.member.roles.has('598342371037544470')){
+    msg.delete(50)
 }});
 
 function getRandomInt(max) {
@@ -149,7 +146,9 @@ client.login(process.env.BOT_TOKEN);
     const attachment = new Discord.Attachment('./valentines/img'+num+'.jpg', 'img'+num+'.jpg');
     msg.channel.send(`To: ${user} From: ` + userVar)
     msg.channel.send(attachment)
-  }else if (msg.content.toLowerCase().includes(prefix + 'flowers')){
+  }
+  
+  else if (msg.content.toLowerCase().includes(prefix + 'flowers')){
     const num = getRandomInt(flowers_size);
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
