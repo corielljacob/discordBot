@@ -122,7 +122,7 @@ client.on('message', msg => {
   }else if (msg.member.roles.has('598342939734966291')){
     msg.delete(100)
   }else if (msg.content.toLowerCase().includes(prefix + 'speak') && msg.member.roles.has('598342939734966291')){
-    onst user = msg.mentions.members.first()
+    const user = msg.mentions.members.first()
     user.removeRole('598342939734966291')
     msg.channel.send(`${user} u can speak now`) 
     
