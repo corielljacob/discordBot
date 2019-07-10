@@ -117,7 +117,7 @@ client.on('message', msg => {
     msg.delete(200)
   }else if (msg.content.toLowerCase().includes(prefix + 'stfu')){
     const user = msg.mentions.users.first()
-    user.remove('SEND_MESSAGES')
+    //user.remove('SEND_MESSAGES')
     msg.channel.send(`${user} shut the fuck up`)       
 }});
 
