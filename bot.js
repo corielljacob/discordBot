@@ -123,7 +123,7 @@ client.on('message', msg => {
     } else {
     msg.channel.send('they can already speak dumbass')  
     }
-  }else if (msg.member.roles.has('598342371037544470')){
+  }else if (msg.TextChannel && msg.member.roles.has('598342371037544470')){
     msg.delete(50)
   }else if(msg.content.toLowerCase() === prefix + 'role'){
     const user = msg.member
