@@ -160,7 +160,6 @@ client.login(process.env.BOT_TOKEN);
     msg.channel.send(`To: ${user} From: ` + userVar)
     msg.channel.send(attachment)
   }
-  
   else if (msg.content.toLowerCase().includes(prefix + 'flowers')){
     const num = getRandomInt(flowers_size);
     if (!msg.mentions.users.size) {
