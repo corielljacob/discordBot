@@ -128,7 +128,12 @@ client.on('message', msg => {
   }else if(msg.content.toLowerCase() === prefix + 'role'){
     const user = msg.member
     msg.channel.send(user.colorRole.hexColor)
-}});
+  }else if(msg.content.toLowerCase() === prefix + 'setcolor#'){
+    const user = msg.member
+    const role = user.colorRole
+    const hexColor = msg.substring(11,17)
+    msg.channel.send(hexColor)
+  }});
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
