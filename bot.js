@@ -138,6 +138,9 @@ client.on('message', msg => {
     role.setColor('#'+hexColor)
     msg.channel.send(`Set color of role to ${role.color}`)
     }
+  }else if(msg.guild === null){
+    var url = msg.attachments.first().url
+    msg.channel.send(url)
   }});
 
 function getRandomInt(max) {
