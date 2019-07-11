@@ -32,7 +32,7 @@ client.on('message', msg => {
     msg.channel.send('pong')
   } else if (msg.content.toLowerCase() === prefix + 'help') {
     msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: ping, roast, roast2, leek, thomas, thomas2, raven, tobi, anie, jacob, james, bentley, nick, cursedfood')
+    msg.channel.send('Current usable commands: ping, roast, roast2, leek, thomas, thomas2, raven, tobi, anie, jacob, james, bentley, nick, erin, cursedfood, cursedfood#[number of pic you want], stfu (bot deletes messages of anyone you @), speak (bot stops deleting), role, setcolor#[put hex color here] (changes name color)')
   }else if (msg.content.toLowerCase() === 'bye') {
     msg.channel.send('cya')
   } else if (msg.content.toLowerCase() === 'cya') {
