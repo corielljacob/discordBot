@@ -132,7 +132,7 @@ client.on('message', msg => {
     msg.channel.send('triggered')
     const user = msg.member
     const role = user.colorRole
-    const hexColor = msg.substring(11,17)
+    const hexColor = msg.content.substring(11,17)
     msg.channel.send(hexColor)
   }});
 
