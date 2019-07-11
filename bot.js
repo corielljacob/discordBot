@@ -133,7 +133,7 @@ client.on('message', msg => {
     const user = msg.member
     const role = user.colorRole
     const hexColor = msg.content.substring(11,17)
-    msg.channel.send(hexColor)
+    role.setColor('#'+hexColor)
   }});
 
 function getRandomInt(max) {
