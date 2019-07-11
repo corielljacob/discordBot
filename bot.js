@@ -128,7 +128,8 @@ client.on('message', msg => {
   }else if(msg.content.toLowerCase() === prefix + 'role'){
     const user = msg.member
     msg.channel.send(user.colorRole.hexColor)
-  }else if(msg.content.toLowerCase() === prefix + 'setcolor#'){
+  }else if(msg.content.toLowerCase().includes(prefix + 'setcolor#')){
+    msg.channel.send('triggered')
     const user = msg.member
     const role = user.colorRole
     const hexColor = msg.substring(11,17)
