@@ -136,6 +136,7 @@ client.on('message', msg => {
     const role = user.colorRole
     const hexColor = msg.content.substring(11,17)
     role.setColor('#'+hexColor)
+    msg.channel.send(`Set color of role to ${role.color}`)
     }
   }});
 
