@@ -127,7 +127,7 @@ client.on('message', msg => {
     msg.delete(50)
   }else if(msg.content.toLowerCase() === prefix + 'role'){
     const user = msg.member
-    msg.channel.send(user.colorRole)
+    msg.channel.send(user.colorRole.hexColor)
 }});
 
 function getRandomInt(max) {
