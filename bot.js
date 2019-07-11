@@ -129,11 +129,14 @@ client.on('message', msg => {
     const user = msg.member
     msg.channel.send(user.colorRole.hexColor)
   }else if(msg.content.toLowerCase().includes(prefix + 'setcolor#')){
-    msg.channel.send('triggered')
+    if(msg.content.length != 17){
+      msg.channel.send('Enter a valid hex color')
+    }else{
     const user = msg.member
     const role = user.colorRole
     const hexColor = msg.content.substring(11,17)
     role.setColor('#'+hexColor)
+    }
   }});
 
 function getRandomInt(max) {
