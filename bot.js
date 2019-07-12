@@ -18,7 +18,7 @@ if (err) {
   return
 }
 db = client.db('discordbot')
-collection = db.collection('test')
+collection = db.collection('piclinks')
 })
 //roast array
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
