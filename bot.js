@@ -12,7 +12,7 @@ var collection;
 var command;
 
 
-mongo.connect(dburl, (err, client) => {
+mongo.connect(dburl, { useNewUrlParser: true },(err, client) => {
 if (err) {
   console.error(err)
   return
