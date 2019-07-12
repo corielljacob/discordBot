@@ -12,13 +12,15 @@ var collection;
 var command;
 
 
-mongo.connect(dburl, { useNewUrlParser: true },(err, client) => {
-if (err) {
-  console.error(err)
-  return
-}
-db = client.db('discordbot')
-collection = db.collection('piclinks')
+mongo.connect(dburl, {
+  useNewUrlParser: true
+}, (err, client) => {
+  if (err) {
+    console.error(err)
+    return
+  }
+  db = client.db('discordbot')
+  collection = db.collection('piclinks')
 })
 //roast array
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
@@ -28,7 +30,8 @@ var roasts = ["commit neck rope please", "you should've been thrown in the harbo
   "your mother was a hamster and your father smelt of elderberries", "skidaddle skidoodle your dick is now a noodle", "please delete yourself",
   "you are a piece of chet please log off ethernet", "you probably say 'big tea' unironically", "go commit toaster bath", "no u", "go commit toaster bath",
   "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass", "born villain",
-  "you probably like being pissed on like lode", "you probably think foot jobs are grosser than eating ass", "eat my ass", "suck my nuts", "suck my ass", "go fuck urself"];
+  "you probably like being pissed on like lode", "you probably think foot jobs are grosser than eating ass", "eat my ass", "suck my nuts", "suck my ass", "go fuck urself"
+];
 
 
 
@@ -39,27 +42,34 @@ client.on('ready', () => {
 
 //command list
 client.on('message', msg => {
-  if(msg.author.bot) return;
+  if (msg.author.bot) return;
 
-  if(msg.content.toLowerCase().startsWith('w!')){
-   command = msg.content.toLowerCase().substring(2);
-  }else if(msg.guild === null){
+  if (msg.content.toLowerCase().startsWith('w!')) {
+    command = msg.content.toLowerCase().substring(2);
+  } else if (msg.guild === null) {
     if (msg.attachments.size === 1) {
       var purl = msg.attachments.first().url
-      var myquery = { username: msg.author.username };
-      var newvalues = { $set: { url: purl } };
+      var myquery = {
+        username: msg.author.username
+      };
+      var newvalues = {
+        $set: {
+          url: purl
+        }
+      };
       collection.updateOne(myquery, newvalues, function(err, res) {
         console.log("updated url for " + msg.author.username)
         msg.channel.send('Pic updated!')
       })
-    }else{
+    } else {
       msg.channel.send('please send one image and nothing else')
-    } return; }
-    else if (msg.member.roles.has('598342371037544470')){
-      msg.delete(50)
-    }else{
-      return;
     }
+    return;
+  } else if (msg.member.roles.has('598342371037544470')) {
+    msg.delete(50)
+  } else {
+    return;
+  }
 
   if (command === 'ping') {
     msg.channel.send('pong')
@@ -67,7 +77,7 @@ client.on('message', msg => {
     msg.channel.send('Current Prefix: ' + prefix)
     msg.channel.send('Current usable commands: ping, roast, leek, thomas, thomas2, raven, tobi, anie, jacob, james, bentley, nick, erin, \ncursedfood, cursedfood#, stfu , speak , role, setcolor#, dm')
     msg.channel.send('DM the bot a picture to change your name command pic')
-  }else if (msg.content.toLowerCase() === 'bye') {
+  } else if (msg.content.toLowerCase() === 'bye') {
     msg.channel.send('cya')
   } else if (msg.content.toLowerCase() === 'cya') {
     msg.channel.send('bye')
@@ -79,13 +89,13 @@ client.on('message', msg => {
     msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
   } else if (command === 'leek') {
     msg.channel.send('Leeks are different than green onions.')
-  } else if (command ==='hentai' || command === 'furry') {
+  } else if (command === 'hentai' || command === 'furry') {
     msg.channel.send('Fuck that dumb shit.')
   } else if (command === 'thomas') {
     namepic(command, msg)
-  }else if (command === 'thomas2') {
+  } else if (command === 'thomas2') {
     namepic(command, msg)
-  } else if (command ==='thomas3') {
+  } else if (command === 'thomas3') {
     namepic(command, msg)
   } else if (command === 'raven') {
     namepic(command, msg)
@@ -95,67 +105,67 @@ client.on('message', msg => {
     namepic(command, msg)
   } else if (command === 'bentley') {
     namepic(command, msg)
-  }else if (command === 'jacob' || command === 'jaccob') {
+  } else if (command === 'jacob' || command === 'jaccob') {
     namepic('jacob', msg)
-  } else if (command ==='nick') {
+  } else if (command === 'nick') {
     namepic(command, msg)
-  }else if (command === 'morgan') {
+  } else if (command === 'morgan') {
     namepic(command, msg)
-  }else if (command === 'james') {
+  } else if (command === 'james') {
     namepic(command, msg)
-  }else if (command === 'lode') {
+  } else if (command === 'lode') {
     namepic(command, msg)
-  }else if (command === 'erin') {
+  } else if (command === 'erin') {
     namepic(command, msg)
-  }else if (command === 'cursedfood'){
+  } else if (command === 'cursedfood') {
     const num = getRandomInt(food_size);
-    const attachment = new Discord.Attachment('./assets/images/img'+num+'.png', 'img'+num+'.png');
+    const attachment = new Discord.Attachment('./assets/images/img' + num + '.png', 'img' + num + '.png');
     msg.channel.send(attachment)
-  }else if(command.includes('cursedfood#')) {
+  } else if (command.includes('cursedfood#')) {
     const num = parseInt(command.substring(11))
-    if (num < 0 || num > 61){
+    if (num < 0 || num > 61) {
       msg.channel.send("Retry the command with a number between 0 and 61")
-    }else{
-    const attachment = new Discord.Attachment('./assets/images/img'+num+'.png', 'img'+num+'.png');
-    msg.channel.send(attachment)
+    } else {
+      const attachment = new Discord.Attachment('./assets/images/img' + num + '.png', 'img' + num + '.png');
+      msg.channel.send(attachment)
     }
-  }else if (msg.content.toLowerCase().includes('uwu')){
+  } else if (msg.content.toLowerCase().includes('uwu')) {
     msg.delete(200)
-  }else if (command.includes('stfu')){
+  } else if (command.includes('stfu')) {
     const user = msg.mentions.members.first()
     user.addRole('598342371037544470')
     msg.channel.send(`${user} shut the fuck up`)
-  } else if (command.includes('speak')){
+  } else if (command.includes('speak')) {
     const user = msg.mentions.members.first()
-    if(user.roles.has('598342371037544470')){
-    user.removeRole('598342371037544470')
-    msg.channel.send(`${user} u can speak now`)
+    if (user.roles.has('598342371037544470')) {
+      user.removeRole('598342371037544470')
+      msg.channel.send(`${user} u can speak now`)
     } else {
-    msg.channel.send('they can already speak dumbass')
+      msg.channel.send('they can already speak dumbass')
     }
-  }else if(command === 'role'){
+  } else if (command === 'role') {
     const user = msg.member
     msg.channel.send(user.colorRole.hexColor)
-  }else if(command.includes('setcolor#')){
-    if(msg.content.length != 17){
+  } else if (command.includes('setcolor#')) {
+    if (msg.content.length != 17) {
       msg.channel.send('Enter a valid hex color')
-    }else{
-    const user = msg.member
-    const role = user.colorRole
-    const hexColor = msg.content.substring(11,17)
-    role.setColor('#'+hexColor)
-    msg.channel.send('Set color of role to #'+hexColor )
+    } else {
+      const user = msg.member
+      const role = user.colorRole
+      const hexColor = msg.content.substring(11, 17)
+      role.setColor('#' + hexColor)
+      msg.channel.send('Set color of role to #' + hexColor)
     }
-  }else if(command ===  'dm'){
+  } else if (command === 'dm') {
     msg.author.send('Send a pic to change your command pic')
   }
 });
 
-function namepic(command, msg){
+function namepic(command, msg) {
   var name = command;
   collection.find().toArray((err, items) => {
     items.forEach(function(element) {
-      if(element.name === name){
+      if (element.name === name) {
         var url = element.url
         webAttachment = new Discord.Attachment(url)
         msg.channel.send(webAttachment)
