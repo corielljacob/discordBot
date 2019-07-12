@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const mongo = require('mongodb').MongoClient
-const dburl = 'mongodb://coriell.jacob:reddog01@ds247670.mlab.com:47670/discordbot'
+const dburl = process.env.dbconnection
 const client = new Discord.Client();
 const prefix = 'w!';
 const food_size = 62;
@@ -9,7 +9,10 @@ const flowers_size = 10;
 var name = '';
 var db;
 var collection;
-var purl;
+var myMap = new Map();
+myMap.set("planedonutkun", "jacob");
+myMap.set("raven","raven")
+myMap.set("crls","erin")
 
 mongo.connect(dburl, (err, client) => {
 if (err) {
@@ -136,24 +139,19 @@ client.on('message', msg => {
     role.setColor('#'+hexColor)
     msg.channel.send(`Set color of role to ${role.color}`)
     }
-  }else if (msg.content.toLowerCase() === prefix + 'db') {
-    collection.find().toArray((err, items) => {
-    console.log(items[0].name)
-    var url = items[0].url
-    webAttachment = new Discord.Attachment(url)
-    msg.channel.send(webAttachment)
-    })
   }else if(msg.guild === null){
-    if (msg.attachments.size > 0) {
-    if (msg.attachments.every(attachIsImage)){
-        webAttachment = new Discord.Attachment(purl)
-        msg.channel.send(webAttachment)
-        var myquery = { name: "jacob" };
-        var newvalues = { $set: { url: purl } };
-        collection.updateOne(myquery, newvalues, function(err, res) {
-          console.log("updated url")
-    })
-  }}}else if(msg.content.toLowerCase() === prefix + 'dm'){
+    if (msg.attachments.size === 1) {
+      var purl = msg.attachments.first().url
+      var myquery = { username: msg.author.username };
+      var newvalues = { $set: { url: purl } };
+      collection.updateOne(myquery, newvalues, function(err, res) {
+        console.log("updated url for " + msg.author.username)
+        msg.channel.send('Pic updated!')
+      })
+    }else{
+      msg.channel.send('please send one image and nothing else')
+    }
+  }else if(msg.content.toLowerCase() === prefix + 'dm'){
     msg.author.send('Send a pic to change your command pic')
   }
 });
@@ -175,26 +173,8 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function attachIsImage(msgAttach) {
-    purl = msgAttach.url;
-    return true;
-}
-
-/*function botConnection() {
-  mongo.connect(dburl, (err, client) => {
-  if (err) {
-    console.error(err)
-    return
-  }
-  const db = client.db('discordbot')
-  const collection = db.collection('test')
-
-  })
-
-}*/
-
-client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.D2Bgww.K06SV8DceGTXMdEAkLXfR8RYOxg');
-//client.login(process.env.BOT_TOKEN);
+//client.login('');
+client.login(process.env.BOT_TOKEN);
 
 
 /*Old commands
@@ -208,7 +188,13 @@ client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.D2Bgww.K06SV8DceGTXMdEAkLXfR8RYOxg');
     const attachment = new Discord.Attachment('./valentines/img'+num+'.jpg', 'img'+num+'.jpg');
     msg.channel.send(`To: ${user} From: ` + userVar)
     msg.channel.send(attachment)
-  }
+  }else if (msg.content.toLowerCase() === prefix + 'db') {
+    collection.find().toArray((err, items) => {
+    console.log(items[0].name)
+    var url = items[0].url
+    webAttachment = new Discord.Attachment(url)
+    msg.channel.send(webAttachment)
+    })
 
   else if (msg.content.toLowerCase().includes(prefix + 'flowers')){
     const num = getRandomInt(flowers_size);
