@@ -161,8 +161,8 @@ client.on('message', msg => {
     msg.author.send('Send a pic to change your command pic')
   }else if (command === 'debug'){
     var document = collection2.findOne();
-    var arr = document.roast 
-    msg.channel.send(arr[0])
+    var arr = document.roast
+    msg.channel.send(arr.pop())
   }
 });
 
