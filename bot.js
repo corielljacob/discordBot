@@ -9,6 +9,8 @@ const flowers_size = 10;
 var name = '';
 var db;
 var collection;
+var command;
+
 
 mongo.connect(dburl, (err, client) => {
 if (err) {
@@ -32,106 +34,15 @@ var roasts = ["commit neck rope please", "you should've been thrown in the harbo
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity("w!help --> commands");
+  client.user.setActivity("w!help --> commands")
 });
 
 //command list
 client.on('message', msg => {
   if(msg.author.bot) return;
-  if (msg.content.toLowerCase() === prefix + 'ping') {
-    msg.channel.send('pong')
-  } else if (msg.content.toLowerCase() === prefix + 'help') {
-    msg.channel.send('Current Prefix: ' + prefix)
-    msg.channel.send('Current usable commands: ping, roast, roast2, leek, thomas, thomas2, raven, tobi, anie, jacob, james, bentley, nick, erin, cursedfood, cursedfood#[number of pic you want], stfu (bot deletes messages of anyone you @), speak (bot stops deleting), role, setcolor#[put hex color here] (changes name color)')
-  }else if (msg.content.toLowerCase() === 'bye') {
-    msg.channel.send('cya')
-  } else if (msg.content.toLowerCase() === 'cya') {
-    msg.channel.send('bye')
-  } else if (msg.content.toLowerCase().includes(prefix + 'roast') && !(msg.content.toLowerCase().includes(prefix + 'roast2')) && !(msg.content.toLowerCase().includes(prefix + 'roast 2'))) {
-    if (!msg.mentions.users.size) {
-      return msg.channel.send('You need to specify a correct user.')
-    }
-    const user = msg.mentions.users.first()
-    msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
-  } else if (msg.content.toLowerCase().includes(prefix + 'roast2') || msg.content.toLowerCase().includes(prefix + 'roast 2')) {
-    if (!msg.mentions.users.size) {
-      return msg.channel.send('You need to specify a correct user.')
-    }
-    const dblkill = msg.mentions.users.map(user => {
-      return `${user} ` + roasts[getRandomInt(roasts.length)];
-    });
-    msg.channel.send(dblkill)
-  } else if (msg.content.toLowerCase() === prefix + 'leek') {
-    msg.channel.send('Leeks are different than green onions.')
-  } else if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
-    msg.channel.send('Fuck that dumb shit.')
-  } else if (msg.content.toLowerCase() === prefix + 'thomas') {
-    namepic(msg.content.toLowerCase(), msg)
-  }else if (msg.content.toLowerCase() === prefix + 'thomas2') {
-    namepic(msg.content.toLowerCase(), msg)
-  } else if (msg.content.toLowerCase() === prefix + 'thomas3') {
-    namepic(msg.content.toLowerCase(), msg)
-  } else if (msg.content.toLowerCase() === prefix + 'raven') {
-    namepic(msg.content.toLowerCase(), msg)
-  } else if (msg.content.toLowerCase() === prefix + 'tobi') {
-    namepic(msg.content.toLowerCase(), msg)
-  } else if (msg.content.toLowerCase() === prefix + 'anie') {
-    namepic(msg.content.toLowerCase(), msg)
-  } else if (msg.content.toLowerCase() === prefix + 'bentley') {
-    namepic(msg.content.toLowerCase(), msg)
-  }else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
-    namepic(msg.content.toLowerCase(), msg)
-  } else if (msg.content.toLowerCase() === prefix + 'nick') {
-    namepic(msg.content.toLowerCase(), msg)
-  }else if (msg.content.toLowerCase() === prefix + 'morgan') {
-    namepic(msg.content.toLowerCase(), msg)
-  }else if (msg.content.toLowerCase() === prefix + 'james') {
-    namepic(msg.content.toLowerCase(), msg)
-  }else if (msg.content.toLowerCase() === prefix + 'lode') {
-    namepic(msg.content.toLowerCase(), msg)
-  }else if (msg.content.toLowerCase() === prefix + 'erin') {
-    namepic(msg.content.toLowerCase(), msg)
-  }else if (msg.content.toLowerCase() === prefix + 'cursedfood'){
-    const num = getRandomInt(food_size);
-    const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
-    msg.channel.send(attachment)
-  }else if(msg.content.toLowerCase().includes(prefix + 'cursedfood#')) {
-    const num = parseInt(msg.content.substring(13))
-    if (num < 0 || num > 61){
-      msg.channel.send("Enter a number between 0 and 61")
-    }else{
-    const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
-    msg.channel.send(attachment)
-    }
-  }else if (msg.content.toLowerCase().includes('uwu')){
-    msg.delete(200)
-  }else if (msg.content.toLowerCase().includes(prefix + 'stfu')){
-    const user = msg.mentions.members.first()
-    user.addRole('598342371037544470')
-    msg.channel.send(`${user} shut the fuck up`)
-  } else if (msg.content.toLowerCase().includes(prefix + 'speak')){// && msg.member.roles.has('598342939734966291')){
-    const user = msg.mentions.members.first()
-    if(user.roles.has('598342371037544470')){
-    user.removeRole('598342371037544470')
-    msg.channel.send(`${user} u can speak now`)
-    } else {
-    msg.channel.send('they can already speak dumbass')
-    }
-  }else if (msg.TextChannel && msg.member.roles.has('598342371037544470')){
-    msg.delete(50)
-  }else if(msg.content.toLowerCase() === prefix + 'role'){
-    const user = msg.member
-    msg.channel.send(user.colorRole.hexColor)
-  }else if(msg.content.toLowerCase().includes(prefix + 'setcolor#')){
-    if(msg.content.length != 17){
-      msg.channel.send('Enter a valid hex color')
-    }else{
-    const user = msg.member
-    const role = user.colorRole
-    const hexColor = msg.content.substring(11,17)
-    role.setColor('#'+hexColor)
-    msg.channel.send(`Set color of role to ${role.color}`)
-    }
+
+  if(msg.content.toLowerCase().startsWith('w!')){
+   command = msg.content.toLowerCase().substring(2);
   }else if(msg.guild === null){
     if (msg.attachments.size === 1) {
       var purl = msg.attachments.first().url
@@ -143,14 +54,105 @@ client.on('message', msg => {
       })
     }else{
       msg.channel.send('please send one image and nothing else')
+    } return; }
+    else if (msg.member.roles.has('598342371037544470')){
+      msg.delete(50)
+    }else{
+      return;
     }
-  }else if(msg.content.toLowerCase() === prefix + 'dm'){
+
+  if (command === 'ping') {
+    msg.channel.send('pong')
+  } else if (command === 'help') {
+    msg.channel.send('Current Prefix: ' + prefix)
+    msg.channel.send('Current usable commands: ping, roast, leek, thomas, thomas2, raven, tobi, anie, jacob, james, bentley, nick, erin, \ncursedfood, cursedfood#, stfu , speak , role, setcolor#, dm')
+    msg.channel.send('DM the bot a picture to change your name command pic')
+  }else if (msg.content.toLowerCase() === 'bye') {
+    msg.channel.send('cya')
+  } else if (msg.content.toLowerCase() === 'cya') {
+    msg.channel.send('bye')
+  } else if (command.includes('roast')) {
+    if (!msg.mentions.users.size) {
+      return msg.channel.send('You need to specify a correct user.')
+    }
+    const user = msg.mentions.users.first()
+    msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
+  } else if (command === 'leek') {
+    msg.channel.send('Leeks are different than green onions.')
+  } else if (command ==='hentai' || command === 'furry') {
+    msg.channel.send('Fuck that dumb shit.')
+  } else if (command === 'thomas') {
+    namepic(command, msg)
+  }else if (command === 'thomas2') {
+    namepic(command, msg)
+  } else if (command ==='thomas3') {
+    namepic(command, msg)
+  } else if (command === 'raven') {
+    namepic(command, msg)
+  } else if (command === 'tobi') {
+    namepic(command, msg)
+  } else if (command === 'anie') {
+    namepic(command, msg)
+  } else if (command === 'bentley') {
+    namepic(command, msg)
+  }else if (command === 'jacob' || command === 'jaccob') {
+    namepic(command, msg)
+  } else if (command ==='nick') {
+    namepic(command, msg)
+  }else if (command === 'morgan') {
+    namepic(command, msg)
+  }else if (command === 'james') {
+    namepic(command, msg)
+  }else if (command === 'lode') {
+    namepic(command, msg)
+  }else if (command === 'erin') {
+    namepic(command, msg)
+  }else if (command === 'cursedfood'){
+    const num = getRandomInt(food_size);
+    const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
+    msg.channel.send(attachment)
+  }else if(command.includes('cursedfood#')) {
+    const num = parseInt(command.substring(11))
+    if (num < 0 || num > 61){
+      msg.channel.send("Retry the command with a number between 0 and 61")
+    }else{
+    const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
+    msg.channel.send(attachment)
+    }
+  }else if (msg.content.toLowerCase().includes('uwu')){
+    msg.delete(200)
+  }else if (command.includes('stfu')){
+    const user = msg.mentions.members.first()
+    user.addRole('598342371037544470')
+    msg.channel.send(`${user} shut the fuck up`)
+  } else if (command.includes('speak')){
+    const user = msg.mentions.members.first()
+    if(user.roles.has('598342371037544470')){
+    user.removeRole('598342371037544470')
+    msg.channel.send(`${user} u can speak now`)
+    } else {
+    msg.channel.send('they can already speak dumbass')
+    }
+  }else if(command === 'role'){
+    const user = msg.member
+    msg.channel.send(user.colorRole.hexColor)
+  }else if(command.includes('setcolor#')){
+    if(msg.content.length != 17){
+      msg.channel.send('Enter a valid hex color')
+    }else{
+    const user = msg.member
+    const role = user.colorRole
+    const hexColor = msg.content.substring(11,17)
+    role.setColor('#'+hexColor)
+    msg.channel.send('Set color of role to #'+hexColor )
+    }
+  }else if(command ===  'dm'){
     msg.author.send('Send a pic to change your command pic')
   }
 });
 
 function namepic(command, msg){
-  var name = command.substring(2);
+  var name = command;
   collection.find().toArray((err, items) => {
     items.forEach(function(element) {
       if(element.name === name){
