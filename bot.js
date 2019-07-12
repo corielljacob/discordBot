@@ -153,7 +153,9 @@ client.on('message', msg => {
         collection.updateOne(myquery, newvalues, function(err, res) {
           console.log("updated url")
     })
-  }}}
+  }}}else if(msg.content.toLowerCase() === prefix + 'dm'){
+    msg.author.send('Send a pic to change your command pic')
+  }
 });
 
 function namepic(command, msg){
