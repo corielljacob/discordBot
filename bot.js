@@ -1,10 +1,24 @@
 const Discord = require('discord.js');
+const mongo = require('mongodb').MongoClient
+const dburl = 'mongodb://coriell.jacob:reddog01@ds247670.mlab.com:47670/discordbot'
 const client = new Discord.Client();
 const prefix = 'w!';
 const food_size = 62;
 const val_size = 31;
 const flowers_size = 10;
+var name = '';
+var db;
+var collection;
+var purl;
 
+mongo.connect(dburl, (err, client) => {
+if (err) {
+  console.error(err)
+  return
+}
+db = client.db('discordbot')
+collection = db.collection('test')
+})
 //roast array
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
   "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
@@ -77,8 +91,9 @@ client.on('message', msg => {
     webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/520811570217877505/558439551857852416/image0.jpg')
     msg.channel.send(webAttachment)
   }else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512997765513740309/550861455281356820/image0.jpg')
-    msg.channel.send(webAttachment)
+    //webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512997765513740309/550861455281356820/image0.jpg')
+    //msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   } else if (msg.content.toLowerCase() === prefix + 'nick') {
     webAttachment = new Discord.Attachment('http://i68.tinypic.com/1y0sa0.png')
     msg.channel.send(webAttachment)
@@ -107,21 +122,21 @@ client.on('message', msg => {
       msg.channel.send("Enter a number between 0 and 61")
     }else{
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
-    msg.channel.send(attachment) 
+    msg.channel.send(attachment)
     }
   }else if (msg.content.toLowerCase().includes('uwu')){
     msg.delete(200)
   }else if (msg.content.toLowerCase().includes(prefix + 'stfu')){
     const user = msg.mentions.members.first()
     user.addRole('598342371037544470')
-    msg.channel.send(`${user} shut the fuck up`)       
+    msg.channel.send(`${user} shut the fuck up`)
   } else if (msg.content.toLowerCase().includes(prefix + 'speak')){// && msg.member.roles.has('598342939734966291')){
     const user = msg.mentions.members.first()
     if(user.roles.has('598342371037544470')){
     user.removeRole('598342371037544470')
-    msg.channel.send(`${user} u can speak now`) 
+    msg.channel.send(`${user} u can speak now`)
     } else {
-    msg.channel.send('they can already speak dumbass')  
+    msg.channel.send('they can already speak dumbass')
     }
   }else if (msg.TextChannel && msg.member.roles.has('598342371037544470')){
     msg.delete(50)
@@ -138,17 +153,63 @@ client.on('message', msg => {
     role.setColor('#'+hexColor)
     msg.channel.send(`Set color of role to ${role.color}`)
     }
+  }else if (msg.content.toLowerCase() === prefix + 'db') {
+    collection.find().toArray((err, items) => {
+    console.log(items[0].name)
+    var url = items[0].url
+    webAttachment = new Discord.Attachment(url)
+    msg.channel.send(webAttachment)
+    })
   }else if(msg.guild === null){
-    var url = msg.attachments.first().url
-    msg.channel.send(url)
-  }});
+    if (msg.attachments.size > 0) {
+    if (msg.attachments.every(attachIsImage)){
+        webAttachment = new Discord.Attachment(purl)
+        msg.channel.send(webAttachment)
+        var myquery = { name: "jacob" };
+        var newvalues = { $set: { url: purl } };
+        collection.updateOne(myquery, newvalues, function(err, res) {
+          console.log("updated url")
+    })
+  }}}
+});
+
+function namepic(command, msg){
+  var name = command.substring(2);
+  collection.find().toArray((err, items) => {
+    items.forEach(function(element) {
+      if(element.name === name){
+        var url = element.url
+        webAttachment = new Discord.Attachment(url)
+        msg.channel.send(webAttachment)
+      }
+    })
+  })
+}
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-//client.login('');
-client.login(process.env.BOT_TOKEN);
+function attachIsImage(msgAttach) {
+    purl = msgAttach.url;
+    return true;
+}
+
+/*function botConnection() {
+  mongo.connect(dburl, (err, client) => {
+  if (err) {
+    console.error(err)
+    return
+  }
+  const db = client.db('discordbot')
+  const collection = db.collection('test')
+
+  })
+
+}*/
+
+client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.D2Bgww.K06SV8DceGTXMdEAkLXfR8RYOxg');
+//client.login(process.env.BOT_TOKEN);
 
 
 /*Old commands
@@ -163,6 +224,7 @@ client.login(process.env.BOT_TOKEN);
     msg.channel.send(`To: ${user} From: ` + userVar)
     msg.channel.send(attachment)
   }
+
   else if (msg.content.toLowerCase().includes(prefix + 'flowers')){
     const num = getRandomInt(flowers_size);
     if (!msg.mentions.users.size) {
