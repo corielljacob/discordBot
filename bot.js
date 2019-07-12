@@ -9,10 +9,6 @@ const flowers_size = 10;
 var name = '';
 var db;
 var collection;
-var myMap = new Map();
-myMap.set("planedonutkun", "jacob");
-myMap.set("raven","raven")
-myMap.set("crls","erin")
 
 mongo.connect(dburl, (err, client) => {
 if (err) {
@@ -36,11 +32,12 @@ var roasts = ["commit neck rope please", "you should've been thrown in the harbo
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  client.user.setActivity("w!help --> commands");
 });
 
-client.on('ready', () => {
-  client.user.setActivity("w!help --> commands")
-})
+//client.on('ready', () => {
+  
+//})
 
 //command list
 client.on('message', msg => {
