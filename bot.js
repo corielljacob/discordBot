@@ -70,49 +70,32 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase() === prefix + 'hentai' || msg.content.toLowerCase() === prefix + 'furry') {
     msg.channel.send('Fuck that dumb shit.')
   } else if (msg.content.toLowerCase() === prefix + 'thomas') {
-    webAttachment = new Discord.Attachment('http://i66.tinypic.com/fn5wnn.png')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   }else if (msg.content.toLowerCase() === prefix + 'thomas2') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512998012654714890/538190141370662932/nipple-clamps-620x330.png')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   } else if (msg.content.toLowerCase() === prefix + 'thomas3') {
-    webAttachment = new Discord.Attachment('https://66.media.tumblr.com/d5f1ce30b01ae18cf5f681107fbe87fc/tumblr_pnerq8Ea2u1tmibr6_540.jpg')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   } else if (msg.content.toLowerCase() === prefix + 'raven') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/445658785340456965/536339338296950796/Screenshot_2019-01-14-13-08-06.png')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   } else if (msg.content.toLowerCase() === prefix + 'tobi') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/346028466434473986/598342622859362317/image0.jpg')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   } else if (msg.content.toLowerCase() === prefix + 'anie') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/545091154807619594/image0.jpg')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   } else if (msg.content.toLowerCase() === prefix + 'bentley') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/520811570217877505/558439551857852416/image0.jpg')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   }else if (msg.content.toLowerCase() === prefix + 'jacob' || msg.content.toLowerCase() === prefix + 'jaccob') {
-    //webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/512997765513740309/550861455281356820/image0.jpg')
-    //msg.channel.send(webAttachment)
     namepic(msg.content.toLowerCase(), msg)
   } else if (msg.content.toLowerCase() === prefix + 'nick') {
-    webAttachment = new Discord.Attachment('http://i68.tinypic.com/1y0sa0.png')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   }else if (msg.content.toLowerCase() === prefix + 'morgan') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/328228325862539274/556642198779592714/image0.png')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   }else if (msg.content.toLowerCase() === prefix + 'james') {
-    webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/542182044898426890/542182398247567360/straight.gif')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   }else if (msg.content.toLowerCase() === prefix + 'lode') {
-    webAttachment = new Discord.Attachment('https://i.ytimg.com/vi/-GEHyAfV4OI/hqdefault.jpg')
-    msg.channel.send(webAttachment)
+    namepic(msg.content.toLowerCase(), msg)
   }else if (msg.content.toLowerCase() === prefix + 'erin') {
-    webAttachment = new Discord.Attachment('https://media.discordapp.net/attachments/512994325743927325/594746628871684112/Screenshot_20190630-0029432.png')
-    msg.channel.send(webAttachment)
-  } //else if (msg.content.toLowerCase().includes('cunt')){
-    //webAttachment = new Discord.Attachment('https://cdn.discordapp.com/attachments/373285622225436682/535272121849479188/image0.jpg')
-    //msg.channel.send(webAttachment)
-  else if (msg.content.toLowerCase() === prefix + 'cursedfood'){
+    namepic(msg.content.toLowerCase(), msg)
+  }else if (msg.content.toLowerCase() === prefix + 'cursedfood'){
     const num = getRandomInt(food_size);
     const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
     msg.channel.send(attachment)
