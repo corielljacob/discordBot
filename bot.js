@@ -96,7 +96,7 @@ client.on('message', msg => {
   } else if (command === 'bentley') {
     namepic(command, msg)
   }else if (command === 'jacob' || command === 'jaccob') {
-    namepic(command, msg)
+    namepic('jacob', msg)
   } else if (command ==='nick') {
     namepic(command, msg)
   }else if (command === 'morgan') {
