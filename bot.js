@@ -21,6 +21,7 @@ mongo.connect(dburl, {
   }
   db = client.db('discordbot')
   collection = db.collection('piclinks')
+  collection2 = db.collection('roasts')
 })
 //roast array
 var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
@@ -158,6 +159,9 @@ client.on('message', msg => {
     }
   } else if (command === 'dm') {
     msg.author.send('Send a pic to change your command pic')
+  }else if (command === 'debug'){
+    var arr = collection2.findOne().roast;
+    msg.channel.send(arr[0])
   }
 });
 
