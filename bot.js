@@ -9,6 +9,7 @@ const flowers_size = 10;
 var name = '';
 var db;
 var collection;
+var collection2;
 var command;
 
 
