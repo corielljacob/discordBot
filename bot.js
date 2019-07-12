@@ -109,14 +109,14 @@ client.on('message', msg => {
     namepic(command, msg)
   }else if (command === 'cursedfood'){
     const num = getRandomInt(food_size);
-    const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
+    const attachment = new Discord.Attachment('./assets/images/img'+num+'.png', 'img'+num+'.png');
     msg.channel.send(attachment)
   }else if(command.includes('cursedfood#')) {
     const num = parseInt(command.substring(11))
     if (num < 0 || num > 61){
       msg.channel.send("Retry the command with a number between 0 and 61")
     }else{
-    const attachment = new Discord.Attachment('./images/img'+num+'.png', 'img'+num+'.png');
+    const attachment = new Discord.Attachment('./assets/images/img'+num+'.png', 'img'+num+'.png');
     msg.channel.send(attachment)
     }
   }else if (msg.content.toLowerCase().includes('uwu')){
