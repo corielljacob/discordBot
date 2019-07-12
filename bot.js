@@ -35,10 +35,6 @@ client.on('ready', () => {
   client.user.setActivity("w!help --> commands");
 });
 
-//client.on('ready', () => {
-  
-//})
-
 //command list
 client.on('message', msg => {
   if(msg.author.bot) return;
