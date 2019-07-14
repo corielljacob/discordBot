@@ -3,7 +3,7 @@ const mongo = require('mongodb').MongoClient
 const dburl = process.env.dbconnection
 const client = new Discord.Client();
 const prefix = 'w!';
-const food_size = 62;
+const food_size = 63;
 const val_size = 31;
 const flowers_size = 10;
 var name = '';
@@ -125,8 +125,8 @@ client.on('message', msg => {
     msg.channel.send(attachment)
   } else if (command.includes('cursedfood#')) {
     const num = parseInt(command.substring(11))
-    if (num < 0 || num > 61) {
-      msg.channel.send("Retry the command with a number between 0 and 61")
+    if (num < 0 || num > food_size - 1) {
+      msg.channel.send("Retry the command with a number between 0 and "+food_size-1)
     } else {
       const attachment = new Discord.Attachment('./assets/images/img' + num + '.png', 'img' + num + '.png');
       msg.channel.send(attachment)
