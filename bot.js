@@ -81,7 +81,7 @@ client.on('message', msg => {
     msg.channel.send('DM the bot a picture to change your name command pic')
   } else if (msg.content.toLowerCase() === 'bye') {
     msg.channel.send('cya')
-  } else if (msg.content.toLowerCase().includes('cunt'){
+  } else if (msg.content.toLowerCase().includes('cunt')){
     webAttachment = new Discord.Attachment('https://media.discordapp.net/attachments/538062588039397376/600075738367918080/image0.png')
     msg.channel.send(webAttachment)
   } else if (msg.content.toLowerCase() === 'cya') {
