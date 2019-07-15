@@ -4,14 +4,7 @@ const dburl = process.env.dbconnection
 const client = new Discord.Client();
 const prefix = 'w!';
 const food_size = 63;
-const val_size = 31;
-const flowers_size = 10;
-var name = '';
-var db;
-var collection;
-var collection2;
-var command;
-
+var db, collection, collection2, command;
 
 mongo.connect(dburl, {
   useNewUrlParser: true
