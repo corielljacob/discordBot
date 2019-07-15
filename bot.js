@@ -24,18 +24,6 @@ mongo.connect(dburl, {
   collection = db.collection('piclinks')
   collection2 = db.collection('roasts')
 })
-//roast array
-var roasts = ["commit neck rope please", "you should've been thrown in the harbor with the tea", "cunt", "bitch", "prick", "die", "frick u", "u suck",
-  "subscribe to pewdiepie", "you probably say 'big mood' unironically", "I hope your family gets carried away by ants.",
-  "ur mom gay", "ur dad lesbian", "ur granny tranny", "ur family tree lgbt", "do u even think before speaking", "ur mom should have swallowed",
-  "dont fuck with me; I have the power of GOD and ANIME on my side", "dont ever @ me again", "your mother smells of elderberries",
-  "your mother was a hamster and your father smelt of elderberries", "skidaddle skidoodle your dick is now a noodle", "please delete yourself",
-  "you are a piece of chet please log off ethernet", "you probably say 'big tea' unironically", "go commit toaster bath", "no u", "go commit toaster bath",
-  "Hypothetically though I don’t want you dead", "bentley doesnt love u", "leonardo da binchi", "thomas is gunna ban your ass", "born villain",
-  "you probably like being pissed on like lode", "you probably think foot jobs are grosser than eating ass", "eat my ass", "suck my nuts", "suck my ass", "go fuck urself"
-];
-
-
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -88,16 +76,17 @@ client.on('message', msg => {
       return msg.channel.send('You need to specify a correct user.')
     }
     const user = msg.mentions.users.first()
-    msg.channel.send(`${user} ` + roasts[getRandomInt(roasts.length)])
+    collection2.findOne({
+      num: '1'
+    }, (err, item) => {
+      var index = getRandomInt(item.roast.length)
+      msg.channel.send(`${user} ` + item.roast[index])
+    })
   } else if (command === 'leek') {
     msg.channel.send('Leeks are different than green onions.')
   } else if (command === 'hentai' || command === 'furry') {
     msg.channel.send('Fuck that dumb shit.')
   } else if (command === 'thomas') {
-    namepic(command, msg)
-  } else if (command === 'thomas2') {
-    namepic(command, msg)
-  } else if (command === 'thomas3') {
     namepic(command, msg)
   } else if (command === 'raven') {
     namepic(command, msg)
@@ -126,7 +115,7 @@ client.on('message', msg => {
   } else if (command.includes('cursedfood#')) {
     const num = parseInt(command.substring(11))
     if (num < 0 || num > food_size - 1) {
-      msg.channel.send("Retry the command with a number between 0 and "+food_size-1)
+      msg.channel.send("Retry the command with a number between 0 and " + food_size - 1)
     } else {
       const attachment = new Discord.Attachment('./assets/images/img' + num + '.png', 'img' + num + '.png');
       msg.channel.send(attachment)
@@ -160,10 +149,6 @@ client.on('message', msg => {
     }
   } else if (command === 'dm') {
     msg.author.send('Send a pic to change your command pic')
-  }else if (command === 'debug'){
-    var document = collection2.find({"num" : "1"});
-    var arr = document.roast
-    msg.channel.send(arr.pop())
   }
 });
 
@@ -186,57 +171,3 @@ function getRandomInt(max) {
 
 //client.login('');
 client.login(process.env.BOT_TOKEN);
-
-
-/*Old commands
-/*else if (msg.content.toLowerCase().includes(prefix + 'valentine')){
-    const num = getRandomInt(val_size);
-    if (!msg.mentions.users.size) {
-      return msg.channel.send('You need to specify a correct user.')
-    }
-    const user = msg.mentions.users.first()
-    let userVar = msg.author
-    const attachment = new Discord.Attachment('./valentines/img'+num+'.jpg', 'img'+num+'.jpg');
-    msg.channel.send(`To: ${user} From: ` + userVar)
-    msg.channel.send(attachment)
-  }else if (msg.content.toLowerCase() === prefix + 'db') {
-    collection.find().toArray((err, items) => {
-    console.log(items[0].name)
-    var url = items[0].url
-    webAttachment = new Discord.Attachment(url)
-    msg.channel.send(webAttachment)
-    })
-
-  else if (msg.content.toLowerCase().includes(prefix + 'flowers')){
-    const num = getRandomInt(flowers_size);
-    if (!msg.mentions.users.size) {
-      return msg.channel.send('You need to specify a correct user.')
-    }
-    const user = msg.mentions.users.first()
-    let userVar = msg.author
-    const attachment = new Discord.Attachment('./flowers/img'+num+'.jpg', 'img'+num+'.jpg');
-    msg.channel.send(`To: ${user} From: ` + userVar)
-    msg.channel.send(attachment)
-  }else if (msg.content.toLowerCase().includes('rav+')) {
-    client.channels.get('447604006584451092').fetchMessages({around: "538600752432807936", limit: 1})
-      .then(messages => {
-        const fetchedMsg = messages.first();
-        var counter = parseInt(fetchedMsg);
-        var amt = parseInt(msg.content.substring(4));
-        fetchedMsg.edit(counter+amt);
-  });
-   }else if (msg.content.toLowerCase().charAt(0) === '*' && msg.content.toLowerCase().charAt(1) === '*'){
-    return
-  }else if (msg.content.toLowerCase() === '*roleplaying is for losers*'){
-    msg.delete(200)
-  }else if (msg.content.toLowerCase().charAt(0) === '*' && msg.content.toLowerCase().charAt(msg.length-1) === '*'){
-    msg.channel.send('roleplaying is for LOSERS')
-  }else if (msg.content.toLowerCase() === (prefix + 'l')) {
-    if (!msg.mentions.users.size) {
-      return msg.channel.send('You need to specify a correct user.')
-    }
-    const user = msg.mentions.users.first()
-    webAttachment = new Discord.Attachment('https://discordemoji.com/assets/emoji/6976_DrPhiL.png')
-    msg.channel.send(`${user}`)
-    msg.channel.send(webAttachment)
-  }*/
