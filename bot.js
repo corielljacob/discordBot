@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const mongo = require('mongodb').MongoClient
-const auth = require('./auth.json');
 const dburl = process.env.dbconnection
 const client = new Discord.Client();
 const prefix = 'w!';
@@ -164,4 +163,4 @@ function getRandomInt(max) {
 }
 
 //client.login('');
-client.login(auth.token);
+client.login(process.env.BOT_TOKEN);
