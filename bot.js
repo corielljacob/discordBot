@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const mongo = require('mongodb').MongoClient
+const fetch = require('node-fetch');
 const dburl = process.env.dbconnection
 const client = new Discord.Client();
 const prefix = 'w!';
@@ -24,7 +25,7 @@ client.on('ready', () => {
 });
 
 //command list
-client.on('message', msg => {
+client.on('message', async msg => {
   if (msg.author.bot) return;
 
   if (msg.content.toLowerCase().startsWith('w!')) {
@@ -142,6 +143,16 @@ client.on('message', msg => {
     }
   } else if (command === 'dm') {
     msg.author.send('Send a pic to change your command pic')
+  } else if (command.includes('ud')) {
+    const word = command.substring(3)
+    const body = await fetch('http://api.urbandictionary.com/v0/define?term=' + word).then(response => response.json());
+    if (body.list.length === 0) {
+      msg.channel.send('No definitions found!')
+    } else {
+      var index = getRandomInt(body.list.length)
+      var def = repair(body.list[index].definition, msg)
+      msg.channel.send('' + word + ': ' + def)
+    }
   }
 });
 
@@ -160,6 +171,15 @@ function namepic(command, msg) {
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
+}
+
+function repair(def, msg) {
+  for (var i = 0; i < def.length; i++) {
+    if (def.charAt(i) === '[' || def.charAt(i) === ']') {
+      def = def.substring(0, i) + def.substring(i + 1)
+    }
+  }
+  return def
 }
 
 //client.login('');
