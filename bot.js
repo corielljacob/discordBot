@@ -71,7 +71,7 @@ client.on('message', async msg => {
       client.commands.get(command).execute(msg, args);
     } catch (error) {
       console.error(error);
-      msg.reply('there was an error trying to execute that command! You may need to put a space after a # and the number entered.');
+      msg.reply('there was an error trying to execute that command! You may need to put a space between a # and the number entered.');
     }
   }
 
