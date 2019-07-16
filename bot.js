@@ -16,7 +16,6 @@ for (const file of commandFiles) {
 
 var db, collection, command;
 
-
 mongo.connect(dburl, {
   useNewUrlParser: true
 }, (err, client) => {
