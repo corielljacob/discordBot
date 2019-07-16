@@ -151,7 +151,7 @@ client.on('message', async msg => {
     } else {
       var index = getRandomInt(body.list.length)
       var def = repair(body.list[index].definition, msg)
-      msg.channel.send('' + word + ': ' + def)
+      msg.channel.send('' + body.list[index].word + ': ' + def)
     }
   }
 });
