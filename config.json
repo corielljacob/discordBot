@@ -1,0 +1,6 @@
+{
+  "prefix" : "w!",
+  "dburl" : process.env.dbconnection,
+  "food_size" : 63,
+  "users" : ['thomas', 'jaccob', 'jacob', 'anie', 'lode', 'tobi', 'erin', 'james', 'raven', 'morgan', 'bentley', 'nick']
+}
