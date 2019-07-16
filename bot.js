@@ -3,7 +3,7 @@ const mongo = require('mongodb').MongoClient
 const fetch = require('node-fetch');
 const fs = require('fs');
 const config = require('./config.json')
-
+const dburl = process.env.dbconnection
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 var db, collection, command;
 
 
-mongo.connect(config.dburl, {
+mongo.connect(dburl, {
   useNewUrlParser: true
 }, (err, client) => {
   if (err) {

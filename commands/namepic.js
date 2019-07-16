@@ -2,12 +2,13 @@ var db, collection;
 const mongo = require('mongodb').MongoClient
 const config = require('../config.json');
 const Discord = require('discord.js');
+dburl = process.env.dbconnection
 
 module.exports = {
   name: 'namepic',
   description: 'Displays picture for specified user',
   execute(msg, args, command) {
-    mongo.connect(config.dburl, {
+    mongo.connect(dburl, {
       useNewUrlParser: true
     }, (err, client) => {
       if (err) {
