@@ -15,8 +15,8 @@ module.exports = {
         return;
       }
       var url = message.attachments.first().url
-      var apiKey = '9DRngkFV0msRMuDariVKJvQbhhlvZYqT'
-      var apiSecret = 'sTkg6MQxcll7MET3UklPfWs9RgABdRZ3'
+      var apiKey = process.env.face_key
+      var apiSecret = process.env.face_secret
       const resp = await fetch('https://api-us.faceplusplus.com/facepp/v3/detect?api_key=' + apiKey + '&api_secret=' + apiSecret + '&image_url=' + url + '&return_attributes=gender,age,smiling,beauty,emotion,ethnicity', {
         method: 'POST'
       }).then(response => response.json());

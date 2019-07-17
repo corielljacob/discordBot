@@ -6,7 +6,8 @@ module.exports = {
   description: 'Displays random story about florida man',
   async execute(msg, args) {
     page = parseInt(this.getRandomInt(6))
-    const body = await fetch('https://newsapi.org/v2/everything?q="florida man"&apiKey=4afb217237f54e5790ee6fd1622abd8a&page=' + page).then(response => response.json());
+    var newsKey = process.env.news_key
+    const body = await fetch('https://newsapi.org/v2/everything?q="florida man"&'+newsKey + '&page=' + page).then(response => response.json());
     var obj = eval(body.articles)
     var index = this.getRandomInt(20)
     var i = 0
