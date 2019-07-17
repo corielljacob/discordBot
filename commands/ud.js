@@ -30,6 +30,8 @@ module.exports = {
       if(ex.length === 0){
         ex = 'No examples found'
       }
+
+    //  var output = ('')
       const embed = new Discord.RichEmbed()
         .setColor('#125456')
         .setTitle(entry[index].word)
