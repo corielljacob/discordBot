@@ -31,7 +31,7 @@ module.exports = {
         ex = 'No examples found'
       }
 
-      var output = ('**Word**\n'+entry[index.word] + '\n' + '**Definition**\n'+def+'\n'+'**Example**\n'+ex+'\n'+'**Rating**\n'+entry[index].thumbs_up + ' thumbs up, ' + entry[index].thumbs_down + ' thumbs down')
+      var output = ('**Word**\n'+entry[index].word + '\n' + '**Definition**\n'+def+'\n'+'**Example**\n'+ex+'\n'+'**Rating**\n'+entry[index].thumbs_up + ' thumbs up, ' + entry[index].thumbs_down + ' thumbs down')
       /*const embed = new Discord.RichEmbed()
         .setColor('#125456')
         .setTitle(entry[index].word)
