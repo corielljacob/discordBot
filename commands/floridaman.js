@@ -7,7 +7,7 @@ module.exports = {
   async execute(msg, args) {
     page = parseInt(this.getRandomInt(6))
     var newsKey = process.env.news_key
-    const body = await fetch('https://newsapi.org/v2/everything?q="florida man"&'+newsKey + '&page=' + page).then(response => response.json());
+    const body = await fetch('https://newsapi.org/v2/everything?q="florida man"&apiKey='+newsKey + '&page=' + page).then(response => response.json());
     var obj = eval(body.articles)
     var index = this.getRandomInt(20)
     var i = 0
@@ -19,7 +19,7 @@ module.exports = {
         i++;
       }
     }
-    console.log(page)
+    //console.log(page)
   },
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
