@@ -3,7 +3,7 @@ const mongo = require('mongodb').MongoClient
 const fetch = require('node-fetch');
 const fs = require('fs');
 const config = require('./config.json')
-const dburl = process.env.dbconnection
+const dburl = 'mongodb://coriell.jacob:reddog01@ds247670.mlab.com:47670/discordbot'//process.env.dbconnection
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -76,5 +76,5 @@ client.on('message', async msg => {
 
 });
 
-//client.login('');
-client.login(process.env.BOT_TOKEN);
+client.login('NTM3MTAyMDEwMzU3NjQ1MzEz.D2Bgww.K06SV8DceGTXMdEAkLXfR8RYOxg');
+//client.login(process.env.BOT_TOKEN);
