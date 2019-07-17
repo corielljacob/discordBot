@@ -15,7 +15,7 @@ module.exports = {
       return;
     } else {
       var index = this.getRandomInt(body.list.length)
-      if(body.list[index].definition == null){
+      if(body.list[index] == null || nullbody.list[index].definition == null){
         msg.channel.send("No definitions found")
         return
       }
