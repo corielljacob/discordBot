@@ -15,6 +15,10 @@ module.exports = {
       return;
     } else {
       var index = this.getRandomInt(body.list.length)
+      if(body.list[index].definition == null){
+        msg.channel.send("No definitions found")
+        return
+      }
       while(body.list[index].definition.length > 2000){
         index = this.getRandomInt(body.list.length)
       }
