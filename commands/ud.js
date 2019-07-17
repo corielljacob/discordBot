@@ -15,7 +15,7 @@ module.exports = {
       return;
     } else {
       var index = this.getRandomInt(body.list.length)
-      while(body.list[index].definition.length > 1024){
+      while(body.list[index].definition.length > 2000){
         index = this.getRandomInt(body.list.length)
       }
       if(body.list[index] == null || body.list[index].definition == null){
