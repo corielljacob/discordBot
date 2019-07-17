@@ -10,14 +10,18 @@ module.exports = {
       word = word.concat(args.shift().toLowerCase()) + ' '
     }
     const body = await fetch('http://api.urbandictionary.com/v0/define?term=' + word).then(response => response.json());
-    if (body == null) {
+    if (body == null || body.list == null) {
       msg.channel.send('No definitions found!')
+      return;
     } else {
       var index = this.getRandomInt(body.list.length)
       while(body.list[index].definition.length > 1024){
         index = this.getRandomInt(body.list.length)
       }
-
+      if(body.list[index] == null || body.list[index].definition == null){
+        msg.channel.send('No definitions found!')
+        return;
+      }
       var def = body.list[index].definition.replace(/\[/g,'')
       def = def.replace(/\]/g,'')
       var ex = body.list[index].example.replace(/\[/g,'')
