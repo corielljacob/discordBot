@@ -10,6 +10,6 @@ module.exports = {
         'Accept': 'application/json'
       }
     }).then(response => response.json());
-    console.log(body.joke)
+    msg.channel.send(body.joke)
 	},
 };
