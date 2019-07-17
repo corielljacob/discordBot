@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
 	name: 'dadjoke',
 	description: 'Sends a dad joke received from API call',
-	async execute(message, args) {
+	async execute(msg, args) {
     const body = await fetch('https://icanhazdadjoke.com/', {
       headers: {
         'Accept': 'application/json'
