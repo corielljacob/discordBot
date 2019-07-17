@@ -10,13 +10,22 @@ module.exports = {
       word = word.concat(args.shift().toLowerCase()) + ' '
     }
     const body = await fetch('http://api.urbandictionary.com/v0/define?term=' + word).then(response => response.json());
-    if (body.list.length === 0) {
+    if (body == null) {
       msg.channel.send('No definitions found!')
     } else {
       var index = this.getRandomInt(body.list.length)
-      var def = this.repair(body.list[index].definition, msg)
-      var ex = this.repair(body.list[index].example)
+      while(body.list[index].definition.length > 1024){
+        index = this.getRandomInt(body.list.length)
+      }
+
+      var def = body.list[index].definition.replace(/\[/g,'')
+      def = def.replace(/\]/g,'')
+      var ex = body.list[index].example.replace(/\[/g,'')
+      ex = ex.replace(/\]/g,'')
       var entry = body.list
+      if(ex.length === 0){
+        ex = 'No examples found'
+      }
       const embed = new Discord.RichEmbed()
         .setColor('#125456')
         .setTitle(entry[index].word)
@@ -29,13 +38,5 @@ module.exports = {
   },
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
-  },
-  repair(def, msg) {
-    for (var i = 0; i < def.length; i++) {
-      if (def.charAt(i) === '[' || def.charAt(i) === ']') {
-        def = def.substring(0, i) + def.substring(i + 1)
-      }
-    }
-    return def
   }
 }
