@@ -10,7 +10,7 @@ module.exports = {
       const body = await fetch('https://microsoft-azure-bing-news-search-v1.p.rapidapi.com/search?q=florida man&count=1000&offset='+offset, {
         headers: {
           'X-RapidAPI-Host': 'microsoft-azure-bing-news-search-v1.p.rapidapi.com',
-          'X-RapidAPI-Key': '405f0c0b1emshb22fbc9987c0fc4p1a490fjsn96da1de1b34d'
+          'X-RapidAPI-Key': process.env.newsKey'405f0c0b1emshb22fbc9987c0fc4p1a490fjsn96da1de1b34d'
         }
       }).then(response => response.json());
     //var obj = eval(body.articles)
