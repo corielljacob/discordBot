@@ -15,7 +15,7 @@ module.exports = {
   },
   roast(msg, user) {
     var collection2, dburl;
-    dburl = process.env.dburl;
+    dburl = process.env.dbconnection;
     mongo.connect(dburl, {
       useNewUrlParser: true
     }, (err, client) => {
