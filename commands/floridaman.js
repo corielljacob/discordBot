@@ -5,20 +5,21 @@ module.exports = {
   name: 'floridaman',
   description: 'Displays random story about florida man',
   async execute(msg, args) {
-    page = parseInt(this.getRandomInt(6))
-    var newsKey = process.env.news_key
-    const body = await fetch('https://newsapi.org/v2/everything?q="florida man"&apiKey='+newsKey + '&page=' + page).then(response => response.json());
-    var obj = eval(body.articles)
-    var index = this.getRandomInt(20)
-    var i = 0
-    for (var key in obj) {
-      if (i === index) {
-        msg.channel.send('**'+obj[key].title + '**\n'+ obj[key].description + '\n\n' + obj[key].content + '\n\nRead the full story here: <' +obj[key].url+'>')
-        return;
-      } else {
-        i++;
-      }
+    var offset = parseInt(this.getRandomInt(1000))
+    //var newsKey =
+      const body = await fetch('https://microsoft-azure-bing-news-search-v1.p.rapidapi.com/search?q=florida man&count=1000&offset='+offset, {
+        headers: {
+          'X-RapidAPI-Host': 'microsoft-azure-bing-news-search-v1.p.rapidapi.com',
+          'X-RapidAPI-Key': '405f0c0b1emshb22fbc9987c0fc4p1a490fjsn96da1de1b34d'
+        }
+      }).then(response => response.json());
+    //var obj = eval(body.articles)
+    var index = parseInt(this.getRandomInt(100))
+    while(body.value[index] == null){
+      index = parseInt(this.getRandomInt(100))
     }
+    msg.channel.send('**'+body.value[index].name+'**\n\n'+body.value[index].description+'\n\nRead more here: <'+body.value[index].url+'>')
+
     //console.log(page)
   },
   getRandomInt(max) {
