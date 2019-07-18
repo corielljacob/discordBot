@@ -53,7 +53,7 @@ module.exports = {
     }
     try {
       var webAttachment = new Discord.Attachment(link)
-      console.log(body.items[0].link + '\n' + link)
+      //console.log(body.items[0].link + '\n' + link)
       msg.channel.send(webAttachment)
     } catch (error) {
       msg.channel.send('Couldnt display this image. Sorry!')
