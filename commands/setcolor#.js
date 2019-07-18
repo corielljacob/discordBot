@@ -10,8 +10,12 @@ module.exports = {
     } else {
       const user = msg.member
       const role = user.colorRole
-      role.setColor('#' + hexColor)
-      msg.channel.send('Set color of role to #' + hexColor)
+      if (role == null) {
+        msg.channel.send('please @ jacob, theres a problem with the bot')
+      } else {
+        role.setColor('#' + hexColor)
+        msg.channel.send('Set color of role to #' + hexColor)
+      }
     }
   }
 }
