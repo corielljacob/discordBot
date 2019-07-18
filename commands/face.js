@@ -33,14 +33,14 @@ module.exports = {
 
     collector.on('end', collected => {
       var arr = collected.array()
-			var val = false
+      var val = false
       arr.forEach(function(element) {
         if (element.attachments.size > 0)
-					val = true
+          val = true
       });
-			if(val === false){
-				msg.channel.send('You did not send any pictures')
-			}
+      if (val === false) {
+        msg.channel.send('You did not send any pictures')
+      }
     });
 
   },
