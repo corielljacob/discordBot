@@ -4,7 +4,7 @@ const mongo = require('mongodb').MongoClient
 module.exports = {
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
-  }
+  },
 
   dbconnect(dburl){
     mongo.connect(dburl, {
