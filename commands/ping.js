@@ -1,4 +1,4 @@
-const util = require(../'utility.js')
+const util = require('../utility.js')
 module.exports = {
   name: 'ping',
   description: 'Ping!',
