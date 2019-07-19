@@ -1,5 +1,6 @@
 const config = require('../config.json');
 const mongo = require('mongodb').MongoClient;
+const util = require('../utility.js');
 module.exports = {
   name: 'roast',
   description: 'Roasts a mentioned user',
@@ -9,9 +10,6 @@ module.exports = {
     }
     const user = msg.mentions.users.first()
     this.roast(msg, user)
-  },
-  getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
   },
   roast(msg, user) {
     var collection2, dburl;
@@ -28,7 +26,7 @@ module.exports = {
       collection2.findOne({
         num: '1'
       }, (err, item) => {
-        var index = this.getRandomInt(item.roast.length)
+        var index = util.getRandomInt(item.roast.length)
         msg.channel.send(`${user} ` + item.roast[index])
       })
     })

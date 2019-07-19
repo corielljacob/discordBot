@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 
 var db, collection, command;
 
-/*mongo.connect(dburl, {
+mongo.connect(dburl, {
   useNewUrlParser: true
 }, (err, client) => {
   if (err) {
@@ -26,7 +26,7 @@ var db, collection, command;
   }
   db = client.db('discordbot')
   collection = db.collection('piclinks')
-})*/
+})
 
 
 client.on('ready', () => {
@@ -40,25 +40,12 @@ client.on('message', async msg => {
 
   if (msg.guild === null) {
     if (msg.attachments.size === 1) {
-      db = util.dbconnect(dburl)
-      collection = db.collection('piclinks')
-      var purl = msg.attachments.first().url
-      var myquery = {
-        username: msg.author.username
-      };
-      var newvalues = {
-        $set: {
-          url: purl
-        }
-      };
-      collection.updateOne(myquery, newvalues, function(err, res) {
-        console.log("updated url for " + msg.author.username)
-        msg.channel.send('Pic updated!')
-      })
+      util.setPic(msg,collection)
     } else {
       msg.channel.send('please send one image and nothing else')
     }
     return;
+
   } else if (msg.member.roles.has('598342371037544470')) {
     msg.delete(50)
     return
@@ -73,7 +60,6 @@ client.on('message', async msg => {
     try {
       client.commands.get(command).execute(msg, args);
     } catch (error) {
-      //console.error(error);
       msg.reply('there was an error trying to execute that command! You may need to put a space between a # and the number entered.');
     }
   }

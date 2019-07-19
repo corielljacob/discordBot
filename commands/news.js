@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
 const config = require('../config.json');
 const fetch = require('node-fetch');
+const util = require('../utility.js');
 module.exports = {
   name: 'news',
   description: 'Displays random story about user given query',
   async execute(msg, args) {
-    var offset = parseInt(this.getRandomInt(1000))
+    var offset = parseInt(util.getRandomInt(1000))
     var query = ''
     while (!(args.length === 0)) {
       query = query.concat(args.shift().toLowerCase()) + ' '
@@ -16,16 +17,10 @@ module.exports = {
         'X-RapidAPI-Key': process.env.news_key //''
       }
     }).then(response => response.json());
-    //var obj = eval(body.articles)
-    var index = parseInt(this.getRandomInt(100))
+    var index = parseInt(util.getRandomInt(100))
     while (body.value[index] == null) {
-      index = parseInt(this.getRandomInt(100))
+      index = parseInt(util.getRandomInt(100))
     }
     msg.channel.send('**' + body.value[index].name + '**\n\n' + body.value[index].description + '\n\nRead more here: <' + body.value[index].url + '>')
-
-    //console.log(page)
   },
-  getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
 };

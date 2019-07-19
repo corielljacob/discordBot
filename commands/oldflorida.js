@@ -1,15 +1,16 @@
 const Discord = require('discord.js');
 const config = require('../config.json');
 const fetch = require('node-fetch');
+const util = require('../utility.js');
 module.exports = {
   name: 'oldflorida',
   description: 'Displays random story about florida man',
   async execute(msg, args) {
-    page = parseInt(this.getRandomInt(6))
+    page = parseInt(util.getRandomInt(6))
     var newsKey = process.env.news_key
     const body = await fetch('https://newsapi.org/v2/everything?q="florida man"&apiKey=' + newsKey + '&page=' + page).then(response => response.json());
     var obj = eval(body.articles)
-    var index = this.getRandomInt(20)
+    var index = util.getRandomInt(20)
     var i = 0
     for (var key in obj) {
       if (i === index) {
@@ -19,9 +20,5 @@ module.exports = {
         i++;
       }
     }
-    //console.log(page)
   },
-  getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
 };
