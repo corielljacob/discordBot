@@ -3,6 +3,7 @@ const mongo = require('mongodb').MongoClient
 const fetch = require('node-fetch');
 const fs = require('fs');
 const config = require('./config.json')
+const util = require('./utility.js')
 const dburl = process.env.dbconnection
 
 const client = new Discord.Client();
@@ -16,7 +17,7 @@ for (const file of commandFiles) {
 
 var db, collection, command;
 
-mongo.connect(dburl, {
+/*mongo.connect(dburl, {
   useNewUrlParser: true
 }, (err, client) => {
   if (err) {
@@ -25,7 +26,9 @@ mongo.connect(dburl, {
   }
   db = client.db('discordbot')
   collection = db.collection('piclinks')
-})
+})*/
+db = util.dbconnect(dburl)
+collection = db.collection('piclinks')
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -69,7 +72,7 @@ client.on('message', async msg => {
     try {
       client.commands.get(command).execute(msg, args);
     } catch (error) {
-      console.error(error);
+      //console.error(error);
       msg.reply('there was an error trying to execute that command! You may need to put a space between a # and the number entered.');
     }
   }
