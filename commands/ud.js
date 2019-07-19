@@ -12,12 +12,20 @@ module.exports = {
     }
     const body = await fetch('http://api.urbandictionary.com/v0/define?term=' + word).then(response => response.json());
 
+    if (body == null || body.list == null || body.list.length == null) {
+      msg.channel.send("No definitions found")
+      return
+    }
+
     var index = util.getRandomInt(body.list.length)
 
     if (body.list[index] == null || body.list[index].definition == null) {
       msg.channel.send("No definitions found")
       return
     }
+
+
+
     while (body.list[index].definition.length > 2000) {
       index = util.getRandomInt(body.list.length)
     }
