@@ -27,8 +27,7 @@ var db, collection, command;
   db = client.db('discordbot')
   collection = db.collection('piclinks')
 })*/
-db = util.dbconnect(dburl)
-collection = db.collection('piclinks')
+
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -41,6 +40,8 @@ client.on('message', async msg => {
 
   if (msg.guild === null) {
     if (msg.attachments.size === 1) {
+      db = util.dbconnect(dburl)
+      collection = db.collection('piclinks')
       var purl = msg.attachments.first().url
       var myquery = {
         username: msg.author.username
