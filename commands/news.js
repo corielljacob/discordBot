@@ -8,7 +8,7 @@ module.exports = {
     var offset = parseInt(this.getRandomInt(1000))
     var query = ''
     while (!(args.length === 0)) {
-      query = word.concat(args.shift().toLowerCase()) + ' '
+      query = query.concat(args.shift().toLowerCase()) + ' '
     }
     const body = await fetch('https://microsoft-azure-bing-news-search-v1.p.rapidapi.com/search?q='+query+'&count=1000&offset=' + offset, {
       headers: {
