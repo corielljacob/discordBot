@@ -7,6 +7,7 @@ module.exports = {
   },
 
   dbconnect(dburl){
+    var db
     mongo.connect(dburl, {
       useNewUrlParser: true
     }, (err, client) => {
