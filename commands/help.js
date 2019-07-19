@@ -6,6 +6,6 @@ module.exports = {
     const data = []
     const { commands } = msg.client;
     data.push(commands.map(command => command.name).join(', '));
-    msg.channel.send('Current Prefix: ' + config.prefix + '\n'+data)
+    msg.channel.send('Current Prefix: ' + config.prefix + '\nCommands:'+data)
   },
 };
