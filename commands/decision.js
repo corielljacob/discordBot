@@ -11,3 +11,4 @@ module.exports = {
     var webAttachment = new Discord.Attachment(body.image)
     msg.channel.send(webAttachment)
   }
+}
