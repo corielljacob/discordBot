@@ -1,7 +1,7 @@
 # discordBot
-Personal discord bot with silly inside jokes 
+Discord bot I created for a group of friends and myself to use.
 
-Bot has a list of handlers for responding to user inputs. 
+Bot is built on Node.js has a list of handlers for responding to user inputs. 
 
 This bot is being hosted on Heroku (currently for free as this is just a for-fun small project) -- the bots private key is stored on heroku 
 thus you see " client.login(process.env.BOT_TOKEN); " in bot.js.
