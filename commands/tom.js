@@ -10,7 +10,7 @@ module.exports = {
 
     let index = util.getRandomInt(thom.length)
 
-    msg.channel.send(thom[index])
+    msg.channel.send('"' + thom[index] + '" -- thomas 2k19')
 
 
   }
