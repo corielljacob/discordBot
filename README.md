@@ -1,5 +1,5 @@
 # discordBot
-Discord bot I created for a group of friends and myself to use.
+Discord bot I develop for a group of friends and myself to use.
 
 Bot is built on Node.js has a list of handlers for responding to user inputs. 
 
