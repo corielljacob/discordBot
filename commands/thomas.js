@@ -1,6 +1,6 @@
 const util = require('../utility.js')
 module.exports = {
-  name: 'thomas',
+  name: 'thom',
   description: 'Do something related to thomas.',
   execute(message, args) {
     let thom = ['Why dont ants get sick?', 'Because they have little antibodies', 'Son: What rhymes with orange?\nThomas: no it doesnt', 'Whats loud and sounds like an apple? AN APPLE', 'Whats red and smells like blue paint? red paint', 'Time flies like an arrow; fruit flies like bananas',
