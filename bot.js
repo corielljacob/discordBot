@@ -60,6 +60,7 @@ client.on('message', async msg => {
     try {
       client.commands.get(command).execute(msg, args);
     } catch (error) {
+      console.log(error)
       msg.reply('there was an error trying to execute that command! That command may not exist, you may need to put a space between a # and the number entered, or the bot is having issues.');
     }
   }
