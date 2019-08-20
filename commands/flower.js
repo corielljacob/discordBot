@@ -13,7 +13,7 @@ module.exports = {
       time: 10000
     });
     collector.on('collect', message => {
-      if (message.content == flowername) {
+      if (message.content.toLowerCase() == flowername) {
         message.channel.send("Correct! That is " + flowername);
       } else {
         message.channel.send("Incorrect! That is " + flowername);
