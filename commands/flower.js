@@ -22,6 +22,6 @@ module.exports = {
     });
     collector.on('end', collected => {
       msg.channel.send("You did not answer. That was " + flowername)
-    }
+    });
   }
 };
