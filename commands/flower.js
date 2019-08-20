@@ -6,6 +6,7 @@ module.exports = {
   names: ["buttercup", "daffodil", "daisy", "nettle", "poppy", "snowdrop", "thistle", "tulip", "white clover"],
   flag: false,
   execute(msg, args) {
+    this.flag = false;
     const flowername = this.names[util.getRandomInt(this.names.length)]
     const index = util.getRandomInt(3)
     const attachment = new Discord.Attachment('./assets/flowers/' + flowername + '/img' + index + '.png', 'img' + index + '.png')
