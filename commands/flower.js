@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
   name: 'flower',
   description: 'Display a random flower and prompt user for name of flower.',
-  names: ["buttercup", "daffodil", "daisy", "nettle", "poppy", "snowdrop", "thistle", "tulip", "white clover"],
+  names: ["buttercup", "daffodil", "daisy", "poppy", "snowdrop", "tulip", "alstroemeria","amaranthus","amaryllis"],
   flag: false,
   execute(msg, args) {
     this.flag = false;
