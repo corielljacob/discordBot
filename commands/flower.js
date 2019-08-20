@@ -16,7 +16,7 @@ module.exports = {
     });
     collector.on('collect', message => {
       if (message.content.toLowerCase() == flowername) {
-        message.channel.send("Correct! That is " + flowername);
+        message.channel.send("Correct! That is a " + flowername);
       } else {
         message.channel.send("Incorrect! That is a " + flowername);
       }
@@ -25,7 +25,7 @@ module.exports = {
     });
     collector.on('end', collected => {
       if (!this.flag) {
-        msg.channel.send("You did not answer. That was " + flowername)
+        msg.channel.send("You did not answer. That was a " + flowername)
       }
     });
   }
