@@ -12,5 +12,5 @@ module.exports = {
           } else if (message.content == "Change") {
             message.channel.send("You Want To Change Your Spec OK!");
           }
-        }
+        });
       };
