@@ -24,7 +24,7 @@ module.exports = {
       collector.stop()
     });
     collector.on('end', collected => {
-      if (!this.flag) {
+      if (this.flag == false) {
         msg.channel.send("You did not answer. That was a " + flowername)
       }
     });
