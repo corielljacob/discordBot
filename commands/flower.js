@@ -4,6 +4,7 @@ module.exports = {
   name: 'flower',
   description: 'Display a random flower and prompt user for name of flower.',
   names: ["buttercup", "daffodil", "daisy", "nettle", "poppy", "snowdrop", "thistle", "tulip", "whiteclover"],
+  flag: false,
   execute(msg, args) {
     const flowername = this.names[util.getRandomInt(this.names.length)]
     const index = util.getRandomInt(3)
@@ -18,10 +19,12 @@ module.exports = {
       } else {
         message.channel.send("Incorrect! That is " + flowername);
       }
-      return;
+      this.flag = true;
     });
     collector.on('end', collected => {
-      msg.channel.send("You did not answer. That was " + flowername)
+      if (!this.flag) {
+        msg.channel.send("You did not answer. That was " + flowername)
+      }
     });
   }
 };
