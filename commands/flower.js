@@ -13,8 +13,11 @@ module.exports = {
         time: 10000
       });
       collector.on('collect', message => {
-          if (message.content == "See")
-            message.channel.send("You Want To See Someones Spec OK!");
+          if (message.content == flowername)
+            message.channel.send("Correct! That is " +flowername);
+          else {
+            message.channel.send("Incorrect! That is " + flowername);
+          }
         });
       }
     };
