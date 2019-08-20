@@ -17,7 +17,7 @@ module.exports = {
       if (message.content.toLowerCase() == flowername) {
         message.channel.send("Correct! That is " + flowername);
       } else {
-        message.channel.send("Incorrect! That is " + flowername);
+        message.channel.send("Incorrect! That is a " + flowername);
       }
       this.flag = true
       collector.stop()
