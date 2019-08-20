@@ -1,4 +1,5 @@
 const util = require('../utility.js')
+const Discord = require('discord.js');
 module.exports = {
     name: 'flower',
     description: 'Display a random flower and prompt user for name of flower.',
@@ -12,7 +13,7 @@ module.exports = {
         time: 10000
       });
       collector.on('collect', message => {
-          if (message.content == "See") 
+          if (message.content == "See")
             message.channel.send("You Want To See Someones Spec OK!");
         });
       }
