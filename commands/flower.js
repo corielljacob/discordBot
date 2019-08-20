@@ -19,7 +19,8 @@ module.exports = {
       } else {
         message.channel.send("Incorrect! That is " + flowername);
       }
-      this.flag = true;
+      this.flag = true
+      collector.stop()
     });
     collector.on('end', collected => {
       if (!this.flag) {
