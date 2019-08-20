@@ -11,7 +11,7 @@ module.exports = {
     const attachment = new Discord.Attachment('./assets/flowers/' + flowername + '/img' + index + '.png', 'img' + index + '.png')
     msg.channel.send(attachment)
     const collector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, {
-      time: 10000
+      time: 25000
     });
     collector.on('collect', message => {
       if (message.content.toLowerCase() == flowername) {
