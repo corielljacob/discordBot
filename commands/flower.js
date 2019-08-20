@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
   name: 'flower',
   description: 'Display a random flower and prompt user for name of flower.',
-  names: ["buttercup", "daffodil", "daisy", "poppy", "snowdrop", "tulip", "alstroemeria","amaranthus","amaryllis"],
+  names: ["buttercup", "daffodil", "daisy", "poppy", "snowdrop", "tulip", "alstroemeria", "amaranthus", "amaryllis"],
   flag: false,
   execute(msg, args) {
     this.flag = false;
@@ -17,7 +17,11 @@ module.exports = {
     });
     collector.on('collect', message => {
       if (message.content.toLowerCase() == flowername) {
-        message.channel.send("Correct! That is a " + flowername);
+        if (flowername.startsWith('a')) {
+          message.channel.send("Correct! That is an " + flowername);
+        } else {
+          message.channel.send("Correct! That is a " + flowername);
+        }
       } else {
         message.channel.send("Incorrect! That is a " + flowername);
       }
