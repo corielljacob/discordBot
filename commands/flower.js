@@ -13,4 +13,5 @@ module.exports = {
             message.channel.send("You Want To Change Your Spec OK!");
           }
         });
-      };
+      }
+    };
