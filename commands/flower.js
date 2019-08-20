@@ -12,7 +12,7 @@ module.exports = {
         time: 10000
       });
       collector.on('collect', message => {
-          if (message.content == "See") {
+          if (message.content == "See") 
             message.channel.send("You Want To See Someones Spec OK!");
         });
       }
