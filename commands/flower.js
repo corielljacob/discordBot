@@ -9,7 +9,8 @@ module.exports = {
     const flowername = this.names[util.getRandomInt(this.names.length)]
     const index = util.getRandomInt(3)
     const attachment = new Discord.Attachment('./assets/flowers/' + flowername + '/img' + index + '.png', 'img' + index + '.png')
-    msg.channel.send('Guess this flower: ' + attachment)
+    msg.channel.send('Guess this flower: ')
+    msg.channel.send(attachment)
     const collector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, {
       time: 25000
     });
