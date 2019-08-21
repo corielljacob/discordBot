@@ -6,6 +6,6 @@ module.exports = {
   execute(msg, args) {
     const str = "Hello, one two, three"
     let arr = str.split(",")
-    msg.channel.send(arr[0] + "_" + arr[1] + "_" + arr[2])
+    msg.channel.send(args)
   }
 };
