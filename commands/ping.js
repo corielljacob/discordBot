@@ -6,8 +6,5 @@ module.exports = {
   execute(msg, args) {
     msg.channel.send(util.getRandomInt(3));
     //console.log(util.getRandomInt(5))
-  },
-  getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
   }
 };
