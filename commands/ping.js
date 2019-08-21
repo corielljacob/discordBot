@@ -4,7 +4,8 @@ module.exports = {
   description: 'Ping!',
   array: ['1','2','three'],
   execute(msg, args) {
-    msg.channel.send(util.getRandomInt(3));
-    //console.log(util.getRandomInt(5))
+    const str = "Hello, one two, three"
+    let arr = str.split(",")
+    msg.channel.send(arr[0] + "_" + arr[1] + "_" + arr[2])
   }
 };
