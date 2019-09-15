@@ -36,11 +36,11 @@ client.on('ready', () => {
 
 //command list
 client.on('message', async msg => {
-  if(msg.author.id === 548984223592218634){
+  if(msg.author.id === '548984223592218634'){
     msg.channel.send("mudamaid sent msg")
     return
   }
-  msg.channel.send("ignore");
+
   if (msg.author.bot) return;
 
   if (msg.guild === null) {
