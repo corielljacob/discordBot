@@ -38,6 +38,11 @@ client.on('ready', () => {
 client.on('message', async msg => {
   if (msg.author.bot) return;
 
+  if(msg.author.id === 548984223592218634){
+    msg.channel.send("mudamaid sent msg")
+    return
+  }
+
   if (msg.guild === null) {
     if (msg.attachments.size === 1) {
       util.setPic(msg,collection)
