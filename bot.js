@@ -40,7 +40,7 @@ client.on('message', async msg => {
     msg.channel.send("mudamaid sent msg")
     return
   }
-
+  msg.channel.send("ignore");
   if (msg.author.bot) return;
 
   if (msg.guild === null) {
