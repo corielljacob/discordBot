@@ -36,8 +36,10 @@ client.on('ready', () => {
 
 //command list
 client.on('message', async msg => {
-  if(msg.author.id === '548984223592218634'){
-    msg.channel.send("mudamaid sent msg")
+  if(msg.author.id === '548984223592218634' && msg.channel.id == '525528960503775256'){
+    if(msg.embeds.length > 0){
+      client.commands.get("mudae").execute(msg);
+    }
     return
   }
 
