@@ -7,7 +7,7 @@ module.exports = {
     const emb = msg.embeds[0]
     const exemb = new Discord.RichEmbed(emb)
     const content = exemb.description
-    if (content.includes("Likes"))
+    if (content.includes("roulette"))
       return;
     for (var i = 0; i < content.length; i++) {
       if(content.charAt(i) == '*' && content.charAt(i+1) == '*'){

@@ -36,6 +36,11 @@ client.on('ready', () => {
 
 //command list
 client.on('message', async msg => {
+  /**
+  * Do some checking for Mudae bot scenarios
+  * Scenario 1: Mudae bot sends message in specific channel with an attachment
+  * Scenario 2: Mudae bot sends message in specific channel containing a roll wished by a user
+  */
   if (msg.author.id === '548984223592218634' && msg.channel.id == '525528960503775256') {
     if (msg.embeds.length > 0) {
       client.commands.get("mudae").execute(msg);
@@ -43,11 +48,17 @@ client.on('message', async msg => {
       const emb = msg.embeds[0]
       const exemb = new Discord.RichEmbed(emb)
       const content = exemb.description
-      if (content.includes("Likes")){
-        msg.channel.send("heyo")
+      if (content.includes("Wished")){
+        msg.channel.send("WISHED FOR CHARACTER")
       }
     }
     return
+  }
+
+  if(msg.author.id === '548984223592218634' && msg.content.includes("Wished")){
+    const user = msg.mentions.users.first()
+    msg.channel.send(`Wished for by ${user} `)
+    user.send('A character you wished for just spawned!')
   }
 
   if (msg.author.bot) return;
