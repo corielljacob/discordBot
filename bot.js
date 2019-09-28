@@ -36,9 +36,16 @@ client.on('ready', () => {
 
 //command list
 client.on('message', async msg => {
-  if(msg.author.id === '548984223592218634' && msg.channel.id == '525528960503775256'){
-    if(msg.embeds.length > 0){
+  if (msg.author.id === '548984223592218634' && msg.channel.id == '525528960503775256') {
+    if (msg.embeds.length > 0) {
       client.commands.get("mudae").execute(msg);
+    }else {
+      const emb = msg.embeds[0]
+      const exemb = new Discord.RichEmbed(emb)
+      const content = exemb.description
+      if (content.includes("Likes")){
+        msg.channel.send("heyo")
+      }
     }
     return
   }
@@ -47,15 +54,12 @@ client.on('message', async msg => {
 
   if (msg.guild === null) {
     if (msg.attachments.size === 1) {
-      util.setPic(msg,collection)
+      util.setPic(msg, collection)
     } else {
       msg.channel.send('please send one image and nothing else')
     }
     return;
 
-  } else if (msg.member.roles.has('598342371037544470')) {
-    msg.delete(50)
-    return
   } else if (!msg.content.startsWith(config.prefix)) return;
 
   const args = msg.content.slice(config.prefix.length).split(/ +/);
