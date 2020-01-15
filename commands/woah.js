@@ -7,7 +7,7 @@ module.exports = {
   description: 'Sends Hansen?',
   async execute(msg, args) {
     setInterval(function(){
-    if(currentdate.getMinutes() == currentdate.getHours())
+    if(1==1)
       {
         msg.client.channels.get('537142011455733770').send('Touchez votre nez :nose:');
       }
