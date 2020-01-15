@@ -15,6 +15,6 @@ module.exports = {
         msg.client.channels.get('537142011455733770').send(webAttachment);
         msg.client.channels.get('537142011455733770').send("Why dont you take a seat...");
       }
-    }, 1000 * (60*util.getRandomInt(5);))
+    }, 1000 * (60*util.getRandomInt(5)))
   }
 }
