@@ -8,5 +8,6 @@ module.exports = {
   async execute(msg, args) {
     while (true) {
       util.hansen(1, msg);
+    }
   }
 }
