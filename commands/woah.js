@@ -6,7 +6,7 @@ module.exports = {
   name: 'woah',
   description: 'Sends Hansen?',
   async execute(msg, args) {
-    const val = 1;
+    var val = 1;
     setInterval(function(){
     if(1==1)
       {
