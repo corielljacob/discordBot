@@ -61,7 +61,7 @@ client.on('message', async msg => {
     user.send('A character you wished for just spawned!')
   }
 
-  if(msg.content == 'w!hansen'){
+  if(msg.content == 'w!summon'){
     client.commands.get('hansen').execute(msg);
   }
 
