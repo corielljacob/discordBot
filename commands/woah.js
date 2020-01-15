@@ -5,7 +5,7 @@ const util = require('../utility.js');
 module.exports = {
   name: 'woah',
   description: 'Sends Hansen?',
-  async execute(msg, args) {
+  async execute(msg) {
     var num = util.getRandomInt(3);
     console.log(num);
     if(num == 1 || num == 2) return;

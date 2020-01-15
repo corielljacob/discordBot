@@ -55,10 +55,14 @@ client.on('message', async msg => {
     return
   }
 
-  if (msg.content === '548984223592218634' && msg.content.includes("Wished")) {
+  if (msg.author.id === '548984223592218634' && msg.content.includes("Wished")) {
     const user = msg.mentions.users.first()
     msg.channel.send(`Wished for by ${user} `)
     user.send('A character you wished for just spawned!')
+  }
+
+  if(msg.content == 'w!hansen'){
+    client.commands.get('hansen').execute(msg);
   }
 
   //If message sent is from a bot, exit
