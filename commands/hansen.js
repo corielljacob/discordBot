@@ -3,7 +3,7 @@ const config = require('../config.json');
 const fetch = require('node-fetch');
 const util = require('../utility.js');
 module.exports = {
-  name: 'woah',
+  name: 'hansen',
   description: 'Sends Hansen?',
   async execute(msg) {
     var num = util.getRandomInt(3);
