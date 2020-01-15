@@ -6,10 +6,6 @@ module.exports = {
   name: 'woah',
   description: 'Sends Hansen?',
   async execute(msg, args) {
-    util.hansen(2);
-
-
-
-
+    util.hansen(2, msg);
   }
 }
