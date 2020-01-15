@@ -11,6 +11,6 @@ module.exports = {
       {
         msg.client.channels.get('537142011455733770').send('Touchez votre nez :nose:');
       }
-    }, 1000)
+    }, 1000 * 90)
   }
 }
