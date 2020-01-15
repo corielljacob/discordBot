@@ -8,7 +8,7 @@ module.exports = {
   async execute(msg, args) {
     var num = util.getRandomInt(3);
     console.log(num);
-    if(num = 1 || num = 2) return;
+    if(num == 1 || num == 2) return;
 
     var webAttachment = new Discord.Attachment("https://vignette.wikia.nocookie.net/to-catch-a-predator/images/2/29/6b7f722f-750a-45d8-aca4-d3db587ded7f.jpg")
     msg.client.channels.get('537142011455733770').send(webAttachment);
