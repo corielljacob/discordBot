@@ -9,8 +9,10 @@ module.exports = {
     setInterval(function(){
     if(1==1)
       {
-        msg.client.channels.get('537142011455733770').send('Touchez votre nez :nose:');
+        var webAttachment = new Discord.Attachment("https://vignette.wikia.nocookie.net/to-catch-a-predator/images/2/29/6b7f722f-750a-45d8-aca4-d3db587ded7f.jpg")
+        msg.client.channels.get('537142011455733770').send(webAttachment);
+        msg.client.channels.get('537142011455733770').send("Why dont you take a seat...");
       }
-    }, 1000 * 60)
+    }, 1000 * (60))
   }
 }

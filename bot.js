@@ -55,7 +55,7 @@ client.on('message', async msg => {
     return
   }
 
-  if (msg.author.id === '548984223592218634' && msg.content.includes("Wished")) {
+  if (msg.content === '548984223592218634' && msg.content.includes("Wished")) {
     const user = msg.mentions.users.first()
     msg.channel.send(`Wished for by ${user} `)
     user.send('A character you wished for just spawned!')
