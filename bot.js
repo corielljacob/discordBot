@@ -36,7 +36,8 @@ client.on('ready', () => {
 
 //command list
 client.on('message', async msg => {
-  util.initChecks(msg, client);
+  var flag = util.initChecks(msg, client);
+  if (flag) return;
   //Remove the prefix from the command and split the commands into seperate arguments
   const args = msg.content.slice(config.prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();

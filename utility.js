@@ -40,7 +40,7 @@ module.exports = {
     return link
   },
   initChecks(msg, client){
-
+    var flag = false
     /**
      * Do some checking for Mudae bot scenarios
      * Scenario 1: Mudae bot sends message in specific channel with an attachment
@@ -57,21 +57,29 @@ module.exports = {
           msg.channel.send("WISHED FOR CHARACTER")
         }
       }
-      return
+      flag = true
+      return flag
     }
 
     if (msg.author.id === '548984223592218634' && msg.content.includes("Wished")) {
       const user = msg.mentions.users.first()
       msg.channel.send(`Wished for by ${user} `)
       user.send('A character you wished for just spawned!')
+      flag = true
+      return flag
     }
 
     if(msg.content == 'w!summon'){
       client.commands.get('hansen').execute(msg);
+      flag = true
+      return flag
     }
 
     //If message sent is from a bot, exit
-    if (msg.author.bot) return;
+    if (msg.author.bot){
+      flag = true
+      return flag
+    };
 
     //if message sent as DM to bot contains a picture, initiate setPic command
     if (msg.guild === null) {
@@ -81,9 +89,13 @@ module.exports = {
         msg.client.channels.get('671527521816150017').send(msg.content);
         msg.client.channels.get('537142011455733770').send(msg.author.username + ' ' + msg.content);
       }
-      return;
+      flag = true
+      return flag
 
-    } else if (!msg.content.startsWith(config.prefix)) return; //if a message doesnt contain the prefix, exit
+    } else if (!msg.content.startsWith(config.prefix)){
+      flag = true
+      return flag
+    }; //if a message doesnt contain the prefix, exit
 
   }
 
