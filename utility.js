@@ -40,8 +40,6 @@ module.exports = {
     return link
   },
   initChecks(msg, client, collection){
-    var flag = false
-
     /**
      * Do some checking for Mudae bot scenarios
      * Scenario 1: Mudae bot sends message in specific channel with an attachment
@@ -58,8 +56,7 @@ module.exports = {
           msg.channel.send("WISHED FOR CHARACTER")
         }
       }
-      flag = true
-      return flag
+      return true
     }
 
     //Customization for Mudae bot
@@ -67,8 +64,7 @@ module.exports = {
       const user = msg.mentions.users.first()
       msg.channel.send(`Wished for by ${user} `)
       user.send('A character you wished for just spawned!')
-      flag = true
-      return flag
+      return true
     }
 
     if(msg.author.id === '371301929004957696' && msg.mentions.users.size > 0){
@@ -78,14 +74,12 @@ module.exports = {
     //Hourly execution of hansen command via IFTTT web request
     if(msg.content == 'w!summon'){
       client.commands.get('hansen').execute(msg);
-      flag = true
-      return flag
+      return true
     }
 
     //If message sent is from a bot, exit
     if (msg.author.bot){
-      flag = true
-      return flag
+      return true
     };
 
     //if message sent as DM to bot contains a picture, initiate setPic command
@@ -96,12 +90,10 @@ module.exports = {
         msg.client.channels.get('671527521816150017').send(msg.content);
         msg.client.channels.get('537142011455733770').send(msg.author.username + ' ' + msg.content);
       }
-      flag = true
-      return flag
+      return true
 
     } else if (!msg.content.startsWith(config.prefix)){
-      flag = true
-      return flag
+      return true
     }; //if a message doesnt contain the prefix, exit
 
   }
