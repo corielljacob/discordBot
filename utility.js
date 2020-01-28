@@ -91,7 +91,7 @@ module.exports = {
     //if message sent as DM to bot contains a picture, initiate setPic command
     if (msg.guild === null) {
       if (msg.attachments.size === 1) {
-        util.setPic(msg, collection)
+        setPic(msg, collection)
       } else {
         msg.client.channels.get('671527521816150017').send(msg.content);
         msg.client.channels.get('537142011455733770').send(msg.author.username + ' ' + msg.content);
