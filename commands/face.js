@@ -28,6 +28,7 @@ module.exports = {
       var attr = resp.faces[0].attributes
 
       msg.channel.send('__**Analysis**__\n(Any numeric scores are out of 100)\n' + '__Gender__: ' + attr.gender.value + '\n__Age__: ' + attr.age.value + '\n__Emotions__:\n\tSadness value: ' + attr.emotion.sadness + '\n\tNeutral value: ' + attr.emotion.neutral + '\n\tDisgust value: ' + attr.emotion.disgust + '\n\tAnger value: ' + attr.emotion.anger + '\n\tSurprise value: ' + attr.emotion.surprise + '\n\tFear value: ' + attr.emotion.fear + '\n\tHappiness: ' + attr.emotion.happiness + '\n__Beauty score__: ' + '\n\tMale score: ' + attr.beauty.male_score + '\n\tFemale score: ' + attr.beauty.female_score + '\n__Ethnicity__: ' + attr.ethnicity.value)
+      msg.channel.send(attr.ethnicity.value)
       collector.stop()
     })
 
