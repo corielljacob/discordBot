@@ -1,5 +1,6 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js')
 const mongo = require('mongodb').MongoClient
+const config = require('./config.json')
 
 module.exports = {
   getRandomInt(max) {
