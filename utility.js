@@ -71,7 +71,7 @@ module.exports = {
       return flag
     }
 
-    if(msg.author.id === '371301929004957696'){
+    if(msg.author.id === '371301929004957696' && msg.mentions.users.size > 0){
       msg.channel.send('ok poo poo boy')
     }
 
