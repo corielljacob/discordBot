@@ -39,7 +39,7 @@ module.exports = {
     }
     return link
   },
-  initChecks(msg, client){
+  initChecks(msg, client, collection){
     var flag = false
 
     /**
