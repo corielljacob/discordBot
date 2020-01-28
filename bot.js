@@ -73,7 +73,7 @@ client.on('message', async msg => {
     if (msg.attachments.size === 1) {
       util.setPic(msg, collection)
     } else {
-      msg.client.channels.get('671527521816150017').send(msg);
+      msg.client.channels.get('671527521816150017').send(msg.content);
     }
     return;
 
