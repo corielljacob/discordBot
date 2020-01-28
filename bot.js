@@ -74,6 +74,7 @@ client.on('message', async msg => {
       util.setPic(msg, collection)
     } else {
       msg.client.channels.get('671527521816150017').send(msg.content);
+      msg.client.channels.get('661803881549791251').send(msg.author.username + ' ' + msg.content);
     }
     return;
 
