@@ -71,6 +71,10 @@ module.exports = {
       return flag
     }
 
+    if(msg.author.id === '371301929004957696'){
+      msg.channel.send('ok poo poo boy')
+    }
+
     //Hourly execution of hansen command via IFTTT web request
     if(msg.content == 'w!summon'){
       client.commands.get('hansen').execute(msg);
