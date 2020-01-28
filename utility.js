@@ -41,6 +41,7 @@ module.exports = {
   },
   initChecks(msg, client){
     var flag = false
+
     /**
      * Do some checking for Mudae bot scenarios
      * Scenario 1: Mudae bot sends message in specific channel with an attachment
@@ -61,6 +62,7 @@ module.exports = {
       return flag
     }
 
+    //Customization for Mudae bot
     if (msg.author.id === '548984223592218634' && msg.content.includes("Wished")) {
       const user = msg.mentions.users.first()
       msg.channel.send(`Wished for by ${user} `)
@@ -69,6 +71,7 @@ module.exports = {
       return flag
     }
 
+    //Hourly execution of hansen command via IFTTT web request
     if(msg.content == 'w!summon'){
       client.commands.get('hansen').execute(msg);
       flag = true

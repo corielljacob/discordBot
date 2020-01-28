@@ -56,5 +56,5 @@ client.on('message', async msg => {
 
 });
 
-//client.login('');
+//client.login(''); Used for local hosting
 client.login(process.env.BOT_TOKEN);
