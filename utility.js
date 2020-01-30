@@ -59,6 +59,11 @@ module.exports = {
       return true
     }
 
+    if(msg.guild.id == '661803881549791245' && (msg.content.includes("sabre") || msg.content.includes("Sabre"))){
+      msg.delete()
+      msg.channel.send(`${msg.author} are you dumb????`)
+    }
+
     //Customization for Mudae bot
     if (msg.author.id === '548984223592218634' && msg.content.includes("Wished")) {
       const user = msg.mentions.users.first()
