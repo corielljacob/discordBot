@@ -61,7 +61,11 @@ module.exports = {
 
     if(msg.guild.id == '661803881549791245' && (msg.content.includes("sabre") || msg.content.includes("Sabre"))){
       msg.delete()
-      msg.channel.send(`${msg.author} are you dumb????`)
+      if(msg.author.id == '206693327268085760'){
+        msg.channel.send('ERIN YOU ABSOLUTE BUFFOON')
+      }else{
+        msg.channel.send(`${msg.author} are you dumb????`)
+      }
     }
 
     //Customization for Mudae bot
