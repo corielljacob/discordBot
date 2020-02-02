@@ -45,8 +45,10 @@ module.exports = {
       if (msg.attachments.size === 1) {
         this.setPic(msg, collection)
       } else {
-        msg.client.channels.get('671527521816150017').send(msg.content);
-        msg.client.channels.get('537142011455733770').send(msg.author.username + ' ' + msg.content);
+        if(!msg.author.bot){
+          msg.client.channels.get('671527521816150017').send(msg.content);
+          msg.client.channels.get('537142011455733770').send(msg.author.username + ' ' + msg.content);
+        }
       }
       return true
 
