@@ -40,6 +40,17 @@ module.exports = {
     return link
   },
   initChecks(msg, client, collection){
+    //if message sent as DM to bot contains a picture, initiate setPic command
+    if (msg.guild === null) {
+      if (msg.attachments.size === 1) {
+        this.setPic(msg, collection)
+      } else {
+        msg.client.channels.get('671527521816150017').send(msg.content);
+        msg.client.channels.get('537142011455733770').send(msg.author.username + ' ' + msg.content);
+      }
+      return true
+
+    } 
     /**
      * Do some checking for Mudae bot scenarios
      * Scenario 1: Mudae bot sends message in specific channel with an attachment
@@ -89,19 +100,8 @@ module.exports = {
     //If message sent is from a bot, exit
     if (msg.author.bot){
       return true
-    };
-
-    //if message sent as DM to bot contains a picture, initiate setPic command
-    if (msg.guild === null) {
-      if (msg.attachments.size === 1) {
-        this.setPic(msg, collection)
-      } else {
-        msg.client.channels.get('671527521816150017').send(msg.content);
-        msg.client.channels.get('537142011455733770').send(msg.author.username + ' ' + msg.content);
-      }
-      return true
-
-    } else if (!msg.content.startsWith(config.prefix)){
+    }
+    else if (!msg.content.startsWith(config.prefix)){
       return true
     }; //if a message doesnt contain the prefix, exit
 
