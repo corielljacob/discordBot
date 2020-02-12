@@ -9,7 +9,7 @@ module.exports = {
   setPic(msg, collection) {
     var purl = msg.attachments.first().url
     var myquery = {
-      uid: msg.author.id
+      id: msg.author.id
     };
     var newvalues = {
       $set: {
