@@ -9,7 +9,7 @@ module.exports = {
   setPic(msg, collection) {
     var purl = msg.attachments.first().url
     var myquery = {
-      username: msg.author.username
+      uid: msg.author.id
     };
     var newvalues = {
       $set: {
@@ -17,7 +17,7 @@ module.exports = {
       }
     };
     collection.updateOne(myquery, newvalues, function(err, res) {
-      console.log("updated url for " + msg.author.username)
+      console.log("updated url for " + msg.author.id)
       msg.channel.send('Pic updated!')
     })
   },
