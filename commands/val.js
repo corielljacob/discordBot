@@ -12,6 +12,7 @@ module.exports = {
     const num = util.getRandomInt(40)
     const attachment = new Discord.Attachment('./assets/valentines/img' + num + '.jpg', 'img' + num + '.jpg')
     const user = msg.mentions.users.first()
-    msg.channel.send(`To: ${user}\nFrom: ${msg.author}` + attachment)
+    msg.channel.send(`To: ${user}\nFrom: ${msg.author}`)
+    msg.channel.send(attachment)
   },
 }
