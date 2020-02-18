@@ -37,7 +37,7 @@ client.on('ready', () => {
 //command list
 client.on('message', async msg => {
   if(msg.author.id === '608454650210811905'){
-    var webAttachment = new Discord.Attachment("https://vignette.wikia.nocookie.net/naruto/images/9/97/Rock_Lee_Part_I.png/revision/latest/scale-to-width-down/340?cb=20181229065526.jpg")
+    var webAttachment = new Discord.Attachment("https://vignette.wikia.nocookie.net/naruto/images/9/97/Rock_Lee_Part_I.png")
     msg.channel.send(`${msg.author} ok rock lee looking ass with those big ass brows`)
     msg.channel.send(webAttachment)
     return;
