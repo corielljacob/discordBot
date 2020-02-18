@@ -36,8 +36,9 @@ client.on('ready', () => {
 
 //command list
 client.on('message', async msg => {
-  if(msg.author.id === '0'){
-    msg.channel.send(`${msg.author} `)
+  if(msg.author.id === '206236812916555776'){
+    //msg.channel.send(`${msg.author} `)
+    msg.client.channels.get('538163739283816458').send("was i there");
     return;
   }
   var flag = util.initChecks(msg, client, collection);
