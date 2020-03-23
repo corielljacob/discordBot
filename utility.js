@@ -84,7 +84,7 @@ module.exports = {
     //Customization for Mudae bot
     if (msg.author.id === '548984223592218634' && msg.content.includes("Wished")) {
       const user = msg.mentions.users.first()
-      msg.channel.send(`Wished for by ${user} `)
+      msg.channel.send(`Wished for by $ {user} `)
       user.send('A character you wished for just spawned!')
       return true
     }
