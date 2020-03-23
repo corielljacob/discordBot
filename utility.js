@@ -52,7 +52,7 @@ module.exports = {
       }
       return true
 
-    } 
+    }
     /**
      * Do some checking for Mudae bot scenarios
      * Scenario 1: Mudae bot sends message in specific channel with an attachment
@@ -95,7 +95,17 @@ module.exports = {
 
     //Hourly execution of hansen command via IFTTT web request
     if(msg.content == 'w!summon'){
-      client.commands.get('hansen').execute(msg);
+      client.commands.get('hansen').execute(msg)
+      return true
+    }
+
+    if(msg.content == 'w!am'){
+      client.commands.get('acnh').execute(msg, 0)
+      return true
+    }
+
+    if(msg.content == 'w!pm'){
+      client.commands.get('acnh').execute(msg, 1)
       return true
     }
 
