@@ -11,7 +11,7 @@ module.exports = {
     }
 
     msg.channel.awaitMessages(filter1, {
-        max: 1,
+        max: 5,
         time: 10000
       })
       .then(collected => {
