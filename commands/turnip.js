@@ -7,10 +7,12 @@ module.exports = {
   description: 'Calculate turnip expenditure and potential profit/loss',
   async execute(msg) {
 
-    const first = false
-    const second = false
-    const third = false
-    const response1, response2, response3
+    let first = false
+    let second = false
+    let third = false
+    let response1 = ""
+    let response2 = ""
+    let response3 = ""
 
     const filter1 = m1 => {
       return m1.author.id === msg.author.id
@@ -40,7 +42,7 @@ module.exports = {
         })
         .then(collected => {
           response2 = collected.first();
-          msg.channel.send(response1 + " " + response2)
+          msg.channel.send(response1.content + " " + response2.content)
         });
 
   }
