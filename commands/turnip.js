@@ -22,7 +22,6 @@ module.exports = {
     }
 
     const filter3 = m3 => {
-      msg.channel.send(((second === true) && m3.author.id === msg.author.id))
       return ((second === true) && m3.author.id === msg.author.id)
     }
 
