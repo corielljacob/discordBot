@@ -10,9 +10,9 @@ module.exports = {
     let first = false
     let second = false
     let third = false
-    let response1 = ""
-    let response2 = ""
-    let response3 = ""
+    var response1
+    var response2
+    var response3
 
     const filter1 = m1 => {
       return m1.author.id === msg.author.id
