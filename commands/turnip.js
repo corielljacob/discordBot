@@ -65,7 +65,7 @@ module.exports = {
               sign = "loss"
             }
             msg.channel.send("So you spent " + revenue + " bells on " + response1 + " turnips, and you would like to sell them for " + response3 + " bells each.\nYou can sell for a total of "
-            + soldFor + " bells and your net " + sign + " would be " + net + " bells.")
+            + sell + " bells and your net " + sign + " would be " + net + " bells.")
           });
   }
 
