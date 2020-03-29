@@ -31,7 +31,7 @@ module.exports = {
         time: 10000
       })
       .then(collected => {
-        var response1 = collected.first();
+        response1 = collected.first();
         msg.channel.send("At what price did you purchase those turnips?")
       });
 
@@ -40,7 +40,7 @@ module.exports = {
           time: 10000
         })
         .then(collected => {
-          var response2 = collected.first();
+          response2 = collected.first();
           msg.channel.send(response1.content + " " + response2.content)
         });
 
