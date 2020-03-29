@@ -16,7 +16,7 @@ module.exports = {
       })
       .then(collected => {
         const response = collected.first();
-        msg.channel.send(response)
+        msg.channel.send(response.content)
       });
   }
 
