@@ -52,15 +52,20 @@ module.exports = {
           })
           .then(collected3 => {
             response3 = collected3.first().content;
-            const revenue = parseInt(response1)*parseInt(response2)
-            const net = (parseInt(response1)*parseInt(response3)) - revenue
+            numTurnips = parseInt(response1)
+            boughtFor = parseInt(response2)
+            soldFor = parseInt(response3)
+            const revenue = numTurnips*boughtFor
+            const net = (numTurnips*soldFor) - revenue
+            const sell = (numTurnips*soldFor)
             var sign
             if (net > 0) {
-              sign = "gain"
+              sign = "profit"
             } else {
               sign = "loss"
             }
-            msg.channel.send("So you spent " + revenue + " bells on " + response1 + " turnips, and you would like to sell them for " + response3 + " bells each.\nYour net " + sign + " would be " + net + " bells.")
+            msg.channel.send("So you spent " + revenue + " bells on " + response1 + " turnips, and you would like to sell them for " + response3 + " bells each.\nYou can sell for a total of "
+            + soldFor + " bells and your net " + sign + " would be " + net + " bells.")
           });
   }
 
