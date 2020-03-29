@@ -7,9 +7,9 @@ module.exports = {
   description: 'Calculate turnip expenditure and potential profit/loss',
   async execute(msg) {
 
-    let first = false
-    let second = false
-    let third = false
+    var first = false
+    var second = false
+    var third = false
     var response1 = ""
     var response2 = ""
 
@@ -18,7 +18,7 @@ module.exports = {
     }
 
     const filter2 = m2 => {
-      return ((second === true) && m2.author.id === msg.author.id)
+      return ((first === true) && m2.author.id === msg.author.id)
     }
 
     const filter3 = m3 => {
@@ -32,10 +32,11 @@ module.exports = {
       })
       .then(collected => {
         response1 = collected.first().content;
+        first = true;
         msg.channel.send("At what price did you purchase those turnips?")
       });
 
-      msg.channel.awaitMessages(filter3, {
+      msg.channel.awaitMessages(filter2, {
           max: 1,
           time: 10000
         })
