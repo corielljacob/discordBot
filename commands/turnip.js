@@ -22,7 +22,7 @@ module.exports = {
     }
 
     const filter3 = m3 => {
-      return ((second === true) && m2.author.id === msg.author.id)
+      return ((second === true) && m3.author.id === msg.author.id)
     }
 
     msg.channel.send("How many turnips did you purchase?")
