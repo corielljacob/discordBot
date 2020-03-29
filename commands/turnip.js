@@ -54,7 +54,7 @@ module.exports = {
             response3 = collected3.first().content;
             const revenue = parseInt(response1)*parseInt(response2)
             const net = (parseInt(response1)*parseInt(response3)) - revenue
-            msg.channel.send("So you spent " + revenue + " bells on " + response2 + " turnips, and you would like to sell them for " + response3 + " bells.\nYour net resukt would be " + net + " bells.")
+            msg.channel.send("So you spent " + revenue + " bells on " + response2 + " turnips, and you would like to sell them for " + response3 + " bells each.\nYour net result would be " + net + " bells.")
           });
   }
 
