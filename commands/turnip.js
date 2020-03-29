@@ -10,7 +10,7 @@ module.exports = {
       return m1.author.id === msg.author.id
     }
 
-    msg.channel.awaitMessages(m1, {
+    msg.channel.awaitMessages(filter1, {
         max: 1,
         time: 10000
       })
