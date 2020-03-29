@@ -28,7 +28,7 @@ module.exports = {
     msg.channel.send("How many turnips did you purchase?")
     msg.channel.awaitMessages(filter1, {
         max: 1,
-        time: 10000
+        time: 60000
       })
       .then(collected => {
         response1 = collected.first().content;
@@ -38,7 +38,7 @@ module.exports = {
 
       msg.channel.awaitMessages(filter2, {
           max: 1,
-          time: 10000
+          time: 60000
         })
         .then(collected2 => {
           response2 = collected2.first().content;
@@ -48,7 +48,7 @@ module.exports = {
 
         msg.channel.awaitMessages(filter3, {
             max: 1,
-            time: 10000
+            time: 60000
           })
           .then(collected3 => {
             response3 = collected3.first().content;
