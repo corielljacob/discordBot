@@ -6,19 +6,43 @@ module.exports = {
   name: 'turnip',
   description: 'Calculate turnip expenditure and potential profit/loss',
   async execute(msg) {
+
+    const first = false
+    const second = false
+    const third = false
+    const response1, response2, response3
+
     const filter1 = m1 => {
       return m1.author.id === msg.author.id
     }
-    msg.channel.send("go!")
+
+    const filter2 = m2 => {
+      return ((second === true) && m2.author.id === msg.author.id)
+    }
+
+    const filter3 = m3 => {
+      return ((second === true) && m2.author.id === msg.author.id)
+    }
+
+    msg.channel.send("How many turnips did you purchase?")
     msg.channel.awaitMessages(filter1, {
         max: 1,
         time: 10000
       })
       .then(collected => {
-        const response = collected.first();
-        msg.channel.send(response.content)
+        response1 = collected.first();
+        msg.channel.send("At what price did you purchase those turnips?")
       });
-      msg.channel.send("stop!")
+
+      msg.channel.awaitMessages(filter3, {
+          max: 1,
+          time: 10000
+        })
+        .then(collected => {
+          response2 = collected.first();
+          msg.channel.send(response1 + " " + response2)
+        });
+
   }
 
 }
