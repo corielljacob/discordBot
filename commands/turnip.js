@@ -55,8 +55,8 @@ module.exports = {
             numTurnips = parseInt(response1)
             boughtFor = parseInt(response2)
             soldFor = parseInt(response3)
-            const revenue = numTurnips*boughtFor
-            const net = (numTurnips*soldFor) - revenue
+            const buy = numTurnips*boughtFor
+            const net = (numTurnips*soldFor) - buy
             const sell = (numTurnips*soldFor)
             var sign
             if (net > 0) {
@@ -64,7 +64,7 @@ module.exports = {
             } else {
               sign = "loss"
             }
-            msg.channel.send("So you spent " + revenue + " bells on " + response1 + " turnips, and you would like to sell them for " + response3 + " bells each.\nYou can sell for a total of "
+            msg.channel.send("So you spent " + buy + " bells on " + response1 + " turnips, and you would like to sell them for " + response3 + " bells each.\nYou can sell for a total of "
             + sell + " bells and your net " + sign + " would be " + net + " bells.")
           });
   }
