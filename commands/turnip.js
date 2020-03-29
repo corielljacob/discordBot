@@ -18,7 +18,6 @@ module.exports = {
         const response = collected.first();
         msg.channel.send(response)
       });
-  });
+  }
 
-}
 }
