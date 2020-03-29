@@ -9,15 +9,16 @@ module.exports = {
     const filter1 = m1 => {
       return m1.author.id === msg.author.id
     }
-
+    msg.channel.send("go!")
     msg.channel.awaitMessages(filter1, {
-        max: 5,
+        max: 1,
         time: 10000
       })
       .then(collected => {
         const response = collected.first();
         msg.channel.send(response.content)
       });
+      msg.channel.send("stop!")
   }
 
 }
