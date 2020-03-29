@@ -10,9 +10,7 @@ module.exports = {
     let first = false
     let second = false
     let third = false
-    var response1
-    var response2
-    var response3
+
 
     const filter1 = m1 => {
       return m1.author.id === msg.author.id
@@ -32,7 +30,7 @@ module.exports = {
         time: 10000
       })
       .then(collected => {
-        response1 = collected.first();
+        var response1 = collected.first();
         msg.channel.send("At what price did you purchase those turnips?")
       });
 
@@ -41,7 +39,7 @@ module.exports = {
           time: 10000
         })
         .then(collected => {
-          response2 = collected.first();
+          var response2 = collected.first();
           msg.channel.send(response1.content + " " + response2.content)
         });
 
