@@ -39,8 +39,8 @@ module.exports = {
           max: 1,
           time: 10000
         })
-        .then(collected => {
-          response2 = collected.first().content;
+        .then(collected2 => {
+          response2 = collected2.first().content;
           msg.channel.send(response2)
         });
 
