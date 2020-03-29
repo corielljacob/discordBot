@@ -60,7 +60,7 @@ module.exports = {
             } else {
               sign = "loss"
             }
-            msg.channel.send("So you spent " + revenue + " bells on " + response2 + " turnips, and you would like to sell them for " + response3 + " bells each.\nYour net  " + sign + "would be " + net + " bells.")
+            msg.channel.send("So you spent " + revenue + " bells on " + response2 + " turnips, and you would like to sell them for " + response3 + " bells each.\nYour net " + sign + " would be " + net + " bells.")
           });
   }
 
