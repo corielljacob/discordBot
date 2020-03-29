@@ -42,9 +42,20 @@ module.exports = {
         })
         .then(collected2 => {
           response2 = collected2.first().content;
-          msg.channel.send(response1 + " " + response2)
+          second = true;
+          msg.channel.send("At what price would you like to sell those turnips?")
         });
 
+        msg.channel.awaitMessages(filter3, {
+            max: 1,
+            time: 10000
+          })
+          .then(collected3 => {
+            response3 = collected3.first().content;
+            const revenue = parseInt(response1)*parseInt(response2)
+            const net = (parseInt(response1)*parseInt(response3)) - revenue
+            msg.channel.send("So you spent " + revenue + " bells on " + response2 + " turnips, and you would like to sell them for " + response3 + " bells.\nYour net resukt would be " + net + " bells.")
+          });
   }
 
 }
