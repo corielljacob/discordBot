@@ -10,7 +10,8 @@ module.exports = {
     let first = false
     let second = false
     let third = false
-
+    var response1
+    var response2
 
     const filter1 = m1 => {
       return m1.author.id === msg.author.id
