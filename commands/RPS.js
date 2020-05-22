@@ -19,14 +19,17 @@ module.exports = {
           if(randomPick == 1) msg.channel.send("We tie.")
           else if(randomPick == 2) msg.channel.send("I win!")
           else msg.channel.send("I lose...")
+          break
         case "paper":
           if(randomPick == 1) msg.channel.send("I lose...")
           else if(randomPick == 2) msg.channel.send("We tie.")
           else msg.channel.send("I win!")
+          break
         case "scissors":
           if(randomPick == 1) msg.channel.send("I win!")
           else if(randomPick == 2) msg.channel.send("I lose...")
           else msg.channel.send("We tie.")
+          break
         default:
           msg.channel.send("Thats not a valid choice. Try again.")
       }
