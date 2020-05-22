@@ -1,6 +1,6 @@
 const util = require('../utility.js')
 module.exports = {
-  name: 'RPS',
+  name: 'rps',
   description: 'Play Rock-Paper-Scissors',
   execute(msg, args) {
     let choices = ["rock", "paper", "scissors"]
