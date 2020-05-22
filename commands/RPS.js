@@ -16,18 +16,18 @@ module.exports = {
       let userChoice = message.content.toLowerCase();
       switch(userChoice) {
         case "rock":
-          if(randomPick == 1) msg.channel.send("We tie.")
-          else if(randomPick == 2) msg.channel.send("I win!")
+          if(randomPick == 0) msg.channel.send("We tie.")
+          else if(randomPick == 1) msg.channel.send("I win!")
           else msg.channel.send("I lose...")
           break
         case "paper":
-          if(randomPick == 1) msg.channel.send("I lose...")
-          else if(randomPick == 2) msg.channel.send("We tie.")
+          if(randomPick == 0) msg.channel.send("I lose...")
+          else if(randomPick == 1) msg.channel.send("We tie.")
           else msg.channel.send("I win!")
           break
         case "scissors":
-          if(randomPick == 1) msg.channel.send("I win!")
-          else if(randomPick == 2) msg.channel.send("I lose...")
+          if(randomPick == 0) msg.channel.send("I win!")
+          else if(randomPick == 1) msg.channel.send("I lose...")
           else msg.channel.send("We tie.")
           break
         default:
