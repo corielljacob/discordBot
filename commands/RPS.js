@@ -13,8 +13,8 @@ module.exports = {
 
     collector.on('collect', async message => {
       msg.channel.send("I throw " + choices[randomPick])
-      message = message.toLowerCase();
-      switch(message) {
+      let userChoice = message.content.toLowerCase();
+      switch(userChoice) {
         case "rock":
           if(randomPick == 1) msg.channel.send("We tie.")
           else if(randomPick == 2) msg.channel.send("I win!")
