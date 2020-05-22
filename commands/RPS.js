@@ -19,7 +19,7 @@ module.exports = {
         case "rock":
           if(randomPick == 0) msg.channel.send("We tie.")
           else if(randomPick == 1) msg.channel.send("I win!")
-          else msg.channel.send("I lose...")
+          else msg.channel.send("I lose... :pepehands:")
           break
         case "paper":
           if(randomPick == 0) msg.channel.send("I lose...")
