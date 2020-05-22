@@ -29,7 +29,7 @@ module.exports = {
         default:
           msg.channel.send("Thats not a valid choice. Try again.")
       }
-    }
+    });
 
   }
 };
