@@ -1,4 +1,5 @@
 const util = require('../utility.js')
+const Discord = require('discord.js');
 module.exports = {
   name: 'rps',
   description: 'Play Rock-Paper-Scissors',
