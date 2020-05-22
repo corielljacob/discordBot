@@ -8,6 +8,7 @@ module.exports = {
     let randomPick = util.getRandomInt(3);
     msg.channel.send("I have made my choice, now type yours to play");
     const collector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, {
+      max: 1,
       time: 20000
     });
 
