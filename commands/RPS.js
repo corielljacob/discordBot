@@ -4,6 +4,7 @@ module.exports = {
   name: 'rps',
   description: 'Play Rock-Paper-Scissors',
   execute(msg, args) {
+    const pepehands = msg.client.emojis.get("713511360633241651")
     let choices = ["rock", "paper", "scissors"]
     let randomPick = util.getRandomInt(3);
     msg.channel.send("I have made my choice, now type yours to play");
@@ -19,7 +20,7 @@ module.exports = {
         case "rock":
           if(randomPick == 0) msg.channel.send("We tie.")
           else if(randomPick == 1) msg.channel.send("I win!")
-          else msg.channel.send("I lose... :pepehands:")
+          else msg.channel.send(`I lose... ${pepehands}`)
           break
         case "paper":
           if(randomPick == 0) msg.channel.send("I lose...")
