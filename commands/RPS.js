@@ -18,14 +18,15 @@ module.exports = {
       msg.react('👊')
       msg.react('✋')
       msg.react('✌️')
-      const emojiCollector = msg.createReactionCollector(filter, {
-        max: 1,
-        time: 20000
-      })
 
       const filter = (reaction, user) => {
         return user.id === msg.author.id
       }
+
+      const emojiCollector = msg.createReactionCollector(filter, {
+        max: 1,
+        time: 20000
+      })
 
       emojiCollector.on('collect', (reaction, user) => {
         console.log("collected")
