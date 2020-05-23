@@ -12,19 +12,48 @@ module.exports = {
     const scissors = msg.client.emojis.find(emoji => emoji.name === "v")
     let choices = ["rock", "paper", "scissors"]
     let randomPick = util.getRandomInt(3);
+    let userChoice = 0;
+
     msg.channel.send("I have made my choice, now react or type yours to play").then(function(msg){
       msg.react('👊')
       msg.react('✋')
       msg.react('✌️')
     })
-    const collector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, {
+
+    const msgCollector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, {
       max: 1,
       time: 20000
     });
 
-    collector.on('collect', async message => {
+    const filter = (reaction, user) => {
+      return user.id === msg.author.id
+    }
+
+    const emojiCollector = msg.createReactionCollector(filter, {
+      max:1,
+      time: 20000
+    })
+
+    emojiCollector.on('collect', (reaction, user) => {
+      switch(reaction){
+        case '👊':
+          userChoice = 2
+          break
+        case '✋':
+          userChoice = 0
+          break
+        case '✌️':
+          userChoice = 1
+          break
+      }
+      calcResult(msg, userChoice, botChoice)
+      return
+    })
+
+
+    msgCollector.on('collect', async message => {
       let botChoice = choices[randomPick]
-      let userChoice = message.content.toLowerCase()
+      userChoice = message.content.toLowerCase()
       if(userChoice === botChoice) {
         msg.channel.send("I throw " + botChoice)
         msg.channel.send("We tie " + monkaS.toString())
@@ -44,13 +73,19 @@ module.exports = {
           msg.channel.send("Thats not a valid choice. Try again.")
           return
       }
-      msg.channel.send("I throw " + botChoice)
-      if (userChoice - randomPick == 0){
-        msg.channel.send("I lose " + pepehands.toString())
-      } else {
-        msg.channel.send("I win " + pepelaugh.toString())
-      }
+      calcResult(msg, userChoice, botChoice)
+      return
     });
 
+
+
+  },
+  calcResult(msg, userChoice, botChoice){
+    msg.channel.send("I throw " + botChoice)
+    if (userChoice - randomPick == 0){
+      msg.channel.send("I lose " + pepehands.toString())
+    } else {
+      msg.channel.send("I win " + pepelaugh.toString())
+    }
   }
 };
