@@ -14,13 +14,34 @@ module.exports = {
     let randomPick = util.getRandomInt(3);
     let userChoice = 0;
 
-    msg.channel.send("I have made my choice, now react or type yours to play").then(function(msg){
+    msg.channel.send("I have made my choice, now react or type yours to play").then(function(msg) {
       msg.react('👊')
       msg.react('✋')
       msg.react('✌️')
       const emojiCollector = msg.createReactionCollector(filter, {
-        max:1,
+        max: 1,
         time: 20000
+      })
+
+      const filter = (reaction, user) => {
+        return user.id === msg.author.id
+      }
+
+      emojiCollector.on('collect', (reaction, user) => {
+        console.log("collected")
+        switch (reaction) {
+          case '👊':
+            userChoice = 2
+            break
+          case '✋':
+            userChoice = 0
+            break
+          case '✌️':
+            userChoice = 1
+            break
+        }
+        this.calcResult(msg, userChoice, botChoice)
+        return
       })
     })
 
@@ -29,37 +50,15 @@ module.exports = {
       time: 20000
     });
 
-    const filter = (reaction, user) => {
-      return user.id === msg.author.id
-    }
-
-    emojiCollector.on('collect', (reaction, user) => {
-      console.log("collected")
-      switch(reaction){
-        case '👊':
-          userChoice = 2
-          break
-        case '✋':
-          userChoice = 0
-          break
-        case '✌️':
-          userChoice = 1
-          break
-      }
-      this.calcResult(msg, userChoice, botChoice)
-      return
-    })
-
-
     msgCollector.on('collect', async message => {
       let botChoice = choices[randomPick]
       userChoice = message.content.toLowerCase()
-      if(userChoice === botChoice) {
+      if (userChoice === botChoice) {
         msg.channel.send("I throw " + botChoice)
         msg.channel.send("We tie " + monkaS.toString())
         return
       }
-      switch(userChoice) {
+      switch (userChoice) {
         case "rock":
           userChoice = 2
           break
@@ -80,9 +79,9 @@ module.exports = {
 
 
   },
-  calcResult(msg, userChoice, botChoice){
+  calcResult(msg, userChoice, botChoice) {
     msg.channel.send("I throw " + botChoice)
-    if (userChoice - randomPick == 0){
+    if (userChoice - randomPick == 0) {
       msg.channel.send("I lose " + pepehands.toString())
     } else {
       msg.channel.send("I win " + pepelaugh.toString())
