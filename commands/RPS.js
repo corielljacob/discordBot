@@ -35,6 +35,7 @@ module.exports = {
     })
 
     emojiCollector.on('collect', (reaction, user) => {
+      console.log("collected")
       switch(reaction){
         case '👊':
           userChoice = 2
