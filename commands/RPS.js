@@ -13,9 +13,9 @@ module.exports = {
     let choices = ["rock", "paper", "scissors"]
     let randomPick = util.getRandomInt(3);
     msg.channel.send("I have made my choice, now react or type yours to play").then(function(msg){
-      msg.react(rock.toString())
-      msg.react(paper.toString())
-      msg.react(scissors.toString())
+      msg.react('713586313005236256')
+      msg.react('713586338540158996')
+      msg.react('713586366109319168')
     })
     const collector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, {
       max: 1,
