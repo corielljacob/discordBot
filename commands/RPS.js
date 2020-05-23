@@ -16,16 +16,16 @@ module.exports = {
     let userChoice = 0;
     let botChoice = choices[randomPick]
 
-    msg.channel.send("I have made my choice, now react or type yours to play").then(function(msg) {
-      msg.react('👊')
-      msg.react('✋')
-      msg.react('✌️')
+    msg.channel.send("I have made my choice, now react or type yours to play").then(function(message) {
+      message.react('👊')
+      message.react('✋')
+      message.react('✌️')
 
       const filter = (reaction, user) => {
         return user.id === msg.author.id
       }
 
-      const emojiCollector = msg.createReactionCollector(filter, {
+      const emojiCollector = message.createReactionCollector(filter, {
         max: 1,
         time: 20000
       })
