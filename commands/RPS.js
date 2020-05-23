@@ -32,6 +32,7 @@ module.exports = {
       })
 
       emojiCollector.on('collect', (reaction, user) => {
+        let emoji = reaction.emoji
         used = true;
         if(reaction == emojiChoices[randomPick]){
           msg.channel.send("We tie " + monkaS.toString())
@@ -50,7 +51,7 @@ module.exports = {
         }
         console.log("user choice: " + userChoice)
         console.log("bot choice " + botChoice)
-        console.log(reaction)
+        console.log(emoji)
         util.calcResult(msg, userChoice, botChoice, randomPick)
         return
       })
