@@ -4,6 +4,7 @@ module.exports = {
   name: 'rps',
   description: 'Play Rock-Paper-Scissors',
   execute(msg, args) {
+    let used = false;
     const pepehands = msg.client.emojis.find(emoji => emoji.name === "pepehands")
     const pepelaugh = msg.client.emojis.find(emoji => emoji.name === "pepelaugh")
     const monkaS = msg.client.emojis.find(emoji => emoji.name === "monkaS")
@@ -22,7 +23,7 @@ module.exports = {
       message.react('✌️')
 
       const filter = (reaction, user) => {
-        return user.id === msg.author.id
+        return user.id === msg.author.id && !used
       }
 
       const emojiCollector = message.createReactionCollector(filter, {
@@ -31,6 +32,7 @@ module.exports = {
       })
 
       emojiCollector.on('collect', (reaction, user) => {
+        used = true;
         if(reaction == emojiChoices[randomPick]){
           msg.channel.send("We tie " + monkaS.toString())
           return
@@ -46,17 +48,20 @@ module.exports = {
             userChoice = 1
             break
         }
+        console.log("user choice: " + userChoice)
+        console.log("bot choice " + botChoice)
         util.calcResult(msg, userChoice, botChoice, randomPick)
         return
       })
     })
 
-    const msgCollector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, {
+    const msgCollector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, !used {
       max: 1,
       time: 20000
     });
 
     msgCollector.on('collect', async message => {
+      used = true;
       userChoice = message.content.toLowerCase()
       if (userChoice === botChoice) {
         msg.channel.send("I throw " + botChoice)
