@@ -42,7 +42,7 @@ module.exports = {
             userChoice = 1
             break
         }
-        util.calcResult(msg, userChoice, botChoice)
+        util.calcResult(msg, userChoice, botChoice, randomPick)
         return
       })
     })
@@ -73,7 +73,7 @@ module.exports = {
           msg.channel.send("Thats not a valid choice. Try again.")
           return
       }
-      util.calcResult(msg, userChoice, botChoice)
+      util.calcResult(msg, userChoice, botChoice, randomPick)
       return
     });
 

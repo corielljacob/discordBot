@@ -119,7 +119,7 @@ module.exports = {
 
   },
 
-  calcResult(msg, userChoice, botChoice) {
+  calcResult(msg, userChoice, botChoice, randomPick) {
     msg.channel.send("I throw " + botChoice)
     if (userChoice - randomPick == 0) {
       msg.channel.send("I lose " + pepehands.toString())
