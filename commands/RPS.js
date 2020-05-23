@@ -32,7 +32,7 @@ module.exports = {
       })
 
       emojiCollector.on('collect', (reaction, user) => {
-        let emoji = reaction.emoji
+        let emoji = reaction.emoji.name
         used = true;
         if(emoji == emojiChoices[randomPick]){
           msg.channel.send("We tie " + monkaS.toString())
