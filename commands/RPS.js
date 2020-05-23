@@ -16,26 +16,31 @@ module.exports = {
     });
 
     collector.on('collect', async message => {
-      msg.channel.send("I throw " + choices[randomPick])
-      let userChoice = message.content.toLowerCase();
+      let botChoice = choices[randomPick]
+      let userChoice = message.content.toLowerCase()
+      if(userChoice === botChoice) {
+        msg.channel.send("I throw " + botChoice)
+        msg.channel.send("We tie " + monkaS.toString())
+      }
       switch(userChoice) {
         case "rock":
-          if(randomPick == 0) msg.channel.send("We tie " + monkaS.toString())
-          else if(randomPick == 1) msg.channel.send("I win " + pepelaugh.toString())
-          else msg.channel.send("I lose " + pepehands.toString())
+          userChoice = 2
           break
         case "paper":
-          if(randomPick == 0) msg.channel.send("I lose " + pepehands.toString())
-          else if(randomPick == 1) msg.channel.send("We tie " + monkaS.toString())
-          else msg.channel.send("I win " + pepelaugh.toString())
+          userChoice = 0
           break
         case "scissors":
-          if(randomPick == 0) msg.channel.send("I win " + pepelaugh.toString())
-          else if(randomPick == 1) msg.channel.send("I lose " + pepehands.toString())
-          else msg.channel.send("We tie " + monkaS.toString())
+          userChoice = 1
           break
         default:
           msg.channel.send("Thats not a valid choice. Try again.")
+          return
+      }
+      msg.channel.send("I throw " + botChoice)
+      if (userChoice - randomPick == 0){
+        msg.channel.send("I lose " + pepehands.toString())
+      } else {
+        msg.channel.send("I win " + pepelaugh.toString())
       }
     });
 
