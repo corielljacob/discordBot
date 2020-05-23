@@ -42,7 +42,7 @@ module.exports = {
             userChoice = 1
             break
         }
-        this.calcResult(msg, userChoice, botChoice)
+        util.calcResult(msg, userChoice, botChoice)
         return
       })
     })
@@ -73,19 +73,11 @@ module.exports = {
           msg.channel.send("Thats not a valid choice. Try again.")
           return
       }
-      this.calcResult(msg, userChoice, botChoice)
+      util.calcResult(msg, userChoice, botChoice)
       return
     });
 
 
 
-  },
-  calcResult(msg, userChoice, botChoice) {
-    msg.channel.send("I throw " + botChoice)
-    if (userChoice - randomPick == 0) {
-      msg.channel.send("I lose " + pepehands.toString())
-    } else {
-      msg.channel.send("I win " + pepelaugh.toString())
-    }
   }
 };

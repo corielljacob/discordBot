@@ -117,6 +117,15 @@ module.exports = {
       return true
     }; //if a message doesnt contain the prefix, exit
 
+  },
+
+  calcResult(msg, userChoice, botChoice) {
+    msg.channel.send("I throw " + botChoice)
+    if (userChoice - randomPick == 0) {
+      msg.channel.send("I lose " + pepehands.toString())
+    } else {
+      msg.channel.send("I win " + pepelaugh.toString())
+    }
   }
 
 }
