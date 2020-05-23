@@ -21,6 +21,7 @@ module.exports = {
       if(userChoice === botChoice) {
         msg.channel.send("I throw " + botChoice)
         msg.channel.send("We tie " + monkaS.toString())
+        return
       }
       switch(userChoice) {
         case "rock":
