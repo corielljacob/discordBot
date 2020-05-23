@@ -13,6 +13,7 @@ module.exports = {
     let choices = ["rock", "paper", "scissors"]
     let randomPick = util.getRandomInt(3);
     let userChoice = 0;
+    let botChoice = choices[randomPick]
 
     msg.channel.send("I have made my choice, now react or type yours to play").then(function(msg) {
       msg.react('👊')
@@ -52,7 +53,6 @@ module.exports = {
     });
 
     msgCollector.on('collect', async message => {
-      let botChoice = choices[randomPick]
       userChoice = message.content.toLowerCase()
       if (userChoice === botChoice) {
         msg.channel.send("I throw " + botChoice)
