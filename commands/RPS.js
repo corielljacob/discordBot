@@ -55,7 +55,7 @@ module.exports = {
       })
     })
 
-    const msgCollector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, !used {
+    const msgCollector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, !used, {
       max: 1,
       time: 20000
     });
