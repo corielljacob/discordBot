@@ -34,11 +34,11 @@ module.exports = {
       emojiCollector.on('collect', (reaction, user) => {
         let emoji = reaction.emoji
         used = true;
-        if(reaction == emojiChoices[randomPick]){
+        if(emoji == emojiChoices[randomPick]){
           msg.channel.send("We tie " + monkaS.toString())
           return
         }
-        switch (reaction) {
+        switch (emoji) {
           case '👊':
             userChoice = 2
             break
