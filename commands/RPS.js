@@ -18,6 +18,10 @@ module.exports = {
       msg.react('👊')
       msg.react('✋')
       msg.react('✌️')
+      const emojiCollector = msg.createReactionCollector(filter, {
+        max:1,
+        time: 20000
+      })
     })
 
     const msgCollector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, {
@@ -28,11 +32,6 @@ module.exports = {
     const filter = (reaction, user) => {
       return user.id === msg.author.id
     }
-
-    const emojiCollector = msg.createReactionCollector(filter, {
-      max:1,
-      time: 20000
-    })
 
     emojiCollector.on('collect', (reaction, user) => {
       console.log("collected")
@@ -47,7 +46,7 @@ module.exports = {
           userChoice = 1
           break
       }
-      calcResult(msg, userChoice, botChoice)
+      this.calcResult(msg, userChoice, botChoice)
       return
     })
 
@@ -74,7 +73,7 @@ module.exports = {
           msg.channel.send("Thats not a valid choice. Try again.")
           return
       }
-      calcResult(msg, userChoice, botChoice)
+      this.calcResult(msg, userChoice, botChoice)
       return
     });
 
