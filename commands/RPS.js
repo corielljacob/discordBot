@@ -35,6 +35,7 @@ module.exports = {
         let emoji = reaction.emoji.name
         used = true;
         if(emoji == emojiChoices[randomPick]){
+          msg.channel.send("I throw " + botChoice)
           msg.channel.send("We tie " + monkaS.toString())
           return
         }
@@ -49,9 +50,6 @@ module.exports = {
             userChoice = 1
             break
         }
-        console.log("user choice: " + userChoice)
-        console.log("bot choice " + botChoice)
-        console.log(emoji)
         util.calcResult(msg, userChoice, botChoice, randomPick)
         return
       })
