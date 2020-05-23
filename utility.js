@@ -122,8 +122,10 @@ module.exports = {
   calcResult(msg, userChoice, botChoice, randomPick) {
     msg.channel.send("I throw " + botChoice)
     if (userChoice - randomPick == 0) {
+      const pepehands = msg.client.emojis.find(emoji => emoji.name === "pepehands")
       msg.channel.send("I lose " + pepehands.toString())
     } else {
+      const pepelaugh = msg.client.emojis.find(emoji => emoji.name === "pepelaugh")
       msg.channel.send("I win " + pepelaugh.toString())
     }
   }

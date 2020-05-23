@@ -11,6 +11,7 @@ module.exports = {
     const paper = msg.client.emojis.find(emoji => emoji.name === "back_of_hand")
     const scissors = msg.client.emojis.find(emoji => emoji.name === "v")
     let choices = ["rock", "paper", "scissors"]
+    let emojiChoices = ['👊','✋','✌️']
     let randomPick = util.getRandomInt(3);
     let userChoice = 0;
     let botChoice = choices[randomPick]
@@ -30,7 +31,10 @@ module.exports = {
       })
 
       emojiCollector.on('collect', (reaction, user) => {
-        console.log("collected")
+        if(reaction == emojiChoices[randomPick]){
+          msg.channel.send("We tie " + monkaS.toString())
+          return
+        }
         switch (reaction) {
           case '👊':
             userChoice = 2
