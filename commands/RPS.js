@@ -7,9 +7,16 @@ module.exports = {
     const pepehands = msg.client.emojis.find(emoji => emoji.name === "pepehands")
     const pepelaugh = msg.client.emojis.find(emoji => emoji.name === "pepelaugh")
     const monkaS = msg.client.emojis.find(emoji => emoji.name === "monkaS")
+    const rock = msg.client.emojis.find(emoji => emoji.name === "punch")
+    const paper = msg.client.emojis.find(emoji => emoji.name === "back_of_hand")
+    const scissors = msg.client.emojis.find(emoji => emoji.name === "v")
     let choices = ["rock", "paper", "scissors"]
     let randomPick = util.getRandomInt(3);
-    msg.channel.send("I have made my choice, now type yours to play");
+    msg.channel.send("I have made my choice, now react or type yours to play").then(function(msg){
+      msg.react(rock)
+      msg.react(paper)
+      msg.react(scissors)
+    })
     const collector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, {
       max: 1,
       time: 20000
