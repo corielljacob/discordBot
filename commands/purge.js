@@ -1,0 +1,10 @@
+const util = require('../utility.js')
+const Discord = require('discord.js');
+module.exports = {
+  name: 'purge',
+  description: 'Delete a specified number of messages',
+  execute(msg, args) {
+    console.log(args[0]);
+  }
+
+}
