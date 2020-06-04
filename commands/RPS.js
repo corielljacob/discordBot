@@ -5,7 +5,6 @@ module.exports = {
   description: 'Play Rock-Paper-Scissors',
   execute(msg, args) {
     let used = false;
-    const pepehands = msg.client.emojis.find(emoji => emoji.name === "pepehands")
     const pepelaugh = msg.client.emojis.find(emoji => emoji.name === "pepelaugh")
     const monkaS = msg.client.emojis.find(emoji => emoji.name === "monkaS")
     const rock = msg.client.emojis.find(emoji => emoji.name === "punch")

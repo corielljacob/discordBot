@@ -110,13 +110,10 @@ module.exports = {
     }
 
     //If message sent is from a bot, exit
-    if (msg.author.bot){
+    if (msg.author.bot || !msg.content.startsWith(config.prefix)){
       return true
     }
-    else if (!msg.content.startsWith(config.prefix)){
-      return true
-    }; //if a message doesnt contain the prefix, exit
-
+    
   },
 
   calcResult(msg, userChoice, botChoice, randomPick) {
