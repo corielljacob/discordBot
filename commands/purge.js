@@ -4,7 +4,7 @@ module.exports = {
   name: 'purge',
   description: 'Delete a specified number of messages',
   execute(msg, args) {
-    msg.channel.bulkDelete(args[0] + 1)
+    msg.channel.bulkDelete(args[0])
   }
 
 }
