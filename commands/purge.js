@@ -4,9 +4,11 @@ module.exports = {
   name: 'purge',
   description: 'Delete a specified number of messages',
   execute(msg, args) {
-    msg.channel.bulkDelete(args[0])
-      .catch(console.error) {
-        msg.channel.send("error")
-      }
+    try{
+      msg.channel.bulkDelete(args[0])
+    }
+    catch(err){
+      msg.channel.send("Please enter a valid number of messages to delete")
+    }
   }
 }
