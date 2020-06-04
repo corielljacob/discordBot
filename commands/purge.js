@@ -6,8 +6,12 @@ module.exports = {
   execute(msg, args) {
     if(Number.isInteger(args[0]) && args[0] > 0)
       msg.channel.bulkDelete(args[0])
-    else
+    else{
       msg.channel.send("Please provide a valid number of messages to delete.")
+      console.log(Number.isInteger(args[0]))
+      console.log(args[0])
+    }
+
   }
 
 }
