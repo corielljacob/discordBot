@@ -1,10 +1,22 @@
 const Discord = require('discord.js')
 const mongo = require('mongodb').MongoClient
+const url = process.env.dbconnection;
 const config = require('./config.json')
+
+var _db;
 
 module.exports = {
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
+  },
+  connectToServer: function(callback){
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
+      _db  = client.db('discordbot');
+      return callback(err);
+    });
+  },
+  getDB: function() {
+    return _db;
   },
   setPic(msg, collection) {
     var purl = msg.attachments.first().url
@@ -113,7 +125,7 @@ module.exports = {
     if (msg.author.bot || !msg.content.startsWith(config.prefix)){
       return true
     }
-    
+
   },
 
   calcResult(msg, userChoice, botChoice, randomPick) {

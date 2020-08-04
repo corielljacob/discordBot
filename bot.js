@@ -35,24 +35,29 @@ client.on('ready', () => {
 
 //command handling
 client.on('message', async msg => {
-  var flag = util.initChecks(msg, client, collection);
-  if (flag) return;
 
-  //Remove the prefix from the command and split the commands into seperate arguments
-  const args = msg.content.slice(config.prefix.length).split(/ +/);
-  const command = args.shift().toLowerCase();
+  util.connectToServer(function(err, client) {
+    if (err) console.log(err);
 
-  //initiate dynamic command handling
-  if (config.users.includes(command)) {
-    client.commands.get('namepic').execute(msg, args, command)
-  } else {
-    try {
-      client.commands.get(command).execute(msg, args);
-    } catch (error) {
-      console.log(error)
-      msg.reply('there was an error trying to execute that command! That command may not exist, you may have entered the command incorrectly, or the bot is having issues. \nIf you are trying to set your color, the format is: w!setcolor# hexcode');
+    var flag = util.initChecks(msg, client, collection);
+    if (flag) return;
+
+    //Remove the prefix from the command and split the commands into seperate arguments
+    const args = msg.content.slice(config.prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    //initiate dynamic command handling
+    if (config.users.includes(command)) {
+      client.commands.get('namepic').execute(msg, args, command)
+    } else {
+      try {
+        client.commands.get(command).execute(msg, args);
+      } catch (error) {
+        console.log(error)
+        msg.reply('there was an error trying to execute that command! That command may not exist, you may have entered the command incorrectly, or the bot is having issues. \nIf you are trying to set your color, the format is: w!setcolor# hexcode');
+      }
     }
-  }
+  });
 
 });
 
