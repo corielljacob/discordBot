@@ -33,14 +33,12 @@ client.on('ready', () => {
   client.user.setActivity("w!help --> commands")
 });
 
-//command list
+//command handling
 client.on('message', async msg => {
-  if(msg.author.id === '0'){
-    //msg.channel.send(`${msg.author} `)
-    return;
-  }
+
   var flag = util.initChecks(msg, client, collection);
   if (flag) return;
+
   //Remove the prefix from the command and split the commands into seperate arguments
   const args = msg.content.slice(config.prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
@@ -55,8 +53,6 @@ client.on('message', async msg => {
       console.log(error)
       msg.reply('there was an error trying to execute that command! That command may not exist, you may have entered the command incorrectly, or the bot is having issues. \nIf you are trying to set your color, the format is: w!setcolor# hexcode');
     }
-  });
-
 });
 
 //client.login(''); Used for local hosting

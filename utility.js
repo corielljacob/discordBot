@@ -9,15 +9,6 @@ module.exports = {
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   },
-  connectToServer: function(callback){
-    mongo.connect(url, { useNewUrlParser: true }, function(err, client) {
-      _db  = client.db('discordbot');
-      return callback(err);
-    });
-  },
-  getDB: function() {
-    return _db;
-  },
   setPic(msg, collection) {
     var purl = msg.attachments.first().url
     var myquery = {
