@@ -51,7 +51,7 @@ client.on('message', async msg => {
       client.commands.get(command).execute(msg, args);
     } catch (error) {
       console.log(error)
-      msg.reply('there was an error trying to execute that command! That command may not exist, you may have entered the command incorrectly, or the bot is having issues. \nIf you are trying to set your color, the format is: w!setcolor# hexcode');
+      msg.reply('there was an error trying to execute that command! That command may not exist, you may have entered the command incorrectly, or the bot is having issues. \nIf you are trying to set your color, the format is: w!setcolor# AABBCC');
     }
   }
 });
