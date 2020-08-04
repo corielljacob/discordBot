@@ -10,7 +10,7 @@ module.exports = {
     return Math.floor(Math.random() * Math.floor(max));
   },
   connectToServer: function(callback){
-    MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
+    mongo.connect(url, { useNewUrlParser: true }, function(err, client) {
       _db  = client.db('discordbot');
       return callback(err);
     });
