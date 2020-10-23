@@ -11,7 +11,7 @@ module.exports = {
     if(num == 1 || num == 2)
     return;
 
-    var webAttachment = new Discord.Attachment("https://vignette.wikia.nocookie.net/to-catch-a-predator/images/2/29/6b7f722f-750a-45d8-aca4-d3db587ded7f.jpg")
+    const attachment = new Discord.Attachment('./assets/hansens/finalHansen' + '.png');
     msg.client.channels.get('661803881549791251').send(webAttachment);
     msg.client.channels.get('661803881549791251').send("Why dont you take a seat...");
   }
