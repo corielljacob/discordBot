@@ -11,7 +11,7 @@ module.exports = {
     if(num == 1 || num == 2)
     return;
 
-    const attachment = new Discord.Attachment('./assets/hansens/finalHansen' + '.png');
+    const attachment = new Discord.Attachment('./assets/hansens/spookyHansen' + '.png');
     msg.client.channels.get('661803881549791251').send(attachment);
     msg.client.channels.get('661803881549791251').send("Why dont you take a seat...");
   }
