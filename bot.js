@@ -12,18 +12,18 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 var db, collection, command
 
 for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
+  command = require(`./commands/${file}`);
   client.commands.set(command.name, command);
 }
 
 mongo.connect(dburl, {
   useNewUrlParser: true
-}, (err, client) => {
+}, (err, dbClient) => {
   if (err) {
     console.error(err)
     return
   }
-  db = client.db('discordbot')
+  db = dbClient.db('discordbot')
   collection = db.collection('piclinks')
 })
 
@@ -41,7 +41,7 @@ client.on('message', async msg => {
 
   //Remove the prefix from the command and split the commands into seperate arguments
   const args = msg.content.slice(config.prefix.length).split(/ +/);
-  const command = args.shift().toLowerCase();
+  command = args.shift().toLowerCase();
 
   //initiate dynamic command handling
   if (config.users.includes(command)) {
