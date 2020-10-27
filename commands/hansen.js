@@ -9,7 +9,7 @@ module.exports = {
     var num = util.getRandomInt(3);
     console.log(num);
     if(num == 1 || num == 2)
-    return;
+      return;
 
     const attachment = new Discord.Attachment('./assets/hansens/spookyHansen' + '.png');
     msg.client.channels.get('661803881549791251').send(attachment);
