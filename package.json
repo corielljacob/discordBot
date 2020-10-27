@@ -1,6 +1,6 @@
 {
-  "name": "Test",
-  "description": "Test",
+  "name": "Were-Bot",
+  "description": "Discord bot created by Jacob Coriell for personal use with friends",
   "version": "0.0.0",
   "main": "bot.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "dependencies": {
     "discord.js": "^11.5.1",
     "mongodb": "^3.2.7",
-    "node-fetch": "^2.6.0",
+    "node-fetch": ">=2.6.1",
     "request": "2.81.0",
     "xmlhttprequest": "^1.8.0"
   }
