@@ -6,8 +6,8 @@ module.exports = {
   description: 'Sends a random meme from API call',
   async execute(msg, args) {
     const body = await fetch('https://meme-api.herokuapp.com/gimme').then(response => response.json());
-    var url = body.url
-    webAttachment = new Discord.Attachment(url)
+    const url = body.url
+    const webAttachment = new Discord.Attachment(url)
     msg.channel.send(webAttachment)
   },
 };

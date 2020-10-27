@@ -25,7 +25,7 @@ module.exports = {
       collection2 = db.collection('roasts')
       collection2.findOne({
         num: '1'
-      }, (err, item) => {
+      }, (findErr, item) => {
         var index = util.getRandomInt(item.roast.length)
         msg.channel.send(`${user} ` + item.roast[index])
       })

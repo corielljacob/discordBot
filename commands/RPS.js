@@ -5,11 +5,7 @@ module.exports = {
   description: 'Play Rock-Paper-Scissors',
   execute(msg, args) {
     let used = false;
-    const pepelaugh = msg.client.emojis.find(emoji => emoji.name === "pepelaugh")
     const monkaS = msg.client.emojis.find(emoji => emoji.name === "monkaS")
-    const rock = msg.client.emojis.find(emoji => emoji.name === "punch")
-    const paper = msg.client.emojis.find(emoji => emoji.name === "back_of_hand")
-    const scissors = msg.client.emojis.find(emoji => emoji.name === "v")
     let choices = ["rock", "paper", "scissors"]
     let emojiChoices = ['👊','✋','✌️']
     let randomPick = util.getRandomInt(3);

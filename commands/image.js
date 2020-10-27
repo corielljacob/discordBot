@@ -7,7 +7,7 @@ module.exports = {
   description: 'Finds a google image result for a search term',
   async execute(msg, args) {
     var searchterm = ''
-    while (!(args.length === 0)) {
+    while (args.length !== 0) {
       searchterm = searchterm.concat(args.shift().toLowerCase()) + ' '
     }
     var q = 'q=' + searchterm
@@ -23,7 +23,7 @@ module.exports = {
         console.log('error!')
         throw response
       }
-      return response.json() 
+      return response.json()
     })
 
     if (body.items == null || body.items[0] == null || body.items[0].link == null) {

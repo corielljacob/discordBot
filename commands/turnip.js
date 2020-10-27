@@ -9,7 +9,6 @@ module.exports = {
 
     var first = false
     var second = false
-    var third = false
     var response1 = ""
     var response2 = ""
 
@@ -51,10 +50,10 @@ module.exports = {
             time: 60000
           })
           .then(collected3 => {
-            response3 = collected3.first().content;
-            numTurnips = parseInt(response1)
-            boughtFor = parseInt(response2)
-            soldFor = parseInt(response3)
+            const response3 = collected3.first().content;
+            const numTurnips = parseInt(response1)
+            const boughtFor = parseInt(response2)
+            const soldFor = parseInt(response3)
             const buy = numTurnips*boughtFor
             const net = (numTurnips*soldFor) - buy
             const sell = (numTurnips*soldFor)

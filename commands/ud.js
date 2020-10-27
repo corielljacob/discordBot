@@ -7,7 +7,7 @@ module.exports = {
   description: 'Finds urban dictionary definition for a word or words',
   async execute(msg, args) {
     var word = ''
-    while (!(args.length === 0)) {
+    while (args.length !== 0) {
       word = word.concat(args.shift().toLowerCase()) + ' '
     }
     const body = await fetch('http://api.urbandictionary.com/v0/define?term=' + word).then(response => response.json());

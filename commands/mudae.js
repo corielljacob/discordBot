@@ -13,9 +13,9 @@ module.exports = {
       if(content.charAt(i) == '*' && content.charAt(i+1) == '*'){
         let val = "" +content.charAt(i+2);
         val += "" + content.charAt(i+3);
-        if(!(content.charAt(i+4) == '*')) {
+        if(content.charAt(i+4) !== '*') {
           val += "" + content.charAt(i+4);
-          if(!(content.charAt(i+5) == '*')) {
+          if(content.charAt(i+5) !== '*') {
               val += content.charAt(i+5)
           }
         }

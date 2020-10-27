@@ -2,7 +2,7 @@ var db, collection;
 const mongo = require('mongodb').MongoClient
 const config = require('../config.json');
 const Discord = require('discord.js');
-dburl = process.env.dbconnection
+const dburl = process.env.dbconnection
 
 module.exports = {
   name: 'namepic',
@@ -17,11 +17,11 @@ module.exports = {
       }
       db = client.db('discordbot')
       collection = db.collection('piclinks')
-      collection.find().toArray((err, items) => {
+      collection.find().toArray((findErr, items) => {
         items.forEach(function(element) {
           if (element.name === command) {
-            var url = element.url
-            webAttachment = new Discord.Attachment(url)
+            const url = element.url
+            const webAttachment = new Discord.Attachment(url)
             msg.channel.send(webAttachment)
           }
         })
