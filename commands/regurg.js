@@ -7,7 +7,7 @@ module.exports = {
 
     let msgs = util.getRandomInt(6) + 1;
 
-    const chnl = msg.channel;
+    let chnl = msg.channel;
     chnl.messages.fetch({limit: msgs})
       .then(msgs => msg.channel.send(`Pulled ${msgs.size} messages`))
       .catch(console.error);
