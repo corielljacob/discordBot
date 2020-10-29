@@ -10,7 +10,7 @@ module.exports = {
     let chnl = msg.channel;
     let words = ''
     let numWords;
-    let finalMsg;
+    let finalMsg = '';
     chnl.messages.fetch({limit: msgs})
       .then(msgCollection => msgCollection.forEach(function(msgSingle) {
         words += msgSingle.content + ' ';
@@ -19,7 +19,7 @@ module.exports = {
         let wordArray = words.split(' ');
         let iterations = util.getRandomInt(wordArray.length)
         let i = 0;
-        while(i < iterations){
+        while(i <= iterations){
           let index = util.getRandomInt(wordArray.length)
           finalMsg += wordArray[index]
           i++
