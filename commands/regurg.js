@@ -13,9 +13,10 @@ module.exports = {
     chnl.messages.fetch({limit: msgs})
       .then(msgCollection => msgCollection.forEach(function(msgSingle) {
         words += msgSingle;
+      }))
+      .then(function(param){
+        msg.channel.send(words)
       })
-      .then(msg.channel.send(words)))
-      .catch();
 
 
   }
