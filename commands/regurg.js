@@ -21,9 +21,10 @@ module.exports = {
         let i = 0;
         console.log(i)
         console.log(iterations)
+        console.log(wordArray.length)
         while(i <= iterations){
           let index = util.getRandomInt(wordArray.length)
-          finalMsg += wordArray[index]
+          finalMsg += wordArray[index] + ' '
           i++
         }
         msg.channel.send(finalMsg)
