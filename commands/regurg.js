@@ -5,7 +5,7 @@ module.exports = {
   description: 'Regurgitate from some random number of messages',
   execute(msg, args) {
 
-    let msgs = util.getRandomInt(6) + 1;
+    let msgs = util.getRandomInt(6) + 2;
 
     let chnl = msg.channel;
     let words = ''
@@ -16,6 +16,7 @@ module.exports = {
       }))
       .then(function(param){
         msg.channel.send(`Here are the last ${msgs} messages`)
+        words = words.substring(9)
         msg.channel.send(words)
       })
 
