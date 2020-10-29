@@ -8,10 +8,7 @@ module.exports = {
     let msgs = util.getRandomInt(6) + 1;
 
     let chnl = msg.channel;
-    let msgHistory = chnl.messages.fetch({limit: msgs})
-      .catch(console.error);
-
-    let msgHistoryArr = msgHistory.array();
+    let msgHistory = chnl.messages.fetch({limit: msgs}).array();
 
     msg.channel.send(msgHistoryArr[0]);
   }
