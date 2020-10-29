@@ -13,7 +13,7 @@ module.exports = {
       .then(msgCollection => msgCollection.forEach(this.testMethod(msg)));
 
   },
-  testMethod() {
+  testMethod(msg) {
     msg.channel.send('TypeScript');
   }
 }
