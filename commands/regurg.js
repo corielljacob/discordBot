@@ -12,6 +12,6 @@ module.exports = {
     chnl.messages.fetch({limit: msgs})
       .then(msgCollection => msgHistory = msgCollection.array());
 
-    msg.channel.send(msgHistoryArr[0]);
+    msg.channel.send(msgHistory[0]);
   }
 }
