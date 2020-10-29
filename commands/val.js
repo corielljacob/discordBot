@@ -11,16 +11,16 @@ module.exports = {
     }
     const user = msg.mentions.users.first()
     if(user.id === '206693327268085760'){
-      const attachment = new Discord.Attachment('./assets/valentines/img40.jpg', 'img' + '40' + '.jpg')
+      const attachment = new Discord.MessageAttachment('./assets/valentines/img40.jpg', 'img' + '40' + '.jpg')
       msg.channel.send(`To: ${user}\nFrom: ${msg.author}`)
       msg.channel.send(attachment)
     }else if(user.id === '443660815346696213'){
-      const attachment = new Discord.Attachment('./assets/valentines/img41.jpg', 'img' + '41' + '.jpg')
+      const attachment = new Discord.MessageAttachment('./assets/valentines/img41.jpg', 'img' + '41' + '.jpg')
       msg.channel.send(`To: ${user}\nFrom: ${msg.author}`)
       msg.channel.send(attachment)
     }else{
     const num = util.getRandomInt(39)
-    const attachment = new Discord.Attachment('./assets/valentines/img' + num + '.jpg', 'img' + num + '.jpg')
+    const attachment = new Discord.MessageAttachment('./assets/valentines/img' + num + '.jpg', 'img' + num + '.jpg')
     msg.channel.send(`To: ${user}\nFrom: ${msg.author}`)
     msg.channel.send(attachment)
   }
