@@ -8,13 +8,14 @@ module.exports = {
     let msgs = util.getRandomInt(6) + 1;
 
     let chnl = msg.channel;
-    let words = 'words: '
+    let words = ''
     let numWords;
     chnl.messages.fetch({limit: msgs})
       .then(msgCollection => msgCollection.forEach(function(msgSingle) {
-        words += msgSingle.content;
+        words += msgSingle.content + ' ';
       }))
       .then(function(param){
+        msg.channel.send(`Here are the last ${msgs} messages`)
         msg.channel.send(words)
       })
 
