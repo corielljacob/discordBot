@@ -21,7 +21,7 @@ module.exports = {
         let i = 0;
         while(i < iterations){
           let index = util.getRandomInt(wordArray.length)
-          finalMsg += wordArr[index]
+          finalMsg += wordArray[index]
         }
       });
 
