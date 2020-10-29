@@ -11,7 +11,8 @@ module.exports = {
     let finalMsg = '';
     chnl.messages.fetch({limit: msgs})
       .then(msgCollection => msgCollection.forEach(function(msgSingle) {
-        words += msgSingle.content + ' ';
+        if(msgSingle.content !== 'w!regurg')
+          words += msgSingle.content + ' ';
       }))
       .then(function(param){
         let wordArray = words.split(" ");
