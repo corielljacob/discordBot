@@ -5,7 +5,7 @@ module.exports = {
   description: 'Play Rock-Paper-Scissors',
   execute(msg, args) {
     let used = false;
-    const monkaS = msg.client.emojis.find(emoji => emoji.name === "monkaS")
+    const monkaS = msg.guild.emojis.resolve('515323466921017344')
     let choices = ["rock", "paper", "scissors"]
     let emojiChoices = ['👊','✋','✌️']
     let randomPick = util.getRandomInt(3);
