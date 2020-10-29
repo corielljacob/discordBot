@@ -26,6 +26,7 @@ module.exports = {
           finalMsg += wordArray[index]
           i++
         }
+        msg.channel.send(finalMsg)
       });
 
 
