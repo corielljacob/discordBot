@@ -7,7 +7,6 @@ module.exports = {
     let msgs = util.getRandomInt(6) + 2;
     let chnl = msg.channel;
     let words = ''
-    let numWords;
     let finalMsg = '';
     chnl.messages.fetch({limit: msgs})
       .then(msgCollection => msgCollection.forEach(function(msgSingle) {
