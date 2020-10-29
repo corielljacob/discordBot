@@ -16,7 +16,5 @@ module.exports = {
       .catch();
 
     msg.channel.send(words);
-  } catch {
-    console.log('testing');
   }
 }
