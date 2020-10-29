@@ -10,7 +10,10 @@ module.exports = {
     let chnl = msg.channel;
     let msgHistory;
     chnl.messages.fetch({limit: msgs})
-      .then(msgCollection => msg.channel.send(msgCollection.first()));
+      .then(msgCollection => msgCollection.forEach(this.testMethod(msg)));
 
+  },
+  testMethod() {
+    msg.channel.send('TypeScript');
   }
 }
