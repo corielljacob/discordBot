@@ -8,7 +8,7 @@ module.exports = {
     if (num < 0 || num > config.food_size - 1) {
       msg.channel.send("Retry the command with a number between 0 and " + config.food_size - 1)
     } else {
-      const attachment = new Discord.Attachment('./assets/images/img' + num + '.png', 'img' + num + '.png');
+      const attachment = new Discord.MessageAttachment('./assets/images/img' + num + '.png', 'img' + num + '.png');
       msg.channel.send(attachment)
     }
   }

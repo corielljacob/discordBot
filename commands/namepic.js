@@ -21,7 +21,7 @@ module.exports = {
         items.forEach(function(element) {
           if (element.name === command) {
             const url = element.url
-            const webAttachment = new Discord.Attachment(url)
+            const webAttachment = new Discord.MessageAttachment(url)
             msg.channel.send(webAttachment)
           }
         })

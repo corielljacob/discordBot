@@ -6,7 +6,7 @@ module.exports = {
   description: 'Displays a random picture of cursed food',
   execute(msg, args) {
     const num = util.getRandomInt(config.food_size);
-    const attachment = new Discord.Attachment('./assets/images/img' + num + '.png', 'img' + num + '.png');
+    const attachment = new Discord.MessageAttachment('./assets/images/img' + num + '.png', 'img' + num + '.png');
     msg.channel.send(attachment)
   },
 }
