@@ -10,7 +10,9 @@ module.exports = {
     let chnl = msg.channel;
     let msgHistory;
     chnl.messages.fetch({limit: msgs})
-      .then(msgCollection => msgCollection.forEach(this.testMethod(msg)))
+      .then(msgCollection => msgCollection.forEach(function(msgSingle) {
+        msg.channel.send(msgSingle)
+      }))
       .catch(console.log('Error with regurg promise'));
   },
   testMethod(msg) {
