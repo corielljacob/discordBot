@@ -8,14 +8,13 @@ module.exports = {
     let msgs = util.getRandomInt(6) + 1;
 
     let chnl = msg.channel;
-    let msgHistory;
+    let words, numWords;
     chnl.messages.fetch({limit: msgs})
       .then(msgCollection => msgCollection.forEach(function(msgSingle) {
-        msg.channel.send(msgSingle)
+        words += msgSingle;
       }))
-      .catch(console.log('Error with regurg promise'));
-  },
-  testMethod(msg) {
-    msg.channel.send('TypeScript');
+      .catch();
+
+    msg.channel.send(words);
   }
 }
