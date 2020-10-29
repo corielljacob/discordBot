@@ -8,8 +8,11 @@ module.exports = {
     let msgs = util.getRandomInt(6) + 1;
 
     let chnl = msg.channel;
-    chnl.messages.fetch({limit: msgs})
-      .then(msgs => msg.channel.send(`Pulled ${msgs.size} messages`))
+    let msgHistory = chnl.messages.fetch({limit: msgs})
       .catch(console.error);
+
+    let msgHistoryArr = msgHistory.array();
+
+    msg.channel.send(msgHistoryArr[0]);
   }
 }
