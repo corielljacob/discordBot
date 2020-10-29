@@ -12,7 +12,7 @@ module.exports = {
     let numWords;
     chnl.messages.fetch({limit: msgs})
       .then(msgCollection => msgCollection.forEach(function(msgSingle) {
-        words += msgSingle;
+        words += msgSingle.content;
       }))
       .then(function(param){
         msg.channel.send(words)
