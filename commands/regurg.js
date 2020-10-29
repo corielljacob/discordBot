@@ -10,8 +10,7 @@ module.exports = {
     let chnl = msg.channel;
     let msgHistory;
     chnl.messages.fetch({limit: msgs})
-      .then(msgCollection => msgHistory = msgCollection.array());
+      .then(msgCollection => msg.channel.send(msgCollection.first()));
 
-    msg.channel.send(msgHistory[0]);
   }
 }
