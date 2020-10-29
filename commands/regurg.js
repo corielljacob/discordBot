@@ -11,7 +11,7 @@ module.exports = {
     let msgHistory;
     chnl.messages.fetch({limit: msgs})
       .then(msgCollection => msgCollection.forEach(this.testMethod(msg)));
-
+      .catch(console.log('Error with regurg promise'))
   },
   testMethod(msg) {
     msg.channel.send('TypeScript');
