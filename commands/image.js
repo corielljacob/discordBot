@@ -18,7 +18,8 @@ module.exports = {
     var key = process.env.google_key
     var cx = process.env.cx
 
-    var body = await fetch('https://www.googleapis.com/customsearch/v1?' + q + '&' + num + '&' + start + '&' + imgSize + '&' + searchType + '&' + key + '&' + cx).then(response => {
+    var body = await fetch('https://www.googleapis.com/customsearch/v1?' + q + '&' + num + '&' + start + '&' + imgSize + '&' + searchType + '&' + key + '&' + cx)
+    .then(response => {
       if (!response.ok) {
         console.log('error!')
         throw response
