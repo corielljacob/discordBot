@@ -8,7 +8,7 @@ module.exports = {
     const body = await fetch('https://meme-api.herokuapp.com/gimme').then(response => response.json());
     //const url = body.url
     //const webAttachment = new Discord.Attachment(url)
-    const attachment = new Discord.MessageAttachment(url);
+    const attachment = new Discord.MessageAttachment(body.url);
     msg.channel.send(attachment)
   },
 };
