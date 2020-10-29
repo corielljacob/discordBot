@@ -5,7 +5,6 @@ module.exports = {
   description: 'Play Rock-Paper-Scissors',
   execute(msg, args) {
     let used = false;
-    const monkaS = msg.guild.emojis.resolve('515323466921017344')
     let choices = ["rock", "paper", "scissors"]
     let emojiChoices = ['👊','✋','✌️']
     let randomPick = util.getRandomInt(3);
@@ -31,6 +30,7 @@ module.exports = {
         used = true;
         if(emoji == emojiChoices[randomPick]){
           msg.channel.send("I throw " + botChoice)
+          const monkaS = msg.client.emojis.resolve('515323466921017344')
           msg.channel.send("We tie " + monkaS.toString())
           return
         }
