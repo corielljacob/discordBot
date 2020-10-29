@@ -10,6 +10,7 @@ module.exports = {
     let randomPick = util.getRandomInt(3);
     let userChoice = 0;
     let botChoice = choices[randomPick]
+    const monkaS = msg.client.emojis.resolve('515323466921017344')
 
     msg.channel.send("I have made my choice, now react or type yours to play").then(function(message) {
       message.react('👊')
@@ -30,8 +31,7 @@ module.exports = {
         used = true;
         if(emoji == emojiChoices[randomPick]){
           msg.channel.send("I throw " + botChoice)
-          const monkaS = msg.client.emojis.resolve('515323466921017344')
-          msg.channel.send("We tie " + monkaS)
+          msg.channel.send("We tie " + monkaS.toString())
           return
         }
         switch (emoji) {
