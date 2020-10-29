@@ -18,7 +18,7 @@ module.exports = {
     var key = process.env.google_key
     var cx = process.env.cx
 
-    var body = await fetch('https://customsearch.googleapis.com/customsearch/v1?' + q + '&' + num + '&' + start + '&' + imgSize + '&' + searchType + '&' + key + '&' + cx)
+    var body = await fetch('https://www.googleapis.com/customsearch/v1?' + q + '&' + num + '&' + start + '&' + imgSize + '&' + searchType + '&' + key + '&' + cx)
     .then(response => {
       if (!response.ok) {
         console.log('error!')
@@ -35,8 +35,8 @@ module.exports = {
     link = util.linkRepair(link)
 
     try {
-      var webAttachment = new Discord.Attachment(link)
-      msg.channel.send(webAttachment)
+      const attachment = new Discord.MessageAttachment(link);
+      msg.channel.send(attachment)
     } catch (error) {
       msg.channel.send('Couldnt display this image. Sorry!')
     }
