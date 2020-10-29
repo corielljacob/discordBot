@@ -19,9 +19,6 @@ module.exports = {
         let wordArray = words.split(" ");
         let iterations = util.getRandomInt(wordArray.length)
         let i = 0;
-        console.log(i)
-        console.log(iterations)
-        console.log(wordArray.length)
         while(i <= iterations){
           let index = util.getRandomInt(wordArray.length)
           finalMsg += wordArray[index] + ' '
