@@ -15,7 +15,7 @@ module.exports = {
         words += msgSingle.content + ' ';
       }))
       .then(function(param){
-        msg.channel.send(`Here are the last ${msgs} messages`)
+        msg.channel.send(`Here are the last ${msgs-1} messages`)
         words = words.substring(9)
         msg.channel.send(words)
       })
