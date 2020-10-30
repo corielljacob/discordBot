@@ -10,16 +10,20 @@ module.exports = {
     let finalMsg = '';
     chnl.messages.fetch({limit: msgs})
       .then(msgCollection => msgCollection.forEach(function(msgSingle) {
-        if(msgSingle.content !== 'w!regurg')
+        if(msgSingle.content !== 'w!regurg' && msgSingle.content)
           words += msgSingle.content + ' ';
       }))
       .then(function(param){
         let wordArray = words.split(" ");
         let iterations = util.getRandomInt(wordArray.length)
         let i = 0;
-        while(i <= iterations){
+        while(i <= iterations && finalMsg.length > 1){
           let index = util.getRandomInt(wordArray.length)
-          finalMsg += wordArray[index] + ' '
+          let word = wordArray[index]
+          if(word !== " "){
+            word = word.replaceAll(" ", "")
+            finalMsg += word + ' '
+          }
           i++
         }
         msg.channel.send(finalMsg)
