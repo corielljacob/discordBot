@@ -17,11 +17,11 @@ module.exports = {
         let wordArray = words.split(" ");
         let iterations = util.getRandomInt(wordArray.length)
         let i = 0;
-        while(i <= iterations && finalMsg.length > 1){
+        while(i <= iterations || finalMsg.length < 1){
           let index = util.getRandomInt(wordArray.length)
           let word = wordArray[index]
           if(word !== " "){
-            //word = word.replaceAll(" ", "")
+            word = word.replaceAll(" ", "")
             finalMsg += word + ' '
           }
           i++
