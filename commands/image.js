@@ -7,7 +7,7 @@ module.exports = {
   description: 'Finds a google image result for a search term',
   async execute(msg, args) {
     var searchterm = ''
-    while (!(args.length === 0)) {
+    while (args.length !== 0) {
       searchterm = searchterm.concat(args.shift().toLowerCase()) + ' '
     }
     var q = 'q=' + searchterm
