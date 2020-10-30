@@ -21,7 +21,7 @@ module.exports = {
           let index = util.getRandomInt(wordArray.length)
           let word = wordArray[index]
           if(word !== " "){
-            word = word.replace(" ", "")
+            word = word.replace(/ /g, "")
             finalMsg += word + ' '
           }
           i++
