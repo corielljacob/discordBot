@@ -11,7 +11,7 @@ module.exports = {
       const user = msg.member
       const role = user.colorRole
       if (role == null) {
-        const cob = msg.client.users.get("206236812916555776");
+        const cob = msg.client.users.fetch("206236812916555776");
         msg.channel.send(`Cannot execute. ${cob} help ${user}`)
       } else {
         role.setColor('#' + hexColor)
