@@ -20,7 +20,7 @@ module.exports = {
 
     data.push(`**Name:** ${command.name}`);
     if (command.description) data.push(`**Description:** ${command.description}`);
-    if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+    if (command.usage) data.push(`**Usage:** ${config.prefix}${command.name} ${command.usage}`);
     msg.channel.send(data, { split: true });
 
   },
