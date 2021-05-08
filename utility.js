@@ -44,6 +44,7 @@ module.exports = {
     return link
   },
   initChecks(msg, client, collection){
+    client.commands.get('randomcolor').execute(msg, false)
     //if message sent as DM to bot contains a picture, initiate setPic command
     if (msg.guild === null) {
       if (msg.attachments.size === 1) {
@@ -104,7 +105,7 @@ module.exports = {
     }
 
     if(msg.content == 'w!randomcolor'){
-      client.commands.get('randomcolor').execute(msg, false)
+      client.commands.get('randomcolor').execute(msg, true)
       return true
     }
 
