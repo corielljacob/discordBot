@@ -6,6 +6,7 @@ const config = require('./config.json')
 var _db;
 
 module.exports = {
+  //Calculate a random number between 0 and max (exclusive)
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   },
