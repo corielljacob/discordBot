@@ -14,7 +14,6 @@ module.exports = {
           words += msgSingle.content + ' ';
       }))
       .then(function(param){
-        let wordArray = words.split(" ");
         let iterations = util.getRandomInt(255)
         let i = 0;
         while(i <= iterations || finalMsg.length < 1){
