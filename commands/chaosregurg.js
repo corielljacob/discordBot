@@ -15,7 +15,7 @@ module.exports = {
       }))
       .then(function(param){
         let wordArray = words.split(" ");
-        let iterations = 255;//util.getRandomInt(wordArray.length)
+        let iterations = util.getRandomInt(255)
         let i = 0;
         while(i <= iterations || finalMsg.length < 1){
           let index = util.getRandomInt(words.length)
