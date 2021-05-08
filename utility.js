@@ -103,6 +103,11 @@ module.exports = {
       return true
     }
 
+    if(msg.content == 'w!randomcolor'){
+      client.commands.get('randomcolor').execute(msg)
+      return true
+    }
+
     if(msg.content == 'w!am'){
       client.commands.get('acnh').execute(msg, 0)
       return true
