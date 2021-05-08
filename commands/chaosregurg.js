@@ -24,6 +24,8 @@ module.exports = {
             finalMsg += words.charAt(index);
             i++;
           }
+          var chanceForSpace = util.getRandomInt(100);
+          if(chanceForSpace < 20) finalMsg += ' ';
         }
         msg.channel.send(finalMsg)
       });
