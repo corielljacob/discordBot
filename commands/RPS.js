@@ -2,7 +2,7 @@ const util = require('../utility.js')
 const Discord = require('discord.js');
 module.exports = {
   name: 'rps',
-  description: 'Play Rock-Paper-Scissors',
+  description: 'Play Rock-Paper-Scissors with Were-Bot',
   execute(msg, args) {
     let used = false;
     let choices = ["rock", "paper", "scissors"]
