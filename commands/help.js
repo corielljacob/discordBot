@@ -12,7 +12,7 @@ module.exports = {
     }
 
     const commandName = args[0].toLowerCase();
-    const command = commands.get(name);
+    const command = commands.get(commandName);
 
     if (!command) {
 	     return message.reply('That\'s not a valid command.');
