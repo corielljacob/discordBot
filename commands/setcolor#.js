@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 const config = require('../config.json')
 module.exports = {
-  name: 'setcolor#',
-  description: 'Changes color of highest role. Put a space between the # and the hex value',
-  usage: 'w!setcolor# AABBCC',
+  name: 'setcolor',
+  description: 'Changes color of highest role. Put a space between the command and the hex value',
+  usage: 'w!setcolor AABBCC',
   execute(msg, args) {
     var hexColor = args.shift()
     if (hexColor.length != 6) {
