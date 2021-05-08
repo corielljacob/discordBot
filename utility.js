@@ -104,7 +104,7 @@ module.exports = {
     }
 
     if(msg.content == 'w!randomcolor'){
-      client.commands.get('randomcolor').execute(msg)
+      client.commands.get('randomcolor').execute(msg, false)
       return true
     }
 

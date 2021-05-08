@@ -5,7 +5,7 @@ const util = require('../utility.js');
 module.exports = {
   name: 'randomcolor',
   description: 'Sets jacobs role to a random color',
-  async execute(msg) {
+  async execute(msg, flag) {
     var cobRole = msg.client.guilds.cache.get('512994325307850753').roles.cache.get('512995592100904960');
     var newColor = '';
     var myRandomNumber;
@@ -16,5 +16,6 @@ module.exports = {
     }
     console.log('Set color to ' + newColor);
     cobRole.setColor('#' + newColor);
+    console.log(flag)
   }
 }
