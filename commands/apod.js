@@ -14,10 +14,9 @@ module.exports = {
       .setColor('#0099ff')
       .setTitle(`${body.title}: ${body.date}`)
       .setURL(body.url)
-      .setAuthor('APOD by NASA')
+      .setAuthor('Astronomy Picture of the Day by NASA')
       .setDescription(body.explanation)
       .setImage(body.hdurl)
-      .setFooter('Astronomy Picture of the Day - NASA');
     msg.channel.send(apodEmbed)
   },
 };
