@@ -10,8 +10,14 @@ module.exports = {
         'Accept': 'application/json'
       }
     }).then(response => response.json());
-    const attachment = new Discord.MessageAttachment(body.hdurl)
-    msg.channel.send(attachment)
-    msg.channel.send(body.explanation)
+    const apodEmbed = new Discord.MessageEmbed()
+      .setColor('#0099ff')
+      .setTitle(`${body.title}: ${body.date}`)
+      .setURL(body.url)
+      .setAuthor('APOD by NASA')
+      .setDescription(body.explanation)
+      .setImage(body.hdurl)
+      .setFooter('Astronomy Picture of the Day - NASA');
+    msg.channel.send(apodEmbed)
   },
 };
