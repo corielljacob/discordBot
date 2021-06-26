@@ -11,10 +11,10 @@ module.exports = {
       }
     }).then(response => response.json());
     const apodEmbed = new Discord.MessageEmbed()
-      .setColor('#0099ff')
-      .setTitle(`${body.title}: ${body.date}`)
+      .setColor('#c914cf')
+      .setTitle(`${body.title}`)
       .setURL(body.url)
-      .setAuthor('Astronomy Picture of the Day by NASA')
+      .setAuthor(`Astronomy Picture of the Day by NASA - ${body.date}`)
       .setDescription(body.explanation)
       .setImage(body.hdurl)
     msg.channel.send(apodEmbed)
