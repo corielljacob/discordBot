@@ -1,6 +1,4 @@
 const Discord = require('discord.js');
-const { Client } = require('discord.js');
-const Intents = require("discord.js").Intents
 const mongo = require('mongodb').MongoClient
 const fetch = require('node-fetch');
 const fs = require('fs');
@@ -8,7 +6,7 @@ const config = require('./config.json')
 const util = require('./utility.js')
 const dburl = process.env.dbconnection
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 var db, collection, command
@@ -35,10 +33,9 @@ client.on('ready', () => {
   client.user.setActivity("w!help -> commands")
 });
 
-client.on('interactionCreate', async interaction => {
+client.on('INTERACTION_CREATE', async interaction => {
 	if (!interaction.isCommand()) return;
 	if (interaction.commandName === 'first') await interaction.reply('This is my first slash command! More to come soon...');
-  console.log("work")
 });
 
 //command handling
