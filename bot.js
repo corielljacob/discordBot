@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const { Client } = require('discord.js');
-const Intents = require("discord.js").Intents.All
+const Intents = require("discord.js").Intents
 const mongo = require('mongodb').MongoClient
 const fetch = require('node-fetch');
 const fs = require('fs');
