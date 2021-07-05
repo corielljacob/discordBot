@@ -26,7 +26,7 @@ module.exports = {
       msg.channel.send('Pic updated!')
     })
   },
-  
+
   linkRepair(link) {
     if (link.includes('jpg') || link.includes('jpeg') || link.includes('gif') || link.includes('png')) {
       if (link.includes('jpeg')) {
@@ -55,8 +55,8 @@ module.exports = {
         this.setPic(msg, collection)
       } else {
         if(!msg.author.bot){
-          msg.client.channels.get('671527521816150017').send(msg.content);
-          msg.client.channels.get('537142011455733770').send(msg.author.username + ' ' + msg.content);
+          msg.client.guilds.cache.get('671527521816150017').send(msg.content);
+            msg.client.guilds.cache.get('537142011455733770').send(msg.author.username + ' ' + msg.content);
         }
       }
       return true
