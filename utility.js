@@ -56,7 +56,6 @@ module.exports = {
       } else {
         if(!msg.author.bot){
           msg.client.channels.cache.get('512994325743927325').send(msg.content);
-          //msg.client.guilds.cache.get('537102010357645313').send(msg.author.username + ' ' + msg.content);
         }
       }
       return true

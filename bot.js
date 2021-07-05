@@ -34,8 +34,10 @@ client.on('ready', () => {
 });
 
 client.on('interactionCreate', async interaction => {
+  console.log('attempting slash command 2')
 	if (!interaction.isCommand()) return;
 	if (interaction.commandName === 'first') await interaction.reply('This is my first slash command! More to come soon...');
+  console.log('attempting slash command 2')
 });
 
 //command handling
