@@ -30,7 +30,7 @@ mongo.connect(dburl, {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity("w!help --> commands")
+  client.user.setActivity("w!help -> commands")
 });
 
 //command handling

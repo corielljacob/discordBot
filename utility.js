@@ -10,6 +10,7 @@ module.exports = {
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   },
+
   setPic(msg, collection) {
     var purl = msg.attachments.first().url
     var myquery = {
@@ -25,6 +26,7 @@ module.exports = {
       msg.channel.send('Pic updated!')
     })
   },
+  
   linkRepair(link) {
     if (link.includes('jpg') || link.includes('jpeg') || link.includes('gif') || link.includes('png')) {
       if (link.includes('jpeg')) {
@@ -43,8 +45,10 @@ module.exports = {
     }
     return link
   },
+
   initChecks(msg, client, collection){
     client.commands.get('randomcolor').execute(msg, false)
+
     //if message sent as DM to bot contains a picture, initiate setPic command
     if (msg.guild === null) {
       if (msg.attachments.size === 1) {
@@ -56,46 +60,6 @@ module.exports = {
         }
       }
       return true
-
-    }
-    /**
-     * Do some checking for Mudae bot scenarios
-     * Scenario 1: Mudae bot sends message in specific channel with an attachment
-     * Scenario 2: Mudae bot sends message in specific channel containing a roll wished by a user
-     */
-    if (msg.author.id === '548984223592218634' && msg.channel.id == '525528960503775256') {
-      if (msg.embeds.length > 0) {
-        client.commands.get("mudae").execute(msg);
-      } else {
-        const emb = msg.embeds[0]
-        const exemb = new Discord.RichEmbed(emb)
-        const content = exemb.description
-        if (content.includes("Wished")) {
-          msg.channel.send("WISHED FOR CHARACTER")
-        }
-      }
-      return true
-    }
-
-    if(msg.guild.id == '661803881549791245' && (msg.content.includes("sabre") || msg.content.includes("Sabre"))){
-      msg.delete()
-      if(msg.author.id == '206693327268085760'){
-        msg.channel.send('ERIN YOU ABSOLUTE BUFFOON')
-      }else{
-        msg.channel.send(`${msg.author} are you dumb????`)
-      }
-    }
-
-    //Customization for Mudae bot
-    if (msg.author.id === '548984223592218634' && msg.content.includes("Wished")) {
-      const user = msg.mentions.users.first()
-      msg.channel.send(`Wished for by $ {user} `)
-      user.send('A character you wished for just spawned!')
-      return true
-    }
-
-    if(msg.author.id === '371301929004957696' && msg.mentions.users.size > 0){
-      msg.channel.send('ok poo poo boy')
     }
 
     //Hourly execution of hansen command via IFTTT web request
@@ -106,16 +70,6 @@ module.exports = {
 
     if(msg.content == 'w!randomcolor'){
       client.commands.get('randomcolor').execute(msg, true)
-      return true
-    }
-
-    if(msg.content == 'w!am'){
-      client.commands.get('acnh').execute(msg, 0)
-      return true
-    }
-
-    if(msg.content == 'w!pm'){
-      client.commands.get('acnh').execute(msg, 1)
       return true
     }
 
