@@ -6,7 +6,7 @@ const config = require('./config.json')
 const util = require('./utility.js')
 const dburl = process.env.dbconnection
 
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 var db, collection, command
