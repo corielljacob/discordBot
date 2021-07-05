@@ -55,8 +55,8 @@ module.exports = {
         this.setPic(msg, collection)
       } else {
         if(!msg.author.bot){
-          msg.client.guilds.cache.get('671527521816150017').send(msg.content);
-            msg.client.guilds.cache.get('537142011455733770').send(msg.author.username + ' ' + msg.content);
+          msg.client.channels.cache.get('512994325743927325').send(msg.content);
+          //msg.client.guilds.cache.get('537102010357645313').send(msg.author.username + ' ' + msg.content);
         }
       }
       return true
