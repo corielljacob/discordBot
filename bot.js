@@ -33,7 +33,7 @@ client.on('ready', () => {
   client.user.setActivity("w!help -> commands")
 });
 
-client.on('interactionCreate', interaction => {
+client.ws.on('INTERACTION_CREATE', interaction => {
   console.log('attempting slash command 2')
 	//if (!interaction.isCommand()) return;
 	//if (interaction.commandName === 'first') await interaction.reply('This is my first slash command! More to come soon...');
