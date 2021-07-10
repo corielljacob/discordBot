@@ -24,11 +24,12 @@ module.exports = {
     var high = body.main.temp_max + '°F';
     var humidity = body.main.humidity + '%';
     var wind_speed = body.wind.speed + ' MPH'
+    var morg_color = msg.client.guilds.fetch('226953288841560074').members.fetch('226953288841560074').displayHexColor;
     //https://openweathermap.org/img/wn/04d.png
     var weather_icon_url = 'https://openweathermap.org/img/wn/' + weather_icon_code + '.png'
 
     const weatherEmbed = new Discord.MessageEmbed()
-      .setColor('#39ff14')
+      .setColor(morg_color)
       .setAuthor(`Morgan's Weather`)
       //.setDescription(body.explanation)
       .addFields({
