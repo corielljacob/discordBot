@@ -19,6 +19,9 @@ module.exports = {
       })
 
     var weather_icon_code = body.weather[0].icon;
+    var current_temp = body.main.temp + '°F';
+    var low = body.main.temp_min + '°F';
+    var high = body.main.temp_high + '°F';
     //https://openweathermap.org/img/wn/04d.png
     var weather_icon_url = 'https://openweathermap.org/img/wn/' + weather_icon_code + '.png'
 
@@ -27,21 +30,18 @@ module.exports = {
       .setAuthor(`Morgan's Weather`)
       //.setDescription(body.explanation)
       .addFields({
-        name: 'TODAY\'S FORECAST',
-        value: '\u200b'
-      }, {
         name: 'Current',
-        value: 'Some value here',
+        value: current_temp,
         inline: true
       }, {
         name: 'Today\'s Low',
-        value: 'Some value here',
+        value: low,
         inline: true
       }, {
         name: 'Today\'s High',
-        value: 'Some value here',
+        value: high,
         inline: true
-      }, )
+      },)
       .setThumbnail(weather_icon_url)
       .setFooter('Weather for Cypress, CA by OpenWeather');
     msg.channel.send(weatherEmbed)
