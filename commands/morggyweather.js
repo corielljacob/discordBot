@@ -21,7 +21,9 @@ module.exports = {
     var weather_icon_code = body.weather[0].icon;
     var current_temp = body.main.temp + '°F';
     var low = body.main.temp_min + '°F';
-    var high = body.main.temp_high + '°F';
+    var high = body.main.temp_max + '°F';
+    var humidity = body.main.humidity + '%';
+    var wind_speed = body.wind.speed + ' MPH'
     //https://openweathermap.org/img/wn/04d.png
     var weather_icon_url = 'https://openweathermap.org/img/wn/' + weather_icon_code + '.png'
 
@@ -41,7 +43,16 @@ module.exports = {
         name: 'Today\'s High',
         value: high,
         inline: true
-      },)
+      }, )
+      .addFields({
+        name: 'Humidity',
+        value: humidity,
+        inline: true
+      }, {
+        name: 'Avg Wind Speed',
+        value: wind_speed,
+        inline: true
+      }, )
       .setThumbnail(weather_icon_url)
       .setFooter('Weather for Cypress, CA by OpenWeather');
     msg.channel.send(weatherEmbed)
