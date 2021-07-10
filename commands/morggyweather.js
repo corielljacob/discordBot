@@ -26,11 +26,12 @@ module.exports = {
     var wind_speed = body.wind.speed + ' MPH'
     var guild = msg.client.guilds.cache.get('512994325307850753')
     var morgan = guild.members.cache.get('226953288841560074')
+    var morg_role = msg.client.guilds.cache.get('512994325307850753').roles.cache.get('513418943222906880')
     //https://openweathermap.org/img/wn/04d.png
     var weather_icon_url = 'https://openweathermap.org/img/wn/' + weather_icon_code + '.png'
 
     const weatherEmbed = new Discord.MessageEmbed()
-      .setColor(morgan.displayHexColor)
+      .setColor(morg_role.hexColor)
       .setAuthor(`Morgan's Weather`)
       //.setDescription(body.explanation)
       .addFields({
