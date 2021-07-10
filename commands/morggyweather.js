@@ -27,7 +27,8 @@ module.exports = {
       .setAuthor(`Morgan's Weather`)
       //.setDescription(body.explanation)
       .addFields({
-        name: 'TODAY\'s FORECAST'
+        name: 'TODAY\'S FORECAST'
+        value: '\u200b'
       }, {
         name: 'Current',
         value: 'Some value here',
