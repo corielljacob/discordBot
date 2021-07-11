@@ -27,12 +27,14 @@ module.exports = {
       collection = db.collection('piclinks')
       collection.find().toArray((findErr, items) => {
         items.forEach(function(element) {
-          if (element.id === user.id) {
+          if (element.id == user.id) {
+            console.log('matched a user')
             if (element.location != 'null') {
               return element.location;
             }
             return 'null';
           }
+          return 'null';
         })
       })
     })
