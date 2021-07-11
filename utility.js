@@ -79,6 +79,10 @@ module.exports = {
 
   },
 
+  farenToCelcius(fTemp) {
+    return (fTemp - 32) / 1.8;
+  },
+
   calcResult(msg, userChoice, botChoice, randomPick) {
     msg.channel.send("I throw " + botChoice)
     if (userChoice - randomPick == 0) {
