@@ -1,6 +1,9 @@
 const config = require('../config.json');
 const mongo = require('mongodb').MongoClient;
 const util = require('../utility.js');
+const dburl = process.env.dbconnection
+var db, collection;
+
 module.exports = {
   name: 'weather',
   description: 'Provides weather for a given user',
