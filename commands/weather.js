@@ -12,7 +12,7 @@ module.exports = {
       return msg.channel.send('You need to specify a correct user.')
     }
     const user = msg.mentions.users.first()
-    const loc = this.getLocationForUser(msg, user)
+    var loc = this.getLocationForUser(msg, user)
     msg.channel.send(loc)
   },
   getLocationForUser(msg, user) {
@@ -30,12 +30,13 @@ module.exports = {
           if (element.id == user.id) {
             console.log('matched a user')
             if (element.location != 'null') {
+              console.log(element.location)
+              console.log('found a location')
               return element.location;
             }
-            return 'null';
           }
-          return 'null';
         })
+        return 'null';
       })
     })
   },
