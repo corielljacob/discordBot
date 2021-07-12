@@ -35,9 +35,6 @@ module.exports = {
         buildEmbed();
       })
     })
-
-    var loc = '' + this.getLocationForUser(msg, user)
-    msg.channel.send('User location: ' + loc)
   },
   buildEmbed(msg, user, loc) {
     console.log(`User ${user.id} has loc ${loc}`)
