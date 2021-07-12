@@ -31,7 +31,7 @@ module.exports = {
             }
           }
         })
-        loc = 'null';
+        //loc = 'null';
         this.buildEmbed(msg, user, loc);
       })
     })
