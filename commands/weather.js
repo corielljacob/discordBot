@@ -32,7 +32,7 @@ module.exports = {
           }
         })
         loc = 'null';
-        buildEmbed();
+        buildEmbed(msg, user, loc);
       })
     })
   },
