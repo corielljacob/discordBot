@@ -12,10 +12,7 @@ module.exports = {
       return msg.channel.send('You need to specify a correct user.')
     }
     const user = msg.mentions.users.first()
-    var loc = this.getLocationForUser(msg, user)
-    msg.channel.send(loc)
-  },
-  getLocationForUser(msg, user) {
+
     mongo.connect(dburl, {
       useNewUrlParser: true
     }, (err, client) => {
@@ -30,14 +27,20 @@ module.exports = {
           if (element.id == user.id) {
             console.log('matched a user')
             if (element.location != 'null') {
-              console.log(element.location)
-              console.log('found a location')
-              return element.location;
+              loc = element.location;
             }
           }
         })
-        return 'null';
+        loc = 'null';
+        buildEmbed();
       })
     })
+
+    var loc = '' + this.getLocationForUser(msg, user)
+    msg.channel.send('User location: ' + loc)
+  },
+  buildEmbed(msg, user, loc) {
+    console.log(`User ${user.id} has loc ${loc}`)
+    msg.channel.send(loc)
   },
 };
