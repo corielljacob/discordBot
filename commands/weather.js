@@ -34,7 +34,7 @@ module.exports = {
       })
     })
   },
-  buildEmbed(msg, user, loc) {
+  async buildEmbed(msg, user, loc) {
     if(loc == 'null' || loc == null) {
       msg.channel.send('User either not registered in database or does not have a location stored')
     } else {
