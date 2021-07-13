@@ -51,8 +51,8 @@ module.exports = {
         })
 
       var weather_icon_code = body.weather[0].icon;
-      var current_temp = body.main.temp + '°F';
-      var low = body.main.temp_min + '°F';
+      var current_temp = parseInt(body.main.temp)
+      var low = parseInt(body.main.temp_min)
       var lowCelcius = util.farenToCelcius(low)
       var high = body.main.temp_max + '°F';
       var humidity = body.main.humidity + '%';
@@ -68,7 +68,7 @@ module.exports = {
           inline: true
         }, {
           name: 'Today\'s Low',
-          value: low + '\\ ' + lowCelcius,
+          value: low + ' \\ ' + lowCelcius,
           inline: true
         }, {
           name: 'Today\'s High',
