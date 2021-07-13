@@ -7,7 +7,7 @@ var db, collection;
 module.exports = {
   name: 'weather',
   description: 'Provides weather for a given user',
-  execute(msg, args) {
+  async execute(msg, args) {
     if (!msg.mentions.users.size) {
       return msg.channel.send('You need to specify a correct user.')
     }
