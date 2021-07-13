@@ -56,6 +56,7 @@ module.exports = {
       var high = body.main.temp_max + '°F';
       var humidity = body.main.humidity + '%';
       var wind_speed = body.wind.speed + ' MPH'
+      var weather_icon_url = 'https://openweathermap.org/img/wn/' + weather_icon_code + '.png'
 
       const weatherEmbed = new Discord.MessageEmbed()
         .setColor(msg.member.displayHexColor)
