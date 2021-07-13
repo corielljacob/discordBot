@@ -66,15 +66,15 @@ module.exports = {
         .setAuthor(`${user.username}'s Weather`)
         .addFields({
           name: 'Current',
-          value: current_temp + ' \\ ' + current_celcius,
+          value: current_temp + '°F \\ ' + current_celcius + '°C',
           inline: true
         }, {
           name: 'Today\'s Low',
-          value: low + ' \\ ' + low_celcius,
+          value: low + '°F \\ ' + low_celcius + '°C',
           inline: true
         }, {
           name: 'Today\'s High',
-          value: high + ' \\ ' + high_celcius,
+          value: high + '°F \\ ' + high_celcius + '°C',
           inline: true
         }, )
         .addFields({
