@@ -39,13 +39,13 @@ module.exports = {
   },
   async buildEmbed(msg, user, loc) {
     if(loc == 'null' || loc == null) {
+      const cob = msg.client.users.cache.get('206236812916555776');
       msg.channel.send(`User either not registered in database or does not have a location stored. DM ${cob} your city to get registered.`)
     } else {
       var key = process.env.weather_key
       var body = await fetch('https://api.openweathermap.org/data/2.5/weather?q=' + loc +'&appid=' + key + '&units=imperial')
         .then(response => {
           if (!response.ok) {
-            const cob = msg.client.users.cache.get('206236812916555776');
             console.log(`error with call to get weather for ${user.id}!`)
             throw response
           }
