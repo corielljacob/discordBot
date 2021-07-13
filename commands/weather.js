@@ -52,9 +52,11 @@ module.exports = {
 
       var weather_icon_code = body.weather[0].icon;
       var current_temp = parseInt(body.main.temp)
+      var current_celcius = parseInt(util.farenToCelcius(current_temp))
       var low = parseInt(body.main.temp_min)
-      var lowCelcius = util.farenToCelcius(low)
-      var high = body.main.temp_max + '°F';
+      var low_celcius = parseInt(util.farenToCelcius(low))
+      var high = parseInt(body.main.temp_max)
+      var high_celcius = parseInt(util.farenToCelcius(high))
       var humidity = body.main.humidity + '%';
       var wind_speed = body.wind.speed + ' MPH'
       var weather_icon_url = 'https://openweathermap.org/img/wn/' + weather_icon_code + '.png'
@@ -64,15 +66,15 @@ module.exports = {
         .setAuthor(`${user.username}'s Weather`)
         .addFields({
           name: 'Current',
-          value: current_temp,
+          value: current_temp + ' \\ ' + current_celcius,
           inline: true
         }, {
           name: 'Today\'s Low',
-          value: low + ' \\ ' + lowCelcius,
+          value: low + ' \\ ' + low_celcius,
           inline: true
         }, {
           name: 'Today\'s High',
-          value: high,
+          value: high + ' \\ ' + high_celcius,
           inline: true
         }, )
         .addFields({
