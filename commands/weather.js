@@ -30,6 +30,7 @@ module.exports = {
           if (element.id == user.id) {
             if (element.location != 'null') {
               loc = element.location;
+              lat_long = element.lat_long;
             }
           }
         })
@@ -43,7 +44,8 @@ module.exports = {
       msg.channel.send(`User either not registered in database or does not have a location stored. DM ${cob} your city to get registered.`)
     } else {
       var key = process.env.weather_key
-      var body = await fetch('https://api.openweathermap.org/data/2.5/weather?q=' + loc +'&appid=' + key + '&units=imperial')
+      //var body = await fetch('https://api.openweathermap.org/data/2.5/weather?q=' + loc +'&appid=' + key + '&units=imperial')
+      var body = await fetch('https://api.openweathermap.org/data/2.5/onecall?' + lat_long + '&exclude=hourly,minutely&appid='+ key +'&units=imperial')
         .then(response => {
           if (!response.ok) {
             console.log(`error with call to get weather for ${user.id}!`)
@@ -52,15 +54,15 @@ module.exports = {
           return response.json()
         })
 
-      var weather_icon_code = body.weather[0].icon;
-      var current_temp = parseInt(body.main.temp)
+      var weather_icon_code = body.current.weather[0].icon;
+      var current_temp = parseInt(body.current.temp)
       var current_celcius = parseInt(util.farenToCelcius(current_temp))
-      var low = parseInt(body.main.temp_min)
+      var low = parseInt(body.daily.temp.min)
       var low_celcius = parseInt(util.farenToCelcius(low))
-      var high = parseInt(body.main.temp_max)
+      var high = parseInt(body.daily.temp.max)
       var high_celcius = parseInt(util.farenToCelcius(high))
-      var humidity = body.main.humidity + '%';
-      var wind_speed = body.wind.speed + ' MPH'
+      var humidity = body.current.humidity + '%';
+      var wind_speed = body.current.wind_speed + ' MPH'
       var weather_icon_url = 'https://openweathermap.org/img/wn/' + weather_icon_code + '.png'
 
       const weatherEmbed = new Discord.MessageEmbed()
