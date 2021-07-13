@@ -57,13 +57,15 @@ module.exports = {
       var weather_icon_code = body.current.weather[0].icon;
       var current_temp = parseInt(body.current.temp)
       var current_celcius = parseInt(util.farenToCelcius(current_temp))
-      var low = parseInt(body.daily.temp.min)
+      var low = parseInt(body.daily[0].temp.min)
       var low_celcius = parseInt(util.farenToCelcius(low))
-      var high = parseInt(body.daily.temp.max)
+      var high = parseInt(body.daily[0].temp.max)
       var high_celcius = parseInt(util.farenToCelcius(high))
       var humidity = body.current.humidity + '%';
       var wind_speed = body.current.wind_speed + ' MPH'
       var weather_icon_url = 'https://openweathermap.org/img/wn/' + weather_icon_code + '.png'
+
+      //var daily = body.daily[0]
 
       const weatherEmbed = new Discord.MessageEmbed()
         .setColor(msg.member.displayHexColor)
