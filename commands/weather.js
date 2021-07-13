@@ -14,6 +14,7 @@ module.exports = {
       return msg.channel.send('You need to specify a correct user.')
     }
     const user = msg.mentions.users.first()
+    var loc = 'null'
 
     mongo.connect(dburl, {
       useNewUrlParser: true
