@@ -47,8 +47,6 @@ module.exports = {
   },
 
   initChecks(msg, client, collection){
-    client.commands.get('randomcolor').execute(msg, false)
-
     //if message sent as DM to bot contains a picture, initiate setPic command
     if (msg.guild === null) {
       if (msg.attachments.size === 1) {
@@ -74,6 +72,7 @@ module.exports = {
 
     //If message sent is from a bot, exit
     if (msg.author.bot || !msg.content.startsWith(config.prefix)){
+      client.commands.get('randomcolor').execute(msg, false)
       return true
     }
 
