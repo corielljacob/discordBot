@@ -13,8 +13,8 @@ module.exports = {
       role = msg.client.guilds.cache.get('512994325307850753').roles.cache.get('865662634337239091')
       //role.members.each(user => this.randomizeColor(user))
 
-      role.members.forEach(user => {
-        console.log(user.id)
+      role.members.forEach(userWithRole => {
+        console.log(userWithRole.id)
         //this.randomizeColor(user)
       })
     }
