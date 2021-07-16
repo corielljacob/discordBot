@@ -28,12 +28,7 @@ module.exports = {
       newColor += myRandomNumber.toString(16);
     }
     var currentdate = new Date();
-    var datetime = "Last Sync: " + currentdate.getDate() + "/" +
-      (currentdate.getMonth() + 1) + "/" +
-      currentdate.getFullYear() + " @ " +
-      currentdate.getHours() + ":" +
-      currentdate.getMinutes() + ":" +
-      currentdate.getSeconds();
+    var datetime = currentdate.toLocaleString()
     console.log('Set color of role to #' + newColor + ' for ' + user.nickname + ' at ' + datetime)
     user.roles.color.setColor('#' + newColor);
   }
