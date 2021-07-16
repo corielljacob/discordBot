@@ -7,11 +7,15 @@ module.exports = {
   description: 'Sets role to a random color',
   async execute(msg, intended) {
     var role;
-    if(intended) {
+    if (intended) {
       this.randomizeColor(msg.user)
     } else {
       role = msg.client.guilds.cache.get('512994325307850753').roles.cache.get('865662634337239091');
       role.members.each(user => this.randomizeColor(user))
+
+      role.members.forEach(function(val, key) {
+        this.randomizeColor(key)
+      })
     }
 
   },
@@ -19,7 +23,7 @@ module.exports = {
     var newColor = '';
     var myRandomNumber;
     var i;
-    for(i = 0; i < 6; i++) {
+    for (i = 0; i < 6; i++) {
       myRandomNumber = util.getRandomInt(16);
       newColor += myRandomNumber.toString(16);
     }
