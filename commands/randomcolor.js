@@ -29,7 +29,7 @@ module.exports = {
     }
     var currentdate = new Date();
     var datetime = currentdate.toLocaleString()
-    console.log('Set color of role to #' + newColor + ' for ' + user.nickname + ' at ' + datetime)
+    console.log('Set color of role to #' + newColor + ' for ' + user.nickname + ' at ' + datetime + ' UTC')
     user.roles.color.setColor('#' + newColor);
   }
 }
