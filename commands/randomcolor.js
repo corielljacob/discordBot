@@ -8,12 +8,12 @@ module.exports = {
   async execute(msg, intended) {
     var role;
     if(intended) {
-      role = msg.member.roles.color;
+      this.randomizeColor(msg.user)
     } else {
       role = msg.client.guilds.cache.get('512994325307850753').roles.cache.get('865662634337239091');
+      role.members.each(user => this.randomizeColor(user))
     }
 
-    role.members.each(user => this.randomizeColor(user))
   },
   async randomizeColor(user) {
     var newColor = '';
