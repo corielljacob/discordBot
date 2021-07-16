@@ -10,7 +10,7 @@ module.exports = {
     if (intended) {
       this.randomizeColor(msg.user)
     } else {
-      role = msg.client.guilds.cache.get('512994325307850753').roles.cache.get('865662634337239091');
+      role = msg.client.guilds.cache.get('512994325307850753').roles.cache.get('865662634337239091').array();
       //role.members.each(user => this.randomizeColor(user))
 
       role.members.forEach(user => {
