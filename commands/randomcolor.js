@@ -27,7 +27,14 @@ module.exports = {
       myRandomNumber = util.getRandomInt(16);
       newColor += myRandomNumber.toString(16);
     }
-    console.log('Set color to ' + newColor);
+    var currentdate = new Date();
+    var datetime = "Last Sync: " + currentdate.getDate() + "/" +
+      (currentdate.getMonth() + 1) + "/" +
+      currentdate.getFullYear() + " @ " +
+      currentdate.getHours() + ":" +
+      currentdate.getMinutes() + ":" +
+      currentdate.getSeconds();
+    console.log('Set color of role to #' + hexColor + ' for ' + user.nickname + ' at ' + datetime)
     user.roles.color.setColor('#' + newColor);
   }
 }
