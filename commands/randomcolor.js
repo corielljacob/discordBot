@@ -5,7 +5,7 @@ const util = require('../utility.js');
 module.exports = {
   name: 'randomcolor',
   description: 'Sets role to a random color',
-  async execute(msg, intended) {
+  execute(msg, intended) {
     var role;
     if (intended) {
       this.randomizeColor(msg.user)
@@ -19,7 +19,7 @@ module.exports = {
     }
 
   },
-  async randomizeColor(user) {
+  randomizeColor(user) {
     var newColor = '';
     var myRandomNumber;
     var i;
