@@ -10,10 +10,10 @@ module.exports = {
     myMember = msg.member;
     if(myMember.roles.cache.has('865662634337239091')) {
       myMember.roles.remove(role)
-      msg.channel.send(`Disabled color randomization for ${msg.user.username}`)
+      msg.channel.send(`Disabled color randomization for ${myMember.nickname}`)
     } else {
       myMember.roles.add(role)
-      msg.channel.send(`Enabled color randomization for ${msg.user.username}`)
+      msg.channel.send(`Enabled color randomization for ${myMember.nickname}`)
     }
 
   }
