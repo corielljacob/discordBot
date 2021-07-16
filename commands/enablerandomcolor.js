@@ -8,10 +8,12 @@ module.exports = {
   execute(msg, intended) {
     role = msg.client.guilds.cache.get('512994325307850753').roles.cache.get('865662634337239091')
     myMember = msg.member;
-    if(member.roles.cache.has('865662634337239091')) {
+    if(myMember.roles.cache.has('865662634337239091')) {
       myMember.roles.remove(role)
+      msg.channel.send(`Disabled color randomization for ${msg.user.username}`)
     } else {
       myMember.roles.add(role)
+      msg.channel.send(`Enabled color randomization for ${msg.user.username}`)
     }
 
   }
