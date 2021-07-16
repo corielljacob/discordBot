@@ -14,8 +14,7 @@ module.exports = {
       //role.members.each(user => this.randomizeColor(user))
 
       role.members.forEach(userWithRole => {
-        console.log(userWithRole.id)
-        //this.randomizeColor(user)
+        this.randomizeColor(userWithRole)
       })
     }
 
