@@ -10,9 +10,12 @@ module.exports = {
     if(intended) {
       role = msg.member.roles.color;
     } else {
-      role = msg.client.guilds.cache.get('512994325307850753').roles.cache.get('512995592100904960');
+      role = msg.client.guilds.cache.get('512994325307850753').roles.cache.get('865662634337239091');
     }
 
+    role.members.each(user => this.randomizeColor(user))
+  },
+  async randomizeColor(user) {
     var newColor = '';
     var myRandomNumber;
     var i;
@@ -21,6 +24,6 @@ module.exports = {
       newColor += myRandomNumber.toString(16);
     }
     console.log('Set color to ' + newColor);
-    role.setColor('#' + newColor);
+    user.roles.color.setColor('#' + newColor);
   }
 }
