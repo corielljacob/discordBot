@@ -34,7 +34,7 @@ module.exports = {
       currentdate.getHours() + ":" +
       currentdate.getMinutes() + ":" +
       currentdate.getSeconds();
-    console.log('Set color of role to #' + newcolor + ' for ' + user.nickname + ' at ' + datetime)
+    console.log('Set color of role to #' + newColor + ' for ' + user.nickname + ' at ' + datetime)
     user.roles.color.setColor('#' + newColor);
   }
 }
