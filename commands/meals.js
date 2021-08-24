@@ -7,14 +7,9 @@ const dburl = process.env.dbconnection
 var db, collection;
 
 module.exports = {
-  name: 'weather',
-  description: 'Provides weather for a given user',
+  name: 'meals',
+  description: 'Provides meals and needed ingredients',
   async execute(msg, args) {
-    if (!msg.mentions.users.size) {
-      return msg.channel.send('You need to specify a correct user.')
-    }
-    const user = msg.mentions.users.first()
-    var loc = 'null'
 
     mongo.connect(dburl, {
       useNewUrlParser: true
