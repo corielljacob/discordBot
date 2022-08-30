@@ -10,7 +10,7 @@
     "discord.js": "12.5.3",
     "mongodb": "^3.2.7",
     "node-fetch": "2.6.1",
-    "request": "2.81.0",
+    "request": "2.88.2",
     "xmlhttprequest": "^1.8.0"
   }
 }
